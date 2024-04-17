@@ -1,6 +1,6 @@
-Was macht meine Lieblingswebsite?
+<!--Was macht meine Lieblingswebsite?-->
 
-Youtube, auszugsweise:
+<!--Youtube, auszugsweise:-->
 
 <body>
     <ytd-app>
@@ -9,7 +9,7 @@ Youtube, auszugsweise:
             // hier startet der Header
             <div id="masthead-container">
                 <ytd-masthead id="masthead">
-                    // Container div für die einzelnen Bereiche des Headers 
+                    // Container div für die einzelnen Bereiche des Headers
                     <div id="container">
                         // Container für Guide und Home Button
                         <div id="start">
@@ -87,6 +87,7 @@ Youtube, auszugsweise:
             </ytd-page-manager>
         </div>
     </ytd-app>
+
 </body>
 
 Auf den ersten Blick wirkt die Seite sehr unübersichtlich und kompliziert, denn es werden viele divs verwendet. Gleichzeitig ist YouTube
