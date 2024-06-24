@@ -1,6 +1,9 @@
 name: Validate filenames
 
 on:
+  push:
+    branches:
+     - "main"
   pull_request:
     branches:
       - "main"
@@ -9,17 +12,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: octokit/request-action@v2.x
-        id: get_files
-        with:
-          route: GET /repos/{owner}/{repo}/pulls/{pull_number}/files
-          owner: DevCraft-Academy
-          repo: exercises
-          pull_number: ${{ github.event.pull_request.number }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Lint Filenames
-        uses: kurnev/match-against-glob-action@v1
-        with:
-          filenames: ${{ join(fromJson(steps.get_files.outputs.data).*.filename) }}
-          patterns: './**/*[\\\/:*?\"<>|]*$'
+      - uses: actions/checkout@v2
+
+      - name: Validate filenames
+        run: |
+          find . -name "*" -type f -print | grep -vE '^((?![\\\/:*?\"<>|]).)*$' && echo "All filenames valid" || (echo "Found invalid filenames!" && exit 1)
