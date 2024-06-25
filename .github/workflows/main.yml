@@ -19,6 +19,6 @@ jobs:
         with:
           ruby-version: 3.3
 
-      - name: Run the Ruby script
+      - name: Validate File/Folder names
         run: |
-          ruby ./check_basenames.rb .
+          ruby ./check_basenames.rb
