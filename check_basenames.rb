@@ -6,15 +6,14 @@ def check_basenames_for_invalid_characters(root_dir)
 
     if basename =~ /[\/\:\*\?\"\<\>\|]/
       invalid_basenames << basename
-      puts "Invalid basename: #{basename}"
+      puts "Invalid #{File.directory?(path) ? "folder" : "file"} name: #{basename}"
     end
   end
 
   if invalid_basenames.empty?
-    puts "All basenames valid"
+    puts "All file/folder valid"
   else
-    puts "Found invalid basenames!"
-    puts invalid_basenames.join("\n")
+    puts "Found invalid file/folder names!"
     exit 1
   end
 end
