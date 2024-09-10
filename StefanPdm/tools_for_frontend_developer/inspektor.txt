@@ -1,0 +1,12 @@
+Für diese Übung habe ich eine Nachrichtenwebseite ausgewählt und mit dem Inspektor-Werkzeug praktische Änderungen vorgenommen, um die User Experience zu verbessern:
+
+Schriftgröße ändern: Ich habe die Schriftgröße von Artikelüberschriften und Zwischenüberschriften vergrößert. Das soll die Lesbarkeit verbessern und es den Nutzer:innen erleichtern, schnell interessante Artikel zu finden.
+Textfarbe anpassen: Ich habe die Textfarbe für Links in Artikeln geändert, damit sie sich besser vom normalen Text abheben. Das macht klickbare Elemente klarer und fördert die Benutzerbindung.
+Navigation neu anordnen: Ich habe die Menüpunkte der Navigation neu angeordnet und die am häufigsten aufgerufenen Bereiche nach oben verschoben. Diese Neuanordnung stellt Inhalte in den Vordergrund und macht sie nutzerfreundlicher.
+Zeilenabstand erhöhen: Ich habe den Zeilenabstand (Zeilenhöhe) in Artikelabsätzen erhöht, um die Textlesbarkeit zu verbessern. Ein größerer Zeilenabstand erhöht die Lesbarkeit, besonders bei längeren Artikeln.
+Bilder skalieren: Ich habe die Größe von Bildern in Artikeln angepasst, damit sie gut im Inhaltsbereich Platz haben, ohne das Layout zu stören. So bleibt das Leseerlebnis visuell ansprechend und konsistent.
+Begründung:
+Schriftgröße und Textfarbe: Diese Änderungen sollen die Benutzerfreundlichkeit und Barrierefreiheit der Webseite verbessern. Größere Schriftarten sind besonders für Mobilnutzer:innen leichter lesbar und unterschiedliche Linkfarben machen die Navigation intuitiver.
+Navigation neu anordnen: Das Priorisieren beliebter Bereiche stellt sicher, dass Nutzer:innen schnell auf die Inhalte zugreifen können, die sie am meisten interessieren, und verbessert so ihr allgemeines Erlebnis auf der Seite.
+Zeilenabstand: Ein größerer Zeilenabstand verbessert die Lesbarkeit und reduziert das visuelle Durcheinander, besonders bei längeren Artikeln, und macht den Inhalt ansprechender.
+Bilder skalieren: Das Anpassen der Bildgröße an den Inhaltsbereich verhindert ungewollte Layoutunterbrechungen und sorgt für ein visuell stimmiges Leseerlebnis.

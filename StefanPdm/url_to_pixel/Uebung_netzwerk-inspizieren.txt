@@ -1,0 +1,16 @@
+Ladereihenfolge
+----------------
+1. index.html --> document
+2. styles.css --> stylesheet
+3. images --> jpeg
+4. script.js --> script
+5. fact API request -> fetch
+6. favicon.ico  --> xml --> status 403
+
+mögliche Optimierungen
+-----------------------
+1. Image lazy loading für image2 uns image3 -> tag setzen
+2. images komprimieren -> manuell oder über framework wie nextJS
+3. favicon setzen -> manuell
+4. images cachen -> ching headers setzen
+ 
