@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bucket List</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My Bucket List</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button id="addButton">Add item</button>
+    </div>
+
+    <ul id="bucketlist">
+
+    </ul>
+
+    <script>
+const bucketList = document.getElementById('bucketlist');
+        const inputField = document.getElementById('item');
+        const addButton = document.getElementById('addButton');
+
+        addButton.addEventListener('click', function() {
+            const inputValue = inputField.value;
+
+            if (inputValue !== '') {
+                inputField.value = '';
+
+                const listItem = document.createElement('li');
+                const span = document.createElement('span');
+                const deleteButton = document.createElement('button');
+
+                span.textContent = inputValue;
+                deleteButton.textContent = 'Delete';
+
+                listItem.appendChild(span);
+                listItem.appendChild(deleteButton);
+
+                bucketList.appendChild(listItem);
+
+                inputField.focus();
+
+                deleteButton.addEventListener('click', function() {
+                    bucketList.removeChild(listItem);
+                });
+            } else {
+                inputField.focus();
+            }
+        });
+    </script>
+  </body>
+</html>
