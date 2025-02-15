@@ -11,13 +11,12 @@
         <h1>Regionale Wetterinformationen</h1>
     </header>
     <form id="weatherForm">
-        <label for="postal">PLZ</label>
-        <input type="text" id="postal" placeholder="Bitte geben Sie die PLZ ein!" required>
         <label for="city">Ort</label>
         <input type="text" id="city" placeholder="Bitte geben sie den Ort ein" required />
         <button type="submit" id="getWeather" value="getWeather">Wetter abrufen</button>
     </form>
-    <output id="weatherResult"></output>
+    <div id="weatherResult"></div>
+    <div id="errorMessage"></div>
     <script src="script.js"></script>
 </body>
 </html>

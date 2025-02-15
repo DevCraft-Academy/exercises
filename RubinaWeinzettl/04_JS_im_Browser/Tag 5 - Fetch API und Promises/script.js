@@ -1,44 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("weatherForm");
-    const plz = document.getElementById("plz").value;
-    const city = document.getElementById("city").value;
+    const cityInput = document.getElementById("city");
     const resultDiv = document.getElementById("weatherResult");
+    const errorMessage = document.getElementById("errorMessage");
     resultDiv.innerHTML = "";
     
-    form.addEventListener("click", async function() {    
-        if (plz == "" || city =="") {
-            resultDiv.innerHTML = "<p style='color: red;'>Bitte PLZ und Ort eingeben</p>";
-            return;
-        }
+    form.addEventListener('submit', (e) => {   
+        e.preventDefault();
+        const city = cityInput.value;
+        fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}`)
+          .then(response => response.json())
+          .then(data => {
+            // needed variables for second API Call
+            const latitude = (data.results[0].latitude);
+            const longitude = (data.results[0].longitude);
+            const cityName = data.results[0].name;
+            
+            fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${latitude}&daily=temperature_2m_max`)
+              .then(response => response.json())
+              .then(data => {
+    //            // Display temperature
+                const temperature = (data.daily.temperature_2m_max[0]);
 
-        try {
-            // Geocoding API von Open-Meteo verwenden, um Breiten- und Längengrad zu erhalten
-            const geoResponse = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=de&format=json`);
-            if (!geoResponse.ok) throw new Error("Fehler bei der Standortsuche");
-
-            const geoData = await geoResponse.json();
-            if (!geoData.results || geoData.results.length === 0) {
-                resultDiv.innerHTML = "<p style='color: red;'>Ort nicht gefunden. Bitte überprüfe deine Eingabe.</p>";
-                return;
-            }
-
-            const { latitude, longitude } = geoData.results[0];
-
-            // Wetterdaten abrufen
-            const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
-            if (!weatherResponse.ok) throw new Error("Fehler beim Abrufen der Wetterdaten");
-
-            const weatherData = await weatherResponse.json();
-            const weather = weatherData.current_weather;
-
-            resultDiv.innerHTML = `
-                <p>Aktuelle Temperatur in ${city} (${plz}): ${weather.temperature}°C</p>
-                <p>Windgeschwindigkeit: ${weather.windspeed} km/h</p>
-                <p>Wettercode: ${weather.weathercode}</p>
-            `;
-        } catch (error) {
-            console.error("Fehler:", error);
-            resultDiv.innerHTML = "<p style='color: red;'>Fehler beim Abrufen der Wetterdaten.</p>";
-        }
+                resultDiv.innerHTML = `<p>Wetter in ${cityName}:</p><p>Temperatur: ${temperature}°C</p>`;
+                errorMessage.textContent = ''; // Clear any previous error messages
+              })
+              .catch(error => {
+                console.error('Fetch error:', error);
+                resultDiv.textContent = ''; // Clear previous weather info
+                errorMessage.textContent = 'Wetterdaten konnten nicht geladen werden.';
+              });
+          })
+          .catch(error => {
+            console.error('Fetch error:', error);
+            weatherInfo.textContent = ''; // Clear previous weather info
+            errorMessage.textContent = 'Der eingegebene Ort konnte nicht gefunden werden.';
+          });
     });    
 });     
