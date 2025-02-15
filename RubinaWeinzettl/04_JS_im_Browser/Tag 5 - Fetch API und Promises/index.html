@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Übung Fetch API und Promises</title>
+</head>
+<body>
+    <header>
+        <h1>Regionale Wetterinformationen</h1>
+    </header>
+    <form id="weatherForm">
+        <label for="postal">PLZ</label>
+        <input type="text" id="postal" placeholder="Bitte geben Sie die PLZ ein!" required>
+        <label for="city">Ort</label>
+        <input type="text" id="city" placeholder="Bitte geben sie den Ort ein" required />
+        <button type="submit" id="getWeather" value="getWeather">Wetter abrufen</button>
+    </form>
+    <output id="weatherResult"></output>
+    <script src="script.js"></script>
+</body>
+</html>
