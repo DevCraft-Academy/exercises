@@ -16,6 +16,7 @@
             <ul>
             <li><a href='/05_Tools_Frontend_Dev/Tag_3_Barrierefreiheit_Responsive_Design/UE1/index.html'>Übung Barrierefreiheit</a></li>
             <li><a href='/05_Tools_Frontend_Dev/Tag_3_Barrierefreiheit_Responsive_Design/UE2/index.html'>Übung Responsive Design</a></li>
+            <li><a href='/05_Tools_Frontend_Dev/Tag_4_Das_Netzwerk_inspizieren/index.html'>Übung: Das Netzwerk inspizieren</a></li>
             </ul>
         </main>
     </body>
