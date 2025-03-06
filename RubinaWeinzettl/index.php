@@ -22,6 +22,7 @@
             <h2>Übungen Woche 6 "Style und herrsche"</h2>
             <ul>
                 <li><a href='/06_Style_herrsche/Tag_3_CSS_Profis/index.html'>Übung: Erstelle eine gestylte Webseite</a></li>
+                <li><a href='/06_Style_herrsche/Tag_4_Responsives_Design/index.html'>Übung: Responsives Design</a></li>
             </ul>
 
         </main>
