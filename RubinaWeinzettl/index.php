@@ -23,6 +23,7 @@
             <ul>
                 <li><a href='/06_Style_herrsche/Tag_3_CSS_Profis/index.html'>Übung: Erstelle eine gestylte Webseite</a></li>
                 <li><a href='/06_Style_herrsche/Tag_4_Responsives_Design/index.html'>Übung: Responsives Design</a></li>
+                <li><a href='/06_Style_herrsche/Tag_5_Spezialkonzepte/bootstrap_uebung.html'>Übung: Spezialkonzepte für CSS</a></li>
             </ul>
 
         </main>
