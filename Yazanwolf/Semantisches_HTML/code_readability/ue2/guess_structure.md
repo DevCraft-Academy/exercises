@@ -1,4 +1,4 @@
-I tried to figure out the h1 to h6 of this Website:
+I tried to figure out the h1 to h6 hierarchy of this Website:
 https://developerchandan.medium.com/top-10-blogs-every-beginner-developer-should-follow-to-accelerate-learning-a0d5c2b7b15c
 
 My guess:
