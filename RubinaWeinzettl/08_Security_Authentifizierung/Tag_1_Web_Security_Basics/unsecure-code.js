@@ -30,6 +30,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// hier sieht man auch, in welchem Verzeichnis die Nutzerdaten liegen
 app.get("/userdata", async (req, res) => {
   // Diese Zeilen werden jeder Angreifer glücklich machen, da er alle Benutzerdaten aus der Tabelle users auslesen kann + prepared Statements fehlen
   const query = "SELECT * FROM users";
@@ -37,6 +38,7 @@ app.get("/userdata", async (req, res) => {
   res.json(rows);
 });
 
+// auch hier ist wieder ein Verzeichnis öffentlich einsehbar
 app.put('/username', async (req, res) => {
   const { oldUsername, newUsername } = req.body;
     // wenn er jetzt noch Lust hat die Benutzerdaten zu verändern, wird er hier fündig werden
