@@ -25,7 +25,11 @@
                 <li><a href='/06_Style_herrsche/Tag_4_Responsives_Design/index.html'>Übung: Responsives Design</a></li>
                 <li><a href='/06_Style_herrsche/Tag_5_Spezialkonzepte/bootstrap_uebung.html'>Übung: Spezialkonzepte für CSS</a></li>
             </ul>
-
+            <h2>Übungen Woche 8 "Security und Authentifizierung"</h2>
+            <ul>
+                <li><a href='/08_Security_Authentifizierung/Tag_2_Authentifizierung_CSRF/index.php'>Übung: CRSF-Attacke</a></li>
+                <li><a href='/08_Security_Authentifizierung/Tag_3_Autorisierung_XSS/index.php'>Übung: XSS-Attacke</a></li>
+            </ul>
         </main>
     </body>
 </html>    
