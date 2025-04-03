@@ -46,13 +46,11 @@ document.getElementById("submit").addEventListener("click", async (event) => {
     const encryptedMessage = await encryptMessage(message, keyPair.publicKey);
     const textEncoded = new Uint8Array(encryptedMessage);
     
-    //console.log("Verschlüsselter Text (Uint8Array):", textEncoded);
     encoded.innerHTML = textEncoded;
     encoded.value = textEncoded;
     
     const decryptedMessage = await decryptMessage(encryptedMessage, keyPair.privateKey);
     const textDecoded = decryptedMessage;
     
-    //console.log("Entschlüsselter Text:", textDecoded);
     decoded.innerHTML = textDecoded;
 });
