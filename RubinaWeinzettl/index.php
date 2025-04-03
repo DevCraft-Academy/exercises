@@ -30,6 +30,10 @@
                 <li><a href='/08_Security_Authentifizierung/Tag_2_Authentifizierung_CSRF/index.php'>Übung: CRSF-Attacke</a></li>
                 <li><a href='/08_Security_Authentifizierung/Tag_3_Autorisierung_XSS/index.php'>Übung: XSS-Attacke</a></li>
             </ul>
+            <h2>Übungen Woche 9 "Kryptographie"</h2>
+            <ul>
+                <li><a href='/09_Kryptographie/Tag_1_Einfuehrung_Kryptographie/index.html'>Übung: Einfache Verschlüsselung und Entschlüsselung im Browser</a></li>
+            </ul>
         </main>
     </body>
 </html>    
