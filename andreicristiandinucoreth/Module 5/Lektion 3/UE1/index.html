@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="header">Inaccessible Website</h1>
+        </header>
+        <main class="container">
+            <section>
+                <h2>Also this is hard to read</h2>
+                <p>This is a demonstration of an inaccessible website with multiple issues.</p>
+            </section>
+      
+            <section class="content">
+              <p class="no-alt">This image has no alt attribute, making it inaccessible to screen readers.</p>
+      
+              <p>
+                <a href="https://commons.wikimedia.org/wiki/File:Under_construction_graphic.gif#/media/File:Under_construction_graphic.gif">
+                    <img 
+                        src="https://upload.wikimedia.org/wikipedia/commons/1/19/Under_construction_graphic.gif" 
+                        height="150" 
+                        width="200"
+                        alt="Under construction graphic"
+                    >
+                </a>
+                <br>By <a href="https://en.wikipedia.org/wiki/User:I_do_not_exist" class="extiw" title="en:User:I do not exist">I do not exist</a> - <span class="int-own-work" lang="en">Own work<span>, Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=6092407">Link</a>
+            </p>
+      
+              <button onclick="alert('Clicked!')">Click Me</button>
+      
+              <form>
+                <label for="input">Name:</label>
+                <input type="text" id="input" placeholder="Enter your name">
+      
+                <button aria-label="Submit">Submit</button>
+              </form>
+            </section>
+        </main>
+    </body>
+</html>
