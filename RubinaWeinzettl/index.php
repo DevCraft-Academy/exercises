@@ -35,6 +35,10 @@
                 <li><a href='/09_Kryptographie/Tag_1_Einfuehrung_Kryptographie/index.html'>Übung: Einfache Verschlüsselung und Entschlüsselung im Browser</a></li>
                 <li><a href='/09_Kryptographie/Tag_2_Sichere_Kommunikation_HTTPS/index.php'>Express-Applikation mit HTTPS, CSP und HSTS</a></li>
             </ul>
+            <h2>Übungen Woche 10 "Performance-Optimierung"</h2>
+            <ul>
+                <li><a href='/10_Performance_Optimierung/Tag_1_Performance_verstehen/index.html'>Übung: Performance verstehen</a></li>
+            </ul>
         </main>
     </body>
 </html>    
