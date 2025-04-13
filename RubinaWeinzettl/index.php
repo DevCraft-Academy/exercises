@@ -38,6 +38,7 @@
             <h2>Übungen Woche 10 "Performance-Optimierung"</h2>
             <ul>
                 <li><a href='/10_Performance_Optimierung/Tag_1_Performance_verstehen/index.html'>Übung: Performance verstehen</a></li>
+                <li><a href='/10_Performance_Optimierung/Tag_2_Caching_Konzepte/index.html'>Übung: JavaScript Caching</a></li>
             </ul>
         </main>
     </body>
