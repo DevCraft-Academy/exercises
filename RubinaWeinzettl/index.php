@@ -39,6 +39,7 @@
             <ul>
                 <li><a href='/10_Performance_Optimierung/Tag_1_Performance_verstehen/index.html'>Übung: Performance verstehen</a></li>
                 <li><a href='/10_Performance_Optimierung/Tag_2_Caching_Konzepte/index.html'>Übung: JavaScript Caching</a></li>
+                <li><a href='/10_Performance_Optimierung/Tag_4_Performante_Websites/index.html' target='_blank'>Übung: Verlangsame und optimiere deine Website</a></li>
             </ul>
         </main>
     </body>

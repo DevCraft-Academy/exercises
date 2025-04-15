@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deine langsame Website</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Willkommen auf deiner langsamen Website!</h1>
+    <p>
+      Dies ist eine überladene, langsame und sinnbefreite Webseite. Viel Spaß beim Warten!
+    </p>
+    
+    <h2>Riesiges Bild</h2>
+    <img class="slow-image" src="assets/easter.jpg" alt="Langsam ladendes Bild" />
+    
+    <h2>Riesiges sinnbefreites Video</h2>
+    <video width="1920" controls>
+        <source src="assets/video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Füge nach Bedarf mehr Inhalte hinzu -->
+    <h2>Performance Bottleneck Liste</h2>
+    <ul id="listContainer"></ul>
+    
+    <script>
+        function bottleNeck() {
+            const listContainer = document.getElementById("listContainer");
+
+            listContainer.innerHTML = ""; // Clear the list
+
+            // Simulate a costly operation (e.g., rendering a large list)
+            for (let i = 0; i < 1000; i++) {
+                const listItem = document.createElement("li");
+                listItem.textContent = `Item ${i + 1}`;
+                listContainer.appendChild(listItem);
+            }
+        }   
+
+        bottleNeck();
+    </script>
+    
+  </body>
+</html>
