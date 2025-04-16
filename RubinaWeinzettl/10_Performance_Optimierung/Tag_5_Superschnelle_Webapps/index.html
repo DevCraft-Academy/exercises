@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#317EFB"/>
+  <link rel="stylesheet" href="style.css">
+  <title>Simple PWA App</title>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Simple PWA</h1>
+    </header>
+    <main id="content">
+      <p>Loading content...</p>
+    </main>
+    <section id="form-section">
+      <form id="data-form">
+        <input type="text" name="message" placeholder="Deine Nachricht" required>
+        <button type="submit">Senden</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/idb@7/build/iife/index-min.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('Service Worker registriert'))
+        .catch(err => console.error('SW Fehler:', err));
+    }
+  </script>
+</body>
+</html>
