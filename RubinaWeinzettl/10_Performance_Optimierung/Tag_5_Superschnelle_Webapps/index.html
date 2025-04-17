@@ -17,19 +17,20 @@
     </main>
     <section id="form-section">
       <form id="data-form">
-        <input type="text" name="message" placeholder="Deine Nachricht" required>
+        <input type="text" name="message" placeholder="Your Message" required>
         <button type="submit">Senden</button>
       </form>
     </section>
   </div>
-
-  <script src="https://unpkg.com/idb@7/build/iife/index-min.js"></script>
+  <!-- helper JS for open DB in indexDB -->
+  <script src="https://unpkg.com/idb@6.1.5/build/iife/index-min.js"></script>
   <script src="app.js"></script>
   <script>
+    // registrate service worker  
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('Service Worker registriert'))
-        .catch(err => console.error('SW Fehler:', err));
+        .then(reg => console.log('Service-Worker registered'))
+        .catch(err => console.error('SW error', err));
     }
   </script>
 </body>
