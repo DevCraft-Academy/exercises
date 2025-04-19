@@ -1,4 +1,5 @@
 import { addTask } from './functions/addTask.js';
+import { TimedTask } from './classes/TimedTask.js';
 import { completeAndLog } from './functions/helpers.js';
 
 /**
@@ -34,17 +35,22 @@ function renderTasks() {
   tasks.forEach((task, index) => {
     const taskDiv = document.createElement('div');
     taskDiv.className = 'task' + (task.isCompleted ? ' completed' : '');
-
+    // build toggle button to change completition status
     taskDiv.innerHTML = `
       <strong>${task.title}</strong><br/>
       ${task.description}<br/>
       <em>Status:</em> ${task.isCompleted ? '✅ Erledigt' : '❌ Offen'}
+      <br/>
+      <div id='start' style="display: none;"> ${new Date(Date.now()).toLocaleTimeString()}</div>
       <br/>
       <button data-index="${index}">🔁 Umschalten</button>
     `;
 
     taskDiv.querySelector('button').addEventListener('click', () => {
       task.toggleCompletion();
+      // TimedTask is currently not implemented in FrontEnd, but used to display start and end date of task in console
+      const timedDemoTask = new TimedTask(task.title, task.description, document.getElementById('start').innerHTML, new Date(Date.now()).toLocaleTimeString());
+      timedDemoTask.displayDetails(); // log details including start and end time
       renderTasks();
     });
 

@@ -4,7 +4,7 @@ export const generateId = (tasks) => {
   return tasks.length ? Math.max(...tasks.map(t => t.id || 0)) + 1 : 1;
 };
 
-// changes completition status and logs task in console
+// changes completition status and calls logging function to log task in console
 // example for FP, because object is copied instead of changed
 export const completeAndLog = (task) => {
   const clonedTask = Object.assign(Object.create(Object.getPrototypeOf(task)), task);
