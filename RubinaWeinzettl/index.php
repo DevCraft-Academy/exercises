@@ -41,6 +41,10 @@
                 <li><a href='/10_Performance_Optimierung/Tag_2_Caching_Konzepte/index.html'>Übung: JavaScript Caching</a></li>
                 <li><a href='/10_Performance_Optimierung/Tag_4_Performante_Websites/index.html' target='_blank'>Übung: Verlangsame und optimiere deine Website</a></li>
             </ul>
+            <h2>Übungen Woche 11 "Software professionell entwerfen"</h2>
+            <ul>
+                <li><a href='/11_Software_professionell_entwerfen/Tag_3_OOP_FP/index.html'>Übung: Aufgabenverwaltung</a></li>
+            </ul>
         </main>
     </body>
 </html>    
