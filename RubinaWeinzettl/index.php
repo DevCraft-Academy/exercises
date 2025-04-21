@@ -44,7 +44,8 @@
             <h2>Übungen Woche 11 "Software professionell entwerfen"</h2>
             <ul>
                 <li><a href='/11_Software_professionell_entwerfen/Tag_3_OOP_FP/index.html'>Übung: Aufgabenverwaltung</a></li>
-                <li><a href='/11_Software_professionell_entwerfen/TTag_4_EF_DesignPatterns/index.html'>Übung: Callback Hell</a></li>
+                <li><a href='/11_Software_professionell_entwerfen/Tag_4_EF_DesignPatterns/index.html'>Übung: Callback Hell</a></li>
+                <li><a href='/11_Software_professionell_entwerfen/Tag_5_Erste_CreationalDesignPatterns/index.html'>Übung: Flexible Payment Provider</a></li>
             </ul>
         </main>
     </body>
