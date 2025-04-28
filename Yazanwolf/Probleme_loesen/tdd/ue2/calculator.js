@@ -11,6 +11,9 @@ function multiply(a, b) {
 }
 
 function devide(a, b) {
+    if (b === 0) {
+        throw new Error('Cannot devide by zero!');
+    }
     return a / b;
 }
 
