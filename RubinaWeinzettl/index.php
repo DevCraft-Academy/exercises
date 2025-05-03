@@ -47,6 +47,10 @@
                 <li><a href='/11_Software_professionell_entwerfen/Tag_4_EF_DesignPatterns/index.html'>Übung: Callback Hell</a></li>
                 <li><a href='/11_Software_professionell_entwerfen/Tag_5_Erste_CreationalDesignPatterns/index.html'>Übung: Flexible Payment Provider</a></li>
             </ul>
+            <h2>Übungen Woche 12 "Software professionell entwerfen 2"</h2>
+            <ul>
+                <li><a href='/12_Software_professionell_entwerfen_2/Tag_2_Patterns_Struktur/index.html'>Übung: Patterns mit Struktur</a></li>
+            </ul>
         </main>
     </body>
 </html>    

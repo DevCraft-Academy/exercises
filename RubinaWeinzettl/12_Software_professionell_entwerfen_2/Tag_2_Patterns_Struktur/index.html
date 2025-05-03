@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patterns mit Struktur</title>
+  <script>
+    // array represents / simulates data that would normally be loaded from a database or API
+    class ProductData {
+      constructor() {
+        this.data = [
+          { product: 'Laptop', price: '999.99 €' },
+          { product: 'Smartphone', price: '599.99 €' },
+          { product: 'Kopfhörer', price: '129.99 €' }
+        ];
+      }
+
+      // simulates a "slow" backend – could be a real API call
+      async getData() {
+        console.log('product data loaded');
+        return this.data;
+      }
+    }
+
+    // Virtual Proxy: Controls access to ProductData and caches results
+    class ProductDataProxy {
+      constructor() {
+        this.realSubject = null;
+        this.cache = null;
+        this.fromCache = false;
+      }
+
+      // Get data either from localStorage or the real data source
+      async getData() {
+        // Check if data exists in localStorage
+        const cachedData = localStorage.getItem('productData');
+        if (cachedData) {
+          // If data is found in localStorage, load it and set fromCache flag
+          this.cache = JSON.parse(cachedData);
+          this.fromCache = true;
+          console.log('⚡️ Product data loaded from localStorage cache');
+          return this.cache;
+        }
+
+        // If no cached data in localStorage, fetch it from the real source
+        this.realSubject = new ProductData();
+        const data = await this.realSubject.getData();
+        this.cache = data;
+
+        // Store the fetched data in localStorage for future access
+        localStorage.setItem('productData', JSON.stringify(data));
+        this.fromCache = false; // Data was fetched from the real source
+        return data;
+      }
+
+      isFromCache() {
+        return this.fromCache;
+      }
+    }
+
+    // Renders table rows based on product data
+    class TableRenderer {
+      constructor(tableBodySelector, dataSource) {
+        this.tableBody = document.querySelector(tableBodySelector);
+        this.dataSource = dataSource;
+      }
+
+      async render() {
+        const data = await this.dataSource.getData();
+
+        // Check if the data was fetched from the proxy's cache
+        const useDelay = !this.dataSource.isFromCache();
+
+        if (useDelay) {
+          console.log('slow rendering data loading slowly');
+          this.renderWithDelay(data);
+        } else {
+          console.log('instant rendering from localStorage cache');
+          this.renderInstant(data);
+        }
+      }
+
+      renderInstant(data) {
+        // insert all rows immediately
+        for (const item of data) {
+          const row = document.createElement('tr');
+          row.innerHTML = `<td>${item.product}</td><td>${item.price}</td>`;
+          this.tableBody.appendChild(row);
+        }
+      }
+      
+      // loads data with 5 sec delay when loaded for the first time for testing purposes
+      // it tests if the caching system works: the data should load slowly for the first time and quickly (from cache) after reloading the page
+      renderWithDelay(data, delayMs = 5000) {
+        let index = 0;
+
+        const insertNext = () => {
+          if (index < data.length) {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${data[index].product}</td><td>${data[index].price}</td>`;
+            this.tableBody.appendChild(row);
+
+            index++;
+            setTimeout(insertNext, delayMs);
+          }
+        };
+
+        insertNext();
+      }
+    }
+
+    // run once the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      const proxy = new ProductDataProxy();
+      const renderer = new TableRenderer('#productTable tbody', proxy);
+      renderer.render();
+    });
+  </script>
+</head>
+<body>
+  <h1>Patterns mit Struktur</h1>
+  <p>Zum Testen folgende Anleitung befolgen:</p>
+  <ol>
+      <li>Beim Laden warten bis alle 3 Elemente da sind! Liste lädt zu Testzwecken mit 10 sec Verzögerung, um das Caching zu testen.</li>
+      <li>Seite reloaden: Jetzt sollten die Elemente aus dem Cache geladen und die Daten sofort sichtbar sein.</li>
+  </ol>
+  <table id="productTable" border="1">
+    <thead>
+      <tr>
+        <th>Produkt</th>
+        <th>Preis</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- rows inserted with JavaScript -->
+    </tbody>
+  </table>
+</body>
+</html>
