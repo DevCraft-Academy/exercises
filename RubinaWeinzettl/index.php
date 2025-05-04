@@ -50,6 +50,7 @@
             <h2>Übungen Woche 12 "Software professionell entwerfen 2"</h2>
             <ul>
                 <li><a href='/12_Software_professionell_entwerfen_2/Tag_2_Patterns_Struktur/index.html'>Übung: Patterns mit Struktur</a></li>
+                <li><a href='/12_Software_professionell_entwerfen_2/Tag_3_Weitere_Stuctural_Patterns/index.html'>Übung: Weitere Structural Design Patterns</a></li>
             </ul>
         </main>
     </body>
