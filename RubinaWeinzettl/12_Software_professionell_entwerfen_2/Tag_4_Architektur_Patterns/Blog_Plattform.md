@@ -6,7 +6,7 @@ Das Thema ist eine Blog-Plattform die nach dem MVC-Archtitekturpattern aufgebaut
 
 
 1. Model
-SQL-Datenbank (Beziehung siehe Entity Relationship Diagram)
+SQL-Datenbank (Beziehung siehe Entity Relationship Model)
 - Tabelle Users - enthält Informationen über den User
   UserID (PK)
   Username (Varchar)
@@ -35,7 +35,9 @@ SQL-Datenbank (Beziehung siehe Entity Relationship Diagram)
   isApproved (Boolean)
 
 2. View
-   -Startseite:
+   - Login-Seite
+   - Benutzer-Registrierung-Seite
+   - Startseite:
         - Liste mit der Vorschau der letzten 5 Artikel und einem Link zum gesamten Artikel
         - Paging, mit dem man zu den älteren Artikeln navigieren kann
         - Suchfeld
