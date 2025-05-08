@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezept: Schokoladenbrownies</title>
+</head>
+<body>
+    <h1>Rezept: Schokoladenbrownies</h1>
+
+    <h2>Zutaten</h2>
+    <ul>
+        <li>2 Tassen Allzweckmehl</li>
+        <li>1 Tasse Zucker</li>
+        <li>1/2 Tasse Kakaopulver</li>
+    </ul>
+
+    <h2>Anweisungen</h2>
+    <ol>
+        <li>Heize den Ofen auf 350°F (175°C) vor.</li>
+        <li>Mische die trockenen Zutaten (Allzweckmehl, Zucker, Kakaopulver) in einer Schüssel.</li>
+    </ol>
+</body>
+</html>
