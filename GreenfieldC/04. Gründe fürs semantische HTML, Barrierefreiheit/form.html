@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./form.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Persönliche Informationen</legend>
+            <div class="container">
+                <div class="labe-input-container">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your full name" aria-required="true" required>
+                </div>
+                <div class="labe-input-container">
+                    <label for="sex">Geschlecht:</label>
+                    <select name="sex" id="sex">
+                        <option value="m">männlich</option>
+                        <option value="w">weiblich</option>
+                    </select>
+                </div>
+                <div class="label-input-container">
+                    <label for="email">E-Mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Your email address" aria-required="true" required>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Nachricht</legend>
+
+            <div class="container">
+                <div class="label-input-container">
+                    <label for="subject">Betreff:</label>
+                    <input type="text" id="subject" name="subject" placeholder="Your subject" aria-required="true" required>
+                </div>
+                <div class="label-input-container">
+                    <label for="message">Nachricht:</label>
+                    <textarea id="message" name="message" placeholder="Your message" aria-required="true" required></textarea>
+                </div>
+            </div>
+      
+
+        </fieldset>
+        <button type="submit" aria-lable="Absenden der Daten">Absenden</button>
+    </form>
+</body>
+
+</html>
