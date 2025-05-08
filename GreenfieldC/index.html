@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Formvalidierung</title>
+</head>
+
+<body>
+    <div class="outer-wrapper">
+        <h1>Übung: Formvalidierung</h1>
+        <form id="form">
+            <div class="input-wrapper">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Vor- und Nachname">
+                <span id="nameError"></span>
+            </div>
+            <div class="input-wrapper">
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" placeholder="Emailadresse">
+                <span id="emailError"></span>
+            </div>
+            <div class="input-wrapper">
+                <label for="password">Text:</label>
+                <textarea type="text" id="text" name="text" placeholder="Text"></textarea>
+                <span id="textError"></span>
+            </div>
+            <button type="submit">Absenden</button>
+            <span id="successMessage"></span>
+        </form>
+    </div>
+</body>
+
+</html>
