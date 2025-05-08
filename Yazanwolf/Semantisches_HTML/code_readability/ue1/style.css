@@ -1,0 +1,17 @@
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin: 0 auto 20px auto;
+}
+
+article {
+  margin: 0 auto 0 auto;
+  width: 50%;
+}
+
+input {
+  margin-bottom: 5px;
+}
