@@ -1,0 +1,157 @@
+<!-- *Header raus! Grund nur ein Header pro Seite, ebenso die h1 raus!
+*Zwischen a-tag und href war kein Leerzeichen
+*Section umschließt auch h2+p, weil jede section eine h haben soll
+*heading, navigation, content und end sind keine html-tags
+*h1 raus, weil nur ein h1 pro seite
+*blockquote raus, weil es kein Zitat ist.
+*mehrere aria lables hinzugefügt für verbesserte Zugänglichkeit -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A blog article about the benefits of semantic HTML">
+
+    <title>Sample Blog Article</title>
+    <style>
+        /* Reset some default browser styles */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header,
+        footer,
+        nav,
+        section,
+        article {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        header {
+            background-color: #f4f4f4;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        a:hover {
+            color: #666;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin-bottom: 10px;
+        }
+
+        blockquote {
+            border-left: 4px solid #ccc;
+            padding-left: 10px;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .tags a {
+            margin-right: 5px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+
+            header,
+            footer,
+            nav,
+            section,
+            article {
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav aria-label="main navigation">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Welcome to My Blog</h1>
+    </header>
+
+    <main role="main">
+        <article aria-labelledby="article-title">
+            <section>
+                <h2 id="article-title">Exploring the Wonders of Semantic HTML</h2>
+                <p class="meta">Published on <time datetime="2023-08-16">August 16, 2023</time> by <span class="author">John Doe</span></p>
+
+                <p>Semantic HTML provides a powerful way to structure web content, making it more meaningful and accessible.</p>
+
+                <p>When you use semantic elements like &lt;header&gt;, &lt;nav&gt; you not only improve your site's SEO, but you also enhance its usability for assistive technologies.</p>
+                <p>For example, the &lt;header&gt; element is used to mark the beginning of a section, while the &lt;nav&gt; element indicates a navigation menu. This helps screen readers and search engines understand the content's structure.</p>
+                <p>By embracing semantic HTML, you create a more inclusive and user-friendly web for everyone.</p>
+                <p>Furthermore, semantic HTML improves your site's maintainability and future-proofing. As web standards change, browsers can better adapt to new technologies and rendering methods when you provide clear semantic context.</p>
+            </section>
+            <section aria-labelledby="benefits-heading">
+                <h2 id="benefits-heading">Benefits of Semantic HTML:</h2>
+                <ul>
+                    <li>Enhances accessibility</li>
+                    <li>Improves SEO</li>
+                    <li>Facilitates better document structure</li>
+                    <li>Increases maintainability</li>
+                </ul>
+            </section>
+            <footer role="contentinfo" >
+                <p class="tags">Tags: 
+                    <a href="/tags/semantic-html" aria-label="Semantic HTML Tag">Semantic HTML</a>, 
+                    <a href="/tags/accessibility" aria-label="Accessibility">Accessibility</a>, 
+                    <a href="/tags/web-dev" aria-label="Web Development Tag">Web Dev</a></p>
+            </footer>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Blog. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
