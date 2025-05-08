@@ -1,0 +1,30 @@
+body, form, .input-wrapper {
+    display: flex;
+}
+
+body {
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-wrapper {
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+span#nameError,
+span#emailError,
+span#passwordError,
+span#confirmPasswordError {
+    color: red;
+}
+
+span {
+    font-size: small;
+}
