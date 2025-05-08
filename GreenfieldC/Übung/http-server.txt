@@ -1,0 +1,15 @@
+Mit den Methoden GET und HEAD habe ich den Status 200 OK herausbekommen.
+Bei GET gab es eine Antwort (Order-Struktur) bei HEAD gab es eine leere Antwort.
+
+Die anderen Methoden waren alle verboten (405),
+weil die anderen Methoden grundsätzlich nicht erlaubt sind.
+
+Welche Methode wäre in welchem Anwendungsfall sinnvoll
+
+GET: Um Daten abzurufen
+POST: Daten an den SErver zu senden
+DELETE: DAten auf dem Server zu löschen
+PATCH: Daten teilweise auf dem SErver abzuändern
+PUT: Daten auf dem Server ersetzen
+HEAD: Damit fragt man ab, ob etwas vorhanden ist, ohne die eigentlich Information vom Server anzufordern (Ist das Kochbuch X da? Aber lade mir nicht das Kochbuch herunter!)
+OPTIONS: Mit der Methode fragt man ab, welche Methoden insgesamt möglich sind, mit denen man Anfragen an Server schicken kann
