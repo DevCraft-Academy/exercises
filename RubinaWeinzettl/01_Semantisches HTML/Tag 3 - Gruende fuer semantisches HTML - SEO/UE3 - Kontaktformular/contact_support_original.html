@@ -1,0 +1,52 @@
+<!--Original Support-Formular von https://www.internex.at/de/kontakt/-->
+
+<div class="ix-box-white">
+	<form id="contactform" class="form-horizontal contactform offset-lg-1 col-lg-10 mt-lg-4" role="form">
+	<div class="form-group">
+		<h2 class="control-label col-sm-12">SUPPORT ANFRAGEN</h2>
+	</div>
+	<div class="form-group mb-2 mb-xxl-3">
+		<span class="control-label col-12 sub-text mb-4" for="mailtype">Bitte erklären Sie uns kurz, wie wir Ihnen weiterhelfen können...</span>
+		<div class="col-sm-11">
+			<select class="form-select" id="mailtype" name="mailtype">
+				<option class="fw-bold text-uppercase" value="">Grund der Anfrage auswählen</option>
+				<option value="sales">Ich habe eine Frage zu einem Produkt. [Vertrieb]</option>
+				<option value="support">Ich benötige technische Unterstützung. [Support]</option>
+				<option value="billing">Ich habe eine Frage zu meiner Rechnung. [Buchhaltung]</option>
+				<option value="info">Ich habe ein allgemeines Anliegen. [Office]</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group mb-2 mb-xxl-3">
+		<div class="col-sm-12">
+		<textarea type="text" class="form-control" rows="5" id="anfrage" name="anfrage" placeholder="... Erklären Sie uns kurz den Grund Ihrer Anfrage"></textarea>
+		</div>
+	</div>
+	<div class="row mb-2 mb-xxl-3">
+		<label class="col-form-label col-sm-5 fw-bold text-uppercase text-start">Vor- & Nachname</label>
+		<div class="col-sm-7">
+			<input type="text" class="form-control input-name" id="name" name="name" placeholder="Ihr Name" />
+		</div>
+	</div>
+	<div class="row mb-2 mb-xxl-3">
+		<label class="col-form-label col-sm-5 fw-bold text-uppercase text-start" for="email">E-Mail-Adresse</label>
+		<div class="col-sm-7">
+		<input type="text" class="form-control input-email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" />
+		</div>
+	</div>
+	<div class="row mb-2 mb-xxl-3">
+		<label class="col-form-label col-sm-5 fw-bold text-uppercase text-start" for="phone">Rückrufnummer</label>
+		<div class="col-sm-7">
+		<input type="text" class="form-control input-phone" id="phone" name="phone" placeholder="Ihre Rückrufnummer" value="" />
+		</div>
+	</div>
+	<div class="row mb-2 mb-xxl-3">
+		<div class="col-12 col-xl-5">
+			<div id="captchaContactemail" class="ix-frc-captcha position-relative"></div>
+		</div>
+		<div class="col-12 col-xl-7">
+			<div class="text-end sendcontactdiv mt-3">
+				<button type="submit" class="col-12 col-xxl-9 btn ix-btn-business-red ps-5 pe-5 pt-2 pb-2">ANFRAGE SENDEN</button>
+			</div>
+		</div>
+	</div>
