@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Meine Express-App</title>
+</head>
+
+<body>
+    <h1>Hallo <%= name %>!</h1>
+    <form method="POST">
+        <label for="username">Username:</label>
+        <input placeholder="Choose a username" type="text" id="username" name="username" required>
+        
+        <label for="gender">Farbe</label>
+        <input type="radio" id="blue" name="colour" value="Blau" required>
+        <label for="blue">Blau</label>
+        <input type="radio" id="red" name="colour" value="Rot" required>
+        <label for="red">Rot</label>
+        
+        <button type="submit">Senden</button>
+    </form>
+</body>
+
+</html>
