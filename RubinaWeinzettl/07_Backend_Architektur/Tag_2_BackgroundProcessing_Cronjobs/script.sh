@@ -1,0 +1,1 @@
+cp /Users/rubinaw/Documents/_WebDevelopment/DevCraftAcademy/exercises/RubinaWeinzettl/07_Backend_Architektur/Tag_2_BackgroundProcessing_Cronjobs/important-data /Users/rubinaw/Documents/_WebDevelopment/DevCraftAcademy/exercises/RubinaWeinzettl/07_Backend_Architektur/Tag_2_BackgroundProcessing_Cronjobs/backup-folder
