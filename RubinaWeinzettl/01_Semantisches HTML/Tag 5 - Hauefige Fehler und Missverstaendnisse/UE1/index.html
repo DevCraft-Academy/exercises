@@ -1,0 +1,69 @@
+<!--
+    Tag 5 - Übung 1 - Falsche Verwendung semantischer Elemente identifizieren
+    Änderungen: siehe Kommentare
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--externes Stylesheet verlinkt-->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Sample Blog Article</title>
+</head>
+<!-- 
+    Style Tag gelöscht: Es ist besser mit externen CSS Files zu arbeiten und es gibt ja auch schon ein externes File in der Übung, das nicht verlinkt war
+    Außerdem wäre es verwirrend und für andere Entwickler:innen schwer zu finden, wenn sie sowohl im
+    CSS File als auch im HTML suchen müssen, wenn sie etwas am Style ändern wollen.
+ -->
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <!--Syntaxfehler ahref korrigiert-->
+        <li><a href="/about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <h1>Welcome to My Blog</h1>
+  </header>
+
+  <main>
+    <article>
+      <header>
+      <!--h1 in h2 verändert - h1 soll nur einmal für die Hauptüberschrift verwendet werden -->
+        <h2>Exploring the Wonders of Semantic HTML</h2>
+        <p class="meta">Published on <time datetime="2023-08-16">August 16, 2023</time> by <span class="author">John Doe</span></p>
+      </header>
+      <section>
+        <p>Semantic HTML provides a powerful way to structure web content, making it more meaningful and accessible.</p>
+        <p>When you use semantic elements like &lt;heading&gt;, &lt;navigation&gt;, &lt;content&gt;, and &lt;end&gt;, you not only improve your site's SEO, but you also enhance its usability for assistive technologies.</p>
+        <p>For example, the &lt;heading&gt; element is used to mark the beginning of a section, while the &lt;navigation&gt; element indicates a navigation menu. This helps screen readers and search engines understand the content's structure.</p>
+        <blockquote>
+          <p>By embracing semantic HTML, you create a more inclusive and user-friendly web for everyone.</p>
+        </blockquote>
+        <p>Furthermore, semantic HTML improves your site's maintainability and future-proofing. As web standards change, browsers can better adapt to new technologies and rendering methods when you provide clear semantic context.</p>
+      </section>
+      <section>
+        <h2>Benefits of Semantic HTML:</h2>
+        <ul>
+          <li>Enhances accessibility</li>
+          <li>Improves SEO</li>
+          <li>Facilitates better document structure</li>
+          <li>Increases maintainability</li>
+        </ul>
+      </section>
+      <footer>
+        <!-- Aria labels hinzugefügt-->
+        <p class="tags">Tags: <a aria-label="Find more articles with the tag semantic HTML" href="/tags/semantic-html">Semantic HTML</a>, <a aria-label="Find more articles with the tag Accessibility" href="/tags/accessibility">Accessibility</a>, <a aria-label="Find more articles with the tab Web Dev" href="/tags/web-dev">Web Dev</a></p>
+      </footer>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 My Blog. All rights reserved.</p>
+  </footer>
+</body>
+</html>
