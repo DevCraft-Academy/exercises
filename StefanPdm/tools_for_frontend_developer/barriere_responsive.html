@@ -1,0 +1,143 @@
+<!-- 
+1. More html structur like header, main, section, footer
+2. CSS improvement for better accessibility
+3. clear descriptions of button and Links
+4. adding more space
+5. setting a real <head> with title and language
+6. adding alt for img
+7. adding focus outline for buttons and links
+8. adding hover for button
+
+Lighthouse score now: 100
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style type="text/css">
+          h2 {
+               color: #202020;
+          }
+
+          .container {
+               background-color: #d3d0d0;
+               padding: 20px;
+          }
+
+          .header {
+               font-size: 24px;
+               font-weight: bold;
+               text-align: center;
+          }
+
+          .content {
+               margin-top: 20px;
+               padding: 20px;
+               background-color: white;
+               display: flex;
+               flex-direction: column;
+               gap: 12px;
+          }
+
+          .no-alt {
+               color: rgb(196, 6, 6);
+               font-weight: bold;
+
+               padding: 8px;
+          }
+
+          button {
+               background-color: #333232;
+               color: #fff;
+               padding: 10px 20px;
+               border: none;
+               cursor: pointer;
+          }
+
+          button:hover {
+               background-color: #000;
+          }
+
+          form {
+               margin-top: 20px;
+          }
+
+          label {
+               font-weight: bold;
+          }
+
+          a {
+               margin-bottom: 20px;
+          }
+
+          a:focus,
+          button:focus {
+               outline: 2px solid #ff00c8;
+               /* Add a clear focus outline */
+          }
+
+          #input {
+               padding: 5px;
+               margin-top: 5px;
+          }
+
+          .hidden-label {
+               display: none;
+          }
+
+          .hidden-button {
+               display: none;
+          }
+     </style>
+</head>
+
+<body>
+     <div class="container">
+
+          <header>
+               <title>
+                    <h1 class="header">Inaccessible Website</h1>
+               </title>
+
+               <h2>Also this is hard to read</h2>
+               <p>This is a demonstration of an inaccessible website with multiple issues.</p>
+          </header>
+          <main>
+               <section class="content">
+                    <p class="no-alt">This image has no alt attribute, making it inaccessible to
+                         screen
+                         readers.</p>
+
+                    <a
+                         href="https://commons.wikimedia.org/wiki/File:Under_construction_graphic.gif#/media/File:Under_construction_graphic.gif"><img
+                              src="https://upload.wikimedia.org/wikipedia/commons/1/19/Under_construction_graphic.gif"
+                              height="150" width="200" alt="under construction placeholder image">
+                    </a>
+                    <a href="https://en.wikipedia.org/wiki/User:I_do_not_exist">Wiki - User: I do
+                         not
+                         exist</a>
+                    <a href="https://commons.wikimedia.org/w/index.php?curid=6092407">Wiki - Under
+                         construction gif</a>
+
+                    <button onclick="alert('Clicked!')">Click Me For Browser Alert</button>
+               </section>
+               <footer>
+                    <br>
+                    <hr>
+                    <p>Enter your Name for login:</p>
+                    <form>
+                         <label for="name">Name:</label>
+                         <input type="text" id="name" placeholder="Enter your name">
+                         <span class="hidden-label">Name:</span>
+                         <button class="hidden-button">Submit</button>
+                    </form>
+               </footer>
+          </main>
+     </div>
+</body>
+
+</html>
