@@ -1,0 +1,47 @@
+{
+  "location": {
+    "name": "Berlin",
+    "region": "Berlin",
+    "country": "Germany",
+    "lat": 52.5167,
+    "lon": 13.4,
+    "tz_id": "Europe/Berlin",
+    "localtime_epoch": 1736452760,
+    "localtime": "2025-01-09 20:59"
+  },
+  "current": {
+    "last_updated_epoch": 1736451900,
+    "last_updated": "2025-01-09 20:45",
+    "temp_c": 0.2,
+    "temp_f": 32.4,
+    "is_day": 0,
+    "condition": {
+      "text": "leichter Schneefall",
+      "icon": "//cdn.weatherapi.com/weather/64x64/night/326.png",
+      "code": 1213
+    },
+    "wind_mph": 14.5,
+    "wind_kph": 23.4,
+    "wind_degree": 336,
+    "wind_dir": "NNW",
+    "pressure_mb": 997,
+    "pressure_in": 29.44,
+    "precip_mm": 0.6,
+    "precip_in": 0.02,
+    "humidity": 100,
+    "cloud": 75,
+    "feelslike_c": -5.5,
+    "feelslike_f": 22.2,
+    "windchill_c": -5.3,
+    "windchill_f": 22.5,
+    "heatindex_c": 0.3,
+    "heatindex_f": 32.6,
+    "dewpoint_c": 0.1,
+    "dewpoint_f": 32.1,
+    "vis_km": 7,
+    "vis_miles": 4,
+    "uv": 0,
+    "gust_mph": 21.9,
+    "gust_kph": 35.2
+  }
+}

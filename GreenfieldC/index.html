@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Wetter APP</h1>
+    <h2>Eingabe</h2>
+    <form id="form">
+        <div class="container">
+            <label for="city">Stadt:</label>
+            <input placeholder="Wählen Sie eine Stadt aus" type="text" name="city" id="city">
+        </div>
+        <button type="submit" id="search-btn">Suchen</button>
+    </form>
+
+    <hr>
+
+    <section id="weather-container">
+        <h2 id="intro">Wetter</h2>
+        <div id="weather">
+            <img id="icon" alt="current weather icon">
+            <p id="description"></p>
+        </div>
+    </section>
+
+    <section id="section-alert">
+        <h2>Warnung</h2>
+        <p id="alert-text"></p>
+    </section>
+    
+
+
+</body>
+
+</html>
