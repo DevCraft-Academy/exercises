@@ -1,0 +1,30 @@
+Model
+	Das Model bildet das Rückgrat der Anwendung und besteht aus drei Hauptentitäten:
+
+Artikel: 
+	Jeder Artikel verfügt über einen Titel, Inhalt, AutorID, Veröffentlichungsdatum und eine Liste von Kommentaren.
+	Diese Struktur ermöglicht es, Artikel mit zugehörigen Kommentaren zu verknüpfen und den Autor zu identifizieren.
+Kommentar: 
+	Kommentare sind mit Inhalt, AutorID, ArtikelID und Datum attribuiert. Sie sind direkt einem Artikel zugeordnet und tragen die ID des verfassenden Benutzers.
+
+Benutzer: 
+	Benutzerdaten umfassen Benutzername, E-Mail, Passwort (verschlüsselt gespeichert) und Profilinformationen. Benutzer können Artikel und Kommentare erstellen.
+
+View
+	Die View gestaltet die Nutzeroberfläche und Interaktion, aufgeteilt in mehrere Ansichten:
+
+Startseite: 
+	Zeigt eine Liste aktueller Artikel an, mit Titel, Autor und einem Auszug des Inhalts. Ein Klick auf einen Artikel führt zur Detailansicht.
+Artikeldetailansicht: 
+	Präsentiert den vollständigen Artikel, inklusive aller Kommentare. Bietet zudem ein Eingabefeld für neue Kommentare.
+Artikel erstellen/bearbeiten: 
+	Ein Formular, über das Benutzer neue Artikel verfassen oder bestehende bearbeiten können. Enthält Felder für Titel und Inhalt.
+Controller
+Der Controller steuert die Anwendungslogik und den Datenfluss zwischen Model und View:
+
+Artikelliste anzeigen: 
+	Ruft die Liste der neuesten Artikel aus dem Model ab und übergibt sie an die Startseite zur Darstellung.
+Artikeldetails anzeigen: 
+	Lädt einen spezifischen Artikel und dessen Kommentare aus dem Model und stellt diese in der Artikeldetailansicht dar.
+Artikel speichern: 
+	Nimmt die Eingaben aus dem Formular entgegen, speichert neue oder aktualisiert vorhandene Artikel im Model und leitet anschließend zur Artikeldetailansicht des betreffenden Artikels um.
