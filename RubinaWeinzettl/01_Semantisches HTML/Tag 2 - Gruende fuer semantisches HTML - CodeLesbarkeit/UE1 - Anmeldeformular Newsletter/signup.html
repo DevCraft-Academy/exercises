@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Anmeldung zum Newsletter - nerdblog.de</title>
+    </head>
+    <body>
+        <header>
+            <h1>Anmeldung zum Newsletter</h1>
+        </header>
+        <main>
+            <form action="submit-form.php" method="post">
+                <label for="fname">Vorname</label><br>
+                <input type="text" id="fname" name="fname"><br>
+                <label for="name">Nachname</label><br>
+                <input type="text" id="name" name="name">
+
+                <label for="email">E-Mail</label><br>
+                <input type="email" id="email" name="email" required>
+
+                <input type="checkbox" id="confirmnl" name="confirmnl">
+                <label for="confirmnl"> Ja, ich möchte den Newsletter ab sofort erhalten und stimmte der Verwendung meiner Daten zu.</label>
+                 </br>
+                <input type="submit" value="Newsletter abonnieren">
+            </form>
+        </main>
+    </body>
+</html>

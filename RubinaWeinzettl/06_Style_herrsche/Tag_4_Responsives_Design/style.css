@@ -1,0 +1,307 @@
+html {
+  height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Basic styling for the header */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    flex: 0.02;
+}
+
+ul {
+    padding: 0px;
+    list-style: none;
+}
+
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Main content container */ 
+main {
+    flex: 1;
+}
+
+/* Section styling */
+section {
+    display: block;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    flex: 1;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem;
+    margin-bottom: 0px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0495aa;
+    line-height: 2;
+}
+
+h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #0495aa;
+}
+
+h3 {
+    font-size: 1.5em;
+    font-weight: normal;
+    color: #0495aa;
+    line-height: 2;
+}
+
+p {
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1.5;
+    display: block;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.section-container {
+    display: block;
+    width: 100%;
+}
+
+/* added media queries */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+      position: relative;
+      padding-top: 3em;
+    }
+
+    .topnav #myLinks {
+      display: none;
+    }
+
+    .topnav a {
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      display: block;
+    }
+
+    .topnav a.icon {
+      background: black;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .active {
+      background-color: #0495aa;
+      color: white;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) { 
+    .sidebar {
+        display: none;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+      position: relative;
+      padding-top: 3em;
+    }
+
+    .topnav #myLinks {
+      display: none;
+    }
+
+    .topnav a {
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      display: block;
+    }
+
+    .topnav a.icon {
+      background: black;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .active {
+      background-color: #0495aa;
+      color: white;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+      position: relative;
+      padding-top: 3em;
+    }
+
+    .topnav #myLinks {
+      display: none;
+    }
+
+    .topnav a {
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      display: inline;
+    }
+
+    .topnav a.icon {
+      background: black;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .active {
+      background-color: #0495aa;
+      color: white;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    section {
+        flex: 3;
+    }
+
+    .section-container {
+        display: block;
+        width: 70%;
+    }
+
+    .sidebar {
+        display: block;
+        flex: 1;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+    }
+    
+    .topnav a.icon {
+        display: none;
+    }
+    
+    .topnav #myLinks {
+      display: inline;
+    }
+    
+    nav ul {
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    nav li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    section {
+        flex: 3
+    }
+
+    .section-container {
+        display: block;
+        width: 70%;
+    }
+
+    .sidebar {
+        display: block;
+        flex: 1;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+    }
+    
+    .topnav a.icon {
+        display: none;
+    }
+    
+    .topnav #myLinks {
+      display: inline;
+    }
+    
+    nav ul {
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    nav li {
+        display: inline-flex;
+        margin-bottom: 10px;
+    }
+}
+

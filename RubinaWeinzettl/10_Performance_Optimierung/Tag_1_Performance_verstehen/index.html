@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ausgabe optimierte Funktion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <h1>Optimierte Funktion</h1>    
+    <main>
+        <h2>Ergebnis lineare Suche:</h2>
+        <h3>Output</h3>
+        <p id="linear"></p>
+        <h3>Zeit</h3>
+        <p id="timeL"></p>
+        <h2>Ergebnis binäre Suche:</h2>
+        <h3>Output</h3>
+        <p id="binary"></p>
+        <h3>Zeit</h3>
+        <p id="timeB"></p>
+    </main>
+    <script>
+        let output1 = "";
+        let output2 = "";
+        const data = [1,2,3,4,5,6,7,8,9,10];
+        const linear = document.getElementById('linear');
+        const binary = document.getElementById('binary');
+        const timeL = document.getElementById('timeL');
+        const timeB = document.getElementById('timeB');
+        
+        // Lineare Suche
+        // gut, wenn man das Array nur einmal durchläuft und / oder das Array unsortiert ist -> O (n)
+        // nicht gut bei großen Datenmengen wegen des linearen Anstiegs der Laufzeit
+        function linearSearch(data, target) {
+            for (let i = 0; i < data.length; i++) {
+              if (data[i] === target) {
+                return i;
+              }
+            }
+            return -1; // Nicht gefunden
+        }
+        
+        // Binäre Suche
+        // kann nur auf ein sortiertes Array angewendet werden, ist aber schneller -> O (log n)
+        function binarySearch(data, target) {
+          let left = 0;
+          let right = data.length - 1;
+
+          while (left <= right) {
+            const mid = Math.floor((left + right) / 2);
+            if (data[mid] === target) {
+              return mid;
+            } else if (data[mid] < target) {
+              left = mid + 1;
+            } else {
+              right = mid - 1;
+            }
+          }
+
+          return -1; // Nicht gefunden
+        }
+        
+        const startL = performance.now();
+        let linearS = linearSearch(data,5);
+        const endL = performance.now();
+        const timeLinear = (endL - startL).toFixed(4) + " ms";
+
+        output1 = (linearS === -1) ? "Element nicht gefunden" : linearS;
+        
+        const startB = performance.now();
+        let binaryS = binarySearch(data,5);
+        const endB = performance.now();
+        const timeBinary = (endB - startB).toFixed(4) + " ms";
+        
+        output2 = (binaryS === -1) ? "Element nicht gefunden" : binaryS;
+        
+        linear.innerHTML = output1;
+        binary.innerHTML = output2;
+        timeL.innerHTML = timeLinear;
+        timeB.innerHTML = timeBinary;
+    </script>  
+</body>
+</html>
