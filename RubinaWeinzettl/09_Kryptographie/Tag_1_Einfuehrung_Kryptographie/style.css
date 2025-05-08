@@ -1,0 +1,46 @@
+body {
+    width: 99%;
+    margin: auto;
+}
+
+h1 {
+    font-family: Helvetica, sans-serif;
+}
+
+input {
+  width: 100%;
+  font-family: Helvetica, sans-serif;
+  border-style: solid;
+  border-color: grey;
+  border-width: 0.5px;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+label {
+    font-family: Helvetica, sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+button {
+    margin-top: 1.5em;
+    font-family: Helvetica, sans-serif;
+    color: white;
+    background-color: green;
+    border-style: solid;
+    border-color: lightgrey;
+    border-width: 0.5px;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+p, output {
+    font-family: Helvetica, sans-serif;
+    margin-top: 1em;
+}
+
