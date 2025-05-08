@@ -1,0 +1,22 @@
+Aktuelle Bewertung:
+
+
+Allgemeine Bewertung:
+Das Projekt ist verhältnismäßig klein, wodurch ein Wechsel zu Tailwind nicht mit allzu großen Aufwand verbunden wäre.
+
+Stylingansatz:
+Das CSS beschränkt sich auf einige wenige Klassen rund um das Formular.
+
+
+Vorteile von Tailwind
+
+- der Bedarf eigene CSS-Klassen zu definieren ist wesentlich geringer, denn Tailwind kommt mit ganz vielen eigenen Klassen.
+- Schneller Entwicklungsprozess, weil es CSS-Klassen zu vielen Eigenschaften gibt, die sehr intuitiv zu nutzen sind
+- Es gibt keine Namenskonflikte
+- Insgesamt muss man weniger CSS schreiben, was zu einer kleineren Größe des CSS-Anteils führt
+- Responsives Design ist in den Klassen schon eingebauten
+- Tailwind liefert ein zusammenpassendes Gesamtdesign
+
+
+
+
