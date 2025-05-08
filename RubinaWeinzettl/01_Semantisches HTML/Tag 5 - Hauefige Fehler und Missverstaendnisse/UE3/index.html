@@ -1,0 +1,38 @@
+<!--
+    Tag 5 - Übung 3 - Semantische Übungen umstrukturieren
+    Änderungen: siehe Kommentare
+-->
+<!-- HTML Tag, Metainformationen, usw. hinzugefügt, Stylesheet verlinkt -->    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Delicious Treats</title>
+</head>
+<body>
+    <!--
+        header Tag hinzugefügt und h1 in h4 geändert um Hauptüberschrift der Seite klar zu definieren
+        container Klasse hinzugefügt, damit die Überschrift weiterhin in der Mitte steht
+    -->
+    <header>
+        <h1 itemprop="name">Delicious Treats</h1>
+    </header>
+    <!-- Hauptcontent in main Tag mit hierarchisch korrekten Überschriften
+        so werden für diese Übung auch die CSS Klassen überflüssig (es sei denn man wünscht einen bestimmten Style anstatt der Standard Fomatierung)
+    -->
+    <main class="container">
+        <section>
+            <h2>Featured Recipes</h2>
+                <h3>Chocolate Chip Cookies</h3>
+                <p>These cookies are so tasty!</p>
+        </section>
+    </main>
+    <hr>
+    <!-- Schlusscontent in footer Tag und HTML Entity für Copyright Symbol verwendet, damit es in allen Browsern richtig dargestellt wird-->
+    <footer>
+        <p>&copy; 2023 Delicious Treats</p>
+    </footer>
+</body>
+</html>  
