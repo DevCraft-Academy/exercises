@@ -1,0 +1,44 @@
+<!-- 
+	UEBUNG 3:
+	Support-Formular von https://www.internex.at/de/kontakt/ mit semantischem HTML
+-->
+<!DOCTYPE html>
+<html>
+  	<head>
+    	<title>Kontaktformular Support</title>
+  	</head>
+ 	 <body>
+		<header>
+			<h1>Kontakt</h1>
+		</header>
+		<main>
+			<form id="contactform" role="form">
+				<header>
+					<h2>SUPPORT ANFRAGEN</h2>
+				</header>
+				<section>
+					<select id="mailtype" name="mailtype">
+						<option class="fw-bold text-uppercase" value="">Grund der Anfrage auswählen</option>
+						<option value="sales">Ich habe eine Frage zu einem Produkt. [Vertrieb]</option>
+						<option value="support">Ich benötige technische Unterstützung. [Support]</option>
+						<option value="billing">Ich habe eine Frage zu meiner Rechnung. [Buchhaltung]</option>
+						<option value="info">Ich habe ein allgemeines Anliegen. [Office]</option>
+					</select>
+					
+					<textarea type="text" class="form-control" rows="5" id="anfrage" name="anfrage" placeholder="... Erklären Sie uns kurz den Grund Ihrer Anfrage"></textarea>
+					
+					<label>Vor- & Nachname</label>
+					<input type="text" id="name" name="name" placeholder="Ihr Name" />
+				
+					<label for="email">E-Mail-Adresse</label>
+					<input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" />
+
+					<label for="phone">Rückrufnummer</label>
+					<input type="tel" id="phone" name="phone" placeholder="Ihre Rückrufnummer" value="" />
+							
+					<button type="submit">ANFRAGE SENDEN</button>
+				</section>
+			</form>	
+		</main>	
+	</body>
+</html>		
