@@ -1,0 +1,57 @@
+const { add, subtract, multiply, divide } = require('./calculator');
+
+// Test für negative Zahlen
+test('adds -1 + -2 to equal -3', () => {
+  expect(add(-1, -2)).toBe(-3);
+});
+
+test('subtracts -1 - -2 to equal 1', () => {
+  expect(subtract(-1, -2)).toBe(1);
+});
+
+test('multiplies -2 * 4 to equal -8', () => {
+  expect(multiply(-2, 4)).toBe(-8);
+});
+
+test('divides -4 by 2 to equal -2', () => {
+  expect(divide(-4, 2)).toBe(-2);
+});
+
+// Test für Dezimalzahlen
+test('adds 0.1 + 0.2 to equal 0.3', () => {
+  expect(add(0.1, 0.2)).toBeCloseTo(0.3);
+});
+
+test('subtracts 0.3 - 0.1 to equal 0.2', () => {
+  expect(subtract(0.3, 0.1)).toBeCloseTo(0.2);
+});
+
+test('multiplies 0.2 * 0.5 to equal 0.1', () => {
+  expect(multiply(0.2, 0.5)).toBeCloseTo(0.1);
+});
+
+test('divides 0.1 by 0.2 to equal 0.5', () => {
+  expect(divide(0.1, 0.2)).toBeCloseTo(0.5);
+});
+
+// Test für große Zahlen
+test('adds 1e10 + 1e10 to equal 2e10', () => {
+  expect(add(1e10, 1e10)).toBe(2e10);
+});
+
+// Test für Nullwerte
+test('adds 0 + 0 to equal 0', () => {
+  expect(add(0, 0)).toBe(0);
+});
+
+test('subtracts 0 - 0 to equal 0', () => {
+  expect(subtract(0, 0)).toBe(0);
+});
+
+test('multiplies 0 * 5 to equal 0', () => {
+  expect(multiply(0, 5)).toBe(0);
+});
+
+test('divides 0 by 5 to equal 0', () => {
+  expect(divide(0, 5)).toBe(0);
+});
