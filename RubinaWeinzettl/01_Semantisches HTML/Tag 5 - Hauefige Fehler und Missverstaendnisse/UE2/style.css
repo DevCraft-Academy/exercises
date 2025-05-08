@@ -1,0 +1,26 @@
+body, html {
+    font-size: 18px;
+    font-family: Tahoma, sans-serif;
+    background-color: #ece6ff;
+    color: #950fa4;
+    text-align: center;
+  }
+
+header {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+  
+.container {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.item {
+  list-style-type: circle;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.step {
+  font-family: Arial, Helvetica, sans-serif;
+}
