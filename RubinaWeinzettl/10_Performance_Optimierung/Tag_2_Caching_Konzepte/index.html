@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fuchs-Bilder mit Caching</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Diese App verwendet ein einfaches In-Memory-Caching mit einer Verfallszeit von 5 Minuten,
+  um unnötige Anfragen zu vermeiden und die Ladezeit zu verbessern -->
+    
+  <h1>Fuchs-Bilder mit client-seitigem Caching</h1>
+  <button id="loadFoxBtn">Fuchsbild laden</button>
+  <div class="image-container" id="imageContainer"></div>
+  <div class="error" id="errorMessage"></div>
+   
+   <script>
+        const API_URL = 'https://randomfox.ca/floof/';
+        const cache = new Map(); // In-Memory-Cache
+        const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
+
+        document.getElementById('loadFoxBtn').addEventListener('click', () => {
+          loadFoxImage();
+        });
+
+        async function loadFoxImage() {
+          const container = document.getElementById('imageContainer');
+          const errorDiv = document.getElementById('errorMessage');
+          errorDiv.textContent = ''; // Reset
+          container.innerHTML = '';
+
+          const now = Date.now();
+          let fromCache = false; // default false cause cache is empty at first call
+
+          if (cache.has(API_URL)) { // is a API URL in cache?
+            const { data, timestamp } = cache.get(API_URL); // gets key value pair from cache time with data and timestamp from cache
+            if (now - timestamp < CACHE_DURATION) { // if current time is less than cache time, keep data in cache
+              fromCache = true;
+              displayImage(data.image, fromCache); // display data from cache
+              return;
+            } else { // if current time is overdue
+              cache.delete(API_URL); // delete current entry for API_URL from cache
+            }
+          }
+          
+          try {
+            // call to fetch API and positive response or error
+            const response = await fetch(API_URL); 
+            if (!response.ok) throw new Error('Netzwerkfehler: ' + response.status);
+
+            const data = await response.json(); // waiting for API response
+            cache.set(API_URL, { data, timestamp: now }); // as soon as reponse is available, save API data and current timestamp in cache
+            displayImage(data.image, false); // isCached is false during the first call of the function 
+          } catch (error) {
+            if (cache.has(API_URL)) {
+              const cachedData = cache.get(API_URL).data;
+              displayImage(cachedData.image, true);
+              errorDiv.textContent = 'Fehler bei der Netzwerkabfrage. Zeige gecachte Daten.';
+            } else {
+              errorDiv.textContent = 'Fehler: ' + error.message + '. Leider keine gecachten Daten verfügbar.';
+            }
+          }
+        }
+        
+        /** 
+         * displays image in container and checks if a picture has already been cached
+         */
+        function displayImage(url, isCached) {
+          const container = document.getElementById('imageContainer');
+          const img = document.createElement('img');
+          img.src = url;
+          if (isCached) img.classList.add('cached'); // if image is loaded from cache add class 'cached' to img tag
+          container.appendChild(img);
+        }
+    </script>
+</body>
+</html>
