@@ -1,0 +1,15 @@
+Suchfunktion implementieren
+
+Fragen zur KLärung an Stakeholder
+
+Soll die Suche eine Freitextsuche oder eine Filter-basierte Suche sein?
+Anhand welcher Kriterien soll der Nutzer nach Produkten suchen können? Gängig wäre ja, Preis, Kategorie, Bewertungen, Marken.
+Sollen die zuletzt verwendeten Sucheinstellungen für die nächste Anmeldung erhalten bleiben? Oder für eine Sitzung?
+Sollen die Produkte alphabetisch gelistet werden können?
+Soll die Suche auch Tippfehler korrigieren?
+Soll die Suchfunktion auch Synonyme oder ähnliche Begriffe berücksichtigen?
+Welche Sortiermöglichkeiten sollen angeboten werden?
+Soll die Suchleiste auf allen Seiten verfügbar sein
+Sollen die Suchanfragen der Nutzer für Analysen gespeichert werden?
+Wie soll mit Ergebnissen umgegangen werden, die keine Treffer liefern?
+Sollen Produkte je nach Benutzerprofil, Alter oder Region unterschiedlich angezeigt werden?
