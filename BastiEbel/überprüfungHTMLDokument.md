@@ -1,0 +1,4 @@
+Content-Type: Der Content-Type ist als text/plain angegeben, aber der Inhalt scheint HTML zu sein. Es sollte text/html sein.
+Expires: Das Expires-Datum liegt in der Vergangenheit (15 Aug 2022). Es sollte ein Datum in der Zukunft sein, wenn der Cache-Control-Header nicht no-cache, no-store wäre. Da no-cache, no-store verwendet wird, ist der Expires-Header redundant und kann entfernt werden.
+Content-Length: Der Content-Length-Wert ist sehr hoch (99999), was wahrscheinlich nicht korrekt ist. Der tatsächliche Wert sollte die Länge des Inhalts in Bytes widerspiegeln. Da der Inhalt komprimiert ist (Content-Encoding: gzip), ist es schwierig, die genaue Länge ohne die tatsächliche komprimierte Daten zu kennen. In der Praxis wird dieser Wert oft von der Server-Software automatisch gesetzt.
+Leerzeichen und Zeilenumbrüche: Es gibt unnötige Leerzeichen und Zeilenumbrüche im Inhalt, die entfernt werden sollten.
