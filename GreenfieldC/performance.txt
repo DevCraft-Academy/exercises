@@ -1,0 +1,5 @@
+1. Bilder sind recht groß -> komprimieren
+2. Bilder werden teils gleichzeitig geladen, obwohl sie noch gar nicht im Viewport sind -> lazy-load-Attribut
+3. Ein paar Dateien werden auf der angezeigten Seite gar nicht genutzt, aber schon geladen. -> Code spliten und dort laden, wo die Dateien gebraucht werden
+4. Die geladenen JS-Dateien nicht minimiert -> minimieren
+5. Die CSS-Dateien sind auch nicht minimiert -> minimieren
