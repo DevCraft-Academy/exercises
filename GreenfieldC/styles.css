@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+main {
+    flex: 1;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url(https://www.wwf.de/fileadmin/_processed_/c/9/csm_01-Suempfe-Seegras-Andalusien-Spanien-WW1110359-c-Wild-Wonders-of-Europe-Diego-Lopez-WWF_f9a08effb3.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    font-size: 1.25rem;
+    padding: 10px 20px;
+}
+
+/* Cards Section */
+.card {
+    margin-bottom: 20px;
+}
+
+.btn, .btn-primary {
+    background-color: var(--bs-success) !important;
+}
+
