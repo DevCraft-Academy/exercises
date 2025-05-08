@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deine schnelle Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* Füge einige grundlegende, schnell ladende Stile hinzu */
+        body {
+            background-image: url('big-image.jpg');
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        /* Füge ein einfaches, schnell ladendes Bild hinzu */
+        .fast-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // Verzögerung durch JS
+        function delayFunction() {
+            let start = Date.now();
+            while (Date.now() - start < 2000) {
+                // Verzögerung für 2 Sekunden
+            }
+        }
+        delayFunction();
+    </script>
+    <h1>Willkommen auf deiner schnellen Website!</h1>
+    <p>
+        Dies ist eine flinke und reaktionsfähige Website. Sie beinhaltet ein
+        schnell ladendes Bild.
+    </p>
+
+    <!-- Füge dein eigenes schnell ladendes Bild hinzu -->
+    <img class="fast-image" src="fast-image.jpg" alt="Schnell ladendes Bild" />
+
+    <!-- Füge nach Bedarf mehr Inhalte hinzu -->
+</body>
+
+</html>
