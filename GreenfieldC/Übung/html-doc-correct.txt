@@ -1,0 +1,48 @@
+Zu korrigieren:
+
+HTTP/1.1 200 OK
+Date: Wed, 16 Aug 2023 12:45:20 GMT
+Server: Apache/2.4.41 (Unix)
+Content-Length: 99999
+Content-Encoding: gzip
+Content-Type: text/plain; charset=UTF-8
+Connection: keep-alive
+Cache-Control: no-cache, no-store
+Expires: Tue, 15 Aug 2022 12:00:00 GMT
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Testseite</title
+    <script src="blockScript.js" sync></script>
+    <link rel=stylesheet type=text/css href="styles.css">
+  </head>
+  <body>
+    <h1 Willkommen!</h1>
+    <p>Hier ist ein einfacher Text</p>
+  </body>
+</html>
+
+Korrektur:
+HTTP/1.1 200 OK
+Date: Wed, 16 Aug 2023 12:45:20 GMT
+Server: Apache/2.4.41 (Unix)
+Content-Length: 99999 //SCheint ein wenig hoch zu sein für so wenig HTML und Text 
+Content-Encoding: gzip // Ist der Inhalt überhaupt komprimiert? Löschen der Zeile!
+Content-Type: text/html; charset=UTF-8 //Es handelt sich ja um html und nicht um einfachen Text
+Connection: keep-alive
+Cache-Control: no-cache, no-store
+Expires: Tue, 15 Aug 2022 12:00:00 GMT // Lief schon in der Vergangenheit aus. Müsste in der Zukuft liegen!
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Testseite</title> Hier fehlte das schließende >
+    <script src="blockScript.js" defer></script> // sync existiert nicht. Async oder defer verwenden
+    <link rel="stylesheet" href="styles.css"> //rel und type muss man in Anführungszeichen setzen. Type ist allerdings auch veraltet.
+  </head>
+  <body>
+    <h1> Willkommen!</h1> // Beim öffnenden Tag fehlte >
+    <p>Hier ist ein einfacher Text</p>
+  </body>
+</html>
