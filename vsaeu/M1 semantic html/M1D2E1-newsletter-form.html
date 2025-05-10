@@ -1,0 +1,21 @@
+<!-- Semantische Struktur von welt.de -->
+<html>
+    <head>
+        <title>Revolution newslette</title>
+    </head>
+    <body>
+        <h1>Sign in for the world's largest community</h1> // Gibt das Hauptthema der Seite wieder
+        <h2>Be part of the revolution</h2>
+        <form action="submit-email" method="post"> // Der wrapper für Formularelemente mit inherenter Weiterverarbeitung
+            <label for="email">Your email adress:</label> // Bezug zu input
+            <input
+                type="email"
+                id="email"
+                name="email"
+                required
+            > // wird automatisch als Eingabefeld für emails erkannt und ist ein Pflichtfeld
+            <button type="submit">Sign in</button> // button gibt immer ein Klickevent an und kann auch mit der Tastatur und auf diversen Geräten gesteuert werden
+        </form>
+        <p>By clicking on the button you accept the terms and condtions</p>
+    </body>
+</html>
