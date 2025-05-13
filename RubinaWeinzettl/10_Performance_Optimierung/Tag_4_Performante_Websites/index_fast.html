@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deine schnelle Website</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+      <!-- Lighthouse: 100% - aber noch einige Verbesserungen vorgeschlagen -->
+    <h1>Willkommen auf deiner schnellen Website!</h1>
+    <p>
+      Dies ist eine flinke und reaktionsfähige Website. Sie beinhaltet ein
+      schnell ladendes Bild.
+    </p>
+
+    <h2>Schnell ladendes Bild</h2>
+    <!-- Lighthouse: Bilder als webp speichern -->
+    <img class="fast-image" src="assets/hare.webp" alt="Schnell ladendes Bild" />
+    
+    <h2>Schnell ladendes Video</h2>
+    <video width="600" controls>
+        <source src="assets/sea.mp4" type="video/mp4">
+    </video>
+
+    <!-- Füge nach Bedarf mehr Inhalte hinzu -->
+    <h2>Performance optimized list</h2>
+    <button id="startButton">Start</button> <!-- show only the first 10 entries using this button -->
+    <ul id="listContainer"></ul>
+    
+    <script src="script.js"></script>
+    
+  </body>
+</html>
