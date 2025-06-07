@@ -1,0 +1,25 @@
+Stell dir vor, du sollst das Frontend für eine E-Commerce-Plattform erstellen. Deine Aufgabe ist es, ein Frontend-Framework auszuwählen, das zu den Anforderungen des Projekts passt. Berücksichtige Faktoren wie Performance, Community-Unterstützung und Lernkurve. Deine Aufgabe ist es, drei beliebte Frontend-Frameworks zu recherchieren und zu bewerten: React, Angular.js und Vue.js.
+
+Vergleich React, Angular, Vue
+In Bezug auf Performance(-Bencmark), Community Aktivität
+
+Vergleiche die Vor- und Nachteile jedes Frameworks. Denke dabei an Faktoren wie Entwicklungsgeschwindigkeit, Skalierbarkeit und die einfache Integration mit Backend-Technologien.
+
+Zusammenfassung der Stärken und Schwächen jedes Frameworks, zusammen mit deiner Empfehlung basierend auf den Bedürfnissen des Projekts.
+
+
+Performance: Angular hat gut aufgeholt, so dass alle drei Frameworks ungefähr gleich performant sind. Bei Vue
+    kommt die Performance out of the box. Bei React kommts auf die best Practise und bei Angular auf die neuen Signals an.
+
+Community: Die größte Community hat React, Angular ist stark bei Unternehmen, und Vue ist aufsteigend (besonders in Eu und Asien)
+
+Entwicklungsgeschwindigkeit: Bei React und Vuew sehr schnell, angular braucht viel Setup mit Boilerplate und Struktur
+
+Skalierbarkeit: Hier hat Angular die Nase vorn, In React geht es auch mit guter Struktur und Vue ist eher für mittelgroße Projekte geeignet
+
+Backend Integration: Sehr flexibel bei react, klar strukturiert bei NG und ebenfalls leicht mit Vue
+
+Lernkurve von leicht nach schwer: Vue, react, Angular
+
+Fazit: ich würde React oder Vue wählen. Vermutlich Vue, weil es leichter zu lernne ist und gut geeignet für mittelgroße Projekte. Wobei wenn man ambitioniert ist und eine große Plattform bauen will, dann doch eher React. 
+Beides scheint bewährt, mit großer Community, performant.
