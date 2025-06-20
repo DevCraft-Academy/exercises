@@ -36,10 +36,19 @@ app.post("/submit", (req, res) => {
   if (req.body.csrfToken !== req.cookies.csrfToken) {
     return res.status(403).send("CSRF-Token ungültig!");
   }
-  const name = req.body.name;
+  // XSS-Versuch erkennen und loggen
+  if (/<script.*?>.*?<\/script>/i.test(req.body.name)) {
+    console.warn(`XSS-Versuch erkannt von IP ${req.ip}: ${req.body.name}`);
+  }
+  const name = escapeHtml(req.body.name);
+
   res.send(`Name "${name}" received!`);
 });
 
 app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);
 });
+
+function escapeHtml(text) {
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+}
