@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Bucket List</title>
+        <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+        </style>
+    </head>
+    <body>
+        <h1>My Bucket List</h1>
+        <div>
+            <label for="item">Enter a new item:</label>
+            <input type="text" name="item" id="item">
+            <button id="button">Add item</button>
+        </div>
+        <ul id="list"></ul>
+        <script>
+      let list = document.getElementById("list"); 
+      let input = document.getElementById("item");      
+      let button = document.getElementById("button");
+
+            button.addEventListener("click", onPressButton)
+      
+      function onPressButton() {
+               
+        const content = input.value;
+        input.value = "";
+ 
+        let newLiItem = document.createElement("li");
+        
+        const newSpanItem = document.createElement("span");
+        newSpanItem.textContent = content;
+        
+        const newButton = document.createElement("button");
+        newButton.textContent = 'delete';
+        
+        const deleteItem = () => list.removeChild(newLiItem);
+         newButton.addEventListener("click", deleteItem);
+        
+        
+        newLiItem.appendChild(newSpanItem)
+        newLiItem.appendChild(newButton)
+        list.appendChild(newLiItem)
+        input.focus();
+      }
+        </script>
+    </body>
+</html>
