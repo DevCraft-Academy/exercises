@@ -1,3 +1,5 @@
+"use strict"
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("myForm");
   const name = document.getElementById("name");
@@ -11,6 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log(form);
   form.addEventListener("submit", function (event) {
       if (password1 != password2) password2Error.textContent = "Nicht identisch";
-    if(!form.checkValidity() && password1 != password2) event.preventDefault();
+    if(!form.checkValidity() && password1.value != password2.value) event.preventDefault();
   });
 });

@@ -1,10 +1,15 @@
-<!-- Anders als Clemens habe ich die built-in Validierung von JS benutzt. Beim submit kann ebenfalls durch eine built-in Funktion geprüft werden ob die Form valide ist-->
-
+<!-- Das ist fast 1 zu 1 wie am Vortag. Neu Hinzugefügt habe ich den CSP HEader, use strict und die unerlaubten Skripte. Globale Variabel sind nicht gesetzt -->
 <!DOCTYPE html>
 <html lang="de">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+        <!-- alert zum testen der CSP; inline scripte sind verboten -->
+        <script>alert('hi')</script>
+        <!-- Auch verboten - zum testen -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
         <title>Document</title>
     </head>
     <body>
@@ -22,7 +27,12 @@
             <br>
             <label for="email"> E-mail</label>
             <br>
-            <input type="email" id="email" placeholder="Bitte Email eingeben" required>
+            <input
+                type="email"
+                id="email"
+                placeholder="Bitte Email eingeben"
+                required
+            >
             <p id="email-error"></p>
             <br>
             <label for="password1" name="password1">Passwort</label>
