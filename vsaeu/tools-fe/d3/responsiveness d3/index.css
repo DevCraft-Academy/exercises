@@ -1,0 +1,67 @@
+/* Reset some default styles for consistency */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling for the header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 0 20px; // Höhe angepasst, damit nicht zu groß
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Main content container */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section styling */
+section {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+  
+  h1, h2 {
+    font-size: 1.25rem; // Schrift verkleinert
+    margin-bottom: .24rem // Abstand hinzugefügt
+  }
+  
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  position: absolute; // footer unten ausgerichtet
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (min-width: 768px) {
+/* hier der Style für größere Bildschirm */
+}
+
+/* Einiges liegt in der Subjektiven Wahrnehmung, aber durch diese kleinen aber effektiven Anpassungen, wirkt die Seite schonmal deutlich übersichtlicher  */
+
+
