@@ -14,7 +14,7 @@ const buttonClick = () => {
     
     const newButton = document.createElement('button');
     newButton.innerText = 'Delete';
-    newButton.addEventListener('click', () => list.removeChild(newLi));
+    newButton.addEventListener('click', () => list.removeChild(newListItem));
     newListItem.appendChild(newButton)
 
     list.appendChild(newListItem);
