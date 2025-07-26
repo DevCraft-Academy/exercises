@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>XSS Protection Example</title>
+    </head>
+    <body>
+        <h1>XSS Protection Example</h1>
+        <form >
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit" id="button">Submit</button>
+        </form>
+
+        <span id="result"></span>
+        <span id="error" style="color: red;"></span>
+        <script src="main.js"></script>
+    </body>
+</html>
