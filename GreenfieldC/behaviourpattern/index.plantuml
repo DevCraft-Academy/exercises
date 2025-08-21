@@ -1,0 +1,29 @@
+@startuml
+abstract class Validator {
+    +setNext(validator)
+    +validate(value)
+    -next : Validator
+}
+
+class EmailFormatValidator
+class PasswordLengthValidator
+class PasswordAlphaNumValidator
+class PhoneFormatValidator
+
+Validator <|-- EmailFormatValidator
+Validator <|-- PasswordLengthValidator
+Validator <|-- PasswordAlphaNumValidator
+Validator <|-- PhoneFormatValidator
+
+EmailFormatValidator --> Validator : next
+PasswordLengthValidator --> Validator : next
+PasswordAlphaNumValidator --> Validator : next
+PhoneFormatValidator --> Validator : next
+
+class "showFeedback()" as ShowFeedback
+class "validateField()" as ValidateField
+
+ShowFeedback ..> Validator : nutzt
+ValidateField ..> Validator : nutzt
+
+@enduml
