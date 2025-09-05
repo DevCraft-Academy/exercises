@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>XSS Demo</title>
+</head>
+<body>
+  <h1>XSS Demo (unsicher)</h1>
+  <form id="userForm">
+    <input type="text" id="userInput" placeholder="Gib etwas ein">
+    <button type="submit">Absenden</button>
+  </form>
+  <div id="output"></div>
+
+  <script>
+    const form = document.getElementById('userForm');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const value = document.getElementById('userInput').value;
+      // ⚠️ Unsicher: direkte Ausgabe ins DOM
+      output.innerHTML = "Eingabe: " + value;
+    });
+  </script>
+</body>
+</html>
