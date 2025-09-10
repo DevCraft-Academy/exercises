@@ -1,5 +1,6 @@
-Ablauf:
+Beispiel: Spotify Web Player
 
+Ablauf:
 Authorization Request: Weiterleitung zu Spotify Login
 User Authorization: Benutzer meldet sich an
 Authorization Code: Callback mit temporärem Code
