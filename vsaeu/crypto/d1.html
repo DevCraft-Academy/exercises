@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Krypto-Übung</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 600px;
+        margin: 2rem auto;
+      }
+      textarea {
+        width: 100%;
+        margin: 0.5rem 0;
+      }
+      .output {
+        background: #f4f4f4;
+        padding: 0.5rem;
+        border-radius: 6px;
+      }
+      button {
+        margin: 1rem 0;
+        padding: 0.5rem 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔐 Web Crypto API Übung</h1>
+
+    <label for="message">Nachricht:</label>
+    <textarea
+      id="message"
+      rows="3"
+      placeholder="Deine geheime Nachricht"
+    ></textarea>
+
+    <button id="runBtn">Verschlüsseln & Entschlüsseln</button>
+
+    <h3>Verschlüsselte Nachricht</h3>
+    <div class="output" id="encrypted"></div>
+
+    <h3>Entschlüsselte Nachricht</h3>
+    <div class="output" id="decrypted"></div>
+
+    <script>
+      let publicKey, privateKey, encryptedMessage, decryptedMessage;
+      // Hilfsfunktionen
+      function bufferToBase64(buffer) {
+        let binary = "";
+        const bytes = new Uint8Array(buffer);
+        bytes.forEach((b) => (binary += String.fromCharCode(b)));
+        return window.btoa(binary);
+      }
+
+      function str2ab(str) {
+        return new TextEncoder().encode(str);
+      }
+
+      function ab2str(buffer) {
+        return new TextDecoder().decode(buffer);
+      }
+
+      async function generateKeys() {
+        let keyPair = await window.crypto.subtle.generateKey(
+          {
+            name: "RSA-OAEP",
+            modulusLength: 4096,
+            publicExponent: new Uint8Array([1, 0, 1]),
+            hash: "SHA-256",
+          },
+          true,
+          ["encrypt", "decrypt"]
+        );
+
+        publicKey = keyPair.publicKey;
+        privateKey = keyPair.privateKey;
+      }
+
+      async function encryptMessage(message) {
+        const messageInBytes = new TextEncoder().encode(message);
+        this.encryptedMessage = await window.crypto.subtle.encrypt(
+          { name: "RSA-OAEP" },
+          publicKey,
+          messageInBytes
+        );
+      }
+
+      async function decryptMessage(encrypted) {
+        this.decryptedMessage = await window.crypto.subtle.decrypt(
+          { name: "RSA-OAEP" },
+          privateKey,
+          this.encryptedMessage
+        );
+      }
+
+      document.getElementById("runBtn").addEventListener("click", async () => {
+        const message = document.getElementById("message").value;
+
+        if (!publicKey) await generateKeys();
+        await this.encryptMessage(message);
+
+        document.getElementById("encrypted").textContent = bufferToBase64(
+          this.encryptedMessage
+        );
+        await this.decryptMessage();
+        document.getElementById("decrypted").textContent = ab2str(
+          this.decryptedMessage
+        );
+      });
+    </script>
+  </body>
+</html>
