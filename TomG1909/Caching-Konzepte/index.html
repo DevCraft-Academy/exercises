@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caching Konzepte - Fuchs API Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Caching Konzepte Demo</h1>
+        <p>Klicke auf den Button, um ein zufälliges Fuchsbild zu laden. Die Bilder werden für 5 Minuten gecacht.</p>
+        
+        <div class="controls">
+            <button id="fetchFoxBtn" type="button">Neuen Fuchs laden</button>
+            <button id="clearCacheBtn" type="button">Cache leeren</button>
+        </div>
+        
+        <div class="fox-container">
+            <div id="foxDisplay" class="fox-display">
+                <p>Klicke auf "Neuen Fuchs laden" um zu beginnen!</p>
+            </div>
+        </div>
+        
+        <div class="cache-info">
+            <h3>Cache Information</h3>
+            <div id="cacheDetails" class="cache-details">
+                <p>Cache ist leer</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="cache.js"></script>
+</body>
+</html>
