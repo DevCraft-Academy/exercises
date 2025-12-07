@@ -1,0 +1,43 @@
+Code-Review Tasklist
+
+HTML-Code / naming
+
+Good:
+expect for 1 minor inconvenience , it is perfect
+
+Todo:
+add-task => rename id to addTaskButton
+
+CSS
+Good:
+good responsiveness and overview, easily navigatable 
+
+Todo:
+width of task-input way to much make it smaller 30% are enough
+task-list-item itself also way too wide make it same percentage smaller as task-input
+add flexbox to UL as well justify-content center + flex box , make sure they add beneath each other via flex-commands!
+	e.g align-items: center
+Add the delete button on the side as in the Add task button!
+
+=> with confronted with bigger solutions use classes instead of ids
+	also add a mini-description if it is morre complex
+	also add mini-summary or choose descriptive names
+
+JS
+Good:
+Functionality is working and okay
+
+Todo:
+
+think about more expresseive names
+add a few more comments
+if it is in a bigger project atomize into smaller code-junks e.g. functions
+
+but for the size it is not necessary for now
+could also add that in a comment
+
+General:
+Code Quality in general is well structered and it works well.
+My comments are are foods for thought if have questions come and ask me directly.
+Few suggestions are options if your project grows.
+So far the work is good , keep it up!
