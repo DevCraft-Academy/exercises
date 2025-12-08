@@ -4,18 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
-    <title>Document</title>
+    <title>Langsame Website mit großen Bildern</title>
 </head>
 <body>
-      <h1>Willkommen auf deiner schnellen Website!</h1>
+    <h1>Willkommen auf deiner LANGSAMEN Website!</h1>
     <p>
-      Dies ist eine flinke und reaktionsfähige Website. Sie beinhaltet ein
-      schnell ladendes Bild.
+        Dies ist eine absichtlich langsame Website. Sie lädt sehr große, unkomprimierte Bilder 
+        die die Performance stark beeinträchtigen.
     </p>
 
-    <!-- Füge dein eigenes schnell ladendes Bild hinzu -->
-    <img class="fast-image" src="landscape.jpg" alt="Schnell ladendes Bild" />
+    <!-- PERFORMANCE PROBLEM: Sehr große, unkomprimierte Bilder -->
+    <div class="image-gallery">
+        <h2>Große, unkomprimierte Bilder (Performance-Killer):</h2>
+        
+        <!-- Bild 1: 4000x3000px = 12 Megapixel -->
+        <div class="image-container">
+            <h3>Bild 1: 4000x3000px (sehr groß)</h3>
+            <img class="huge-image" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=4000&h=3000&q=90" alt="Riesiges Bild 1 - 12 Megapixel" />
+            <p><small>Dieses Bild ist 4000x3000 Pixel groß und wird in voller Auflösung geladen.</small></p>
+        </div>
+        
+        <!-- Bild 2: 4000x2500px = 10 Megapixel -->
+        <div class="image-container">
+            <h3>Bild 2: 4000x2500px (auch sehr groß)</h3>
+            <img class="huge-image" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=4000&h=2500&q=90" alt="Riesiges Bild 2 - 10 Megapixel" />
+            <p><small>Auch dieses Bild wird in voller 4000x2500 Auflösung geladen, obwohl es viel kleiner angezeigt wird.</small></p>
+        </div>
+    </div>
 
-    <!-- Füge nach Bedarf mehr Inhalte hinzu -->
+    <div class="performance-info">
+        <h2>Performance-Probleme durch Bilder:</h2>
+        <ul>
+            <li><strong>Große Dateien:</strong> Jedes Bild ist mehrere MB groß</li>
+            <li><strong>Langsame Ladezeit:</strong> Download dauert bei langsamerer Verbindung sehr lange</li>
+            <li><strong>Speicherverbrauch:</strong> Browser muss riesige Bilder im Speicher halten</li>
+            <li><strong>Mobile Performance:</strong> Besonders schlecht auf mobilen Geräten</li>
+            <li><strong>Bandbreite:</strong> Verbraucht unnötig viel Datenvolumen</li>
+        </ul>
+    </div>
+
+    <div class="solution-hint">
+        <h2>Lösungsansätze:</h2>
+        <ul>
+            <li>Bildkomprimierung (WebP, JPEG mit niedrigerer Qualität)</li>
+            <li>Responsive Images mit verschiedenen Größen</li>
+            <li>Lazy Loading für Bilder</li>
+            <li>Richtige Bildgröße für Anzeigezweck</li>
+        </ul>
+    </div>
 </body>
 </html>
