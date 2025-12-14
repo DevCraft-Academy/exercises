@@ -1,0 +1,16 @@
+Zusammenfassung des OAuth-Login-Ablaufs (Stack Overflow / GitHub)
+
+Initialisierung des Logins
+Der Nutzer startet den Login-Prozess auf der Web-Anwendung (z. B. Stack Overflow oder GitHub). Die Anwendung speichert den gewünschten Zielzustand, etwa die Seite, zu der der Nutzer nach dem Login zurückkehren soll.
+
+Weiterleitung zum Autorisierungsserver
+Der Browser wird zu Googles Authorization Endpoint weitergeleitet. Dabei werden OAuth-Parameter wie client_id, redirect_uri, scope, state und response_type=code übermittelt.
+
+Authentifizierung und Zustimmung
+Der Nutzer authentifiziert sich bei Google und erteilt der Anwendung die angeforderten Berechtigungen. Google prüft die Anfrage und bereitet die Rückleitung vor.
+
+Rückleitung mit Autorisierungscode
+Google leitet den Browser an die registrierte Redirect-URL der Anwendung zurück und übergibt einen kurzzeitig gültigen Autorisierungscode sowie den state-Parameter zur Validierung.
+
+Serverseitiger Token-Austausch und Login-Abschluss
+Die Web-Anwendung tauscht den Autorisierungscode serverseitig gegen ein Access Token aus, authentifiziert den Nutzer intern und leitet ihn anschließend auf die ursprüngliche Zielseite weiter.

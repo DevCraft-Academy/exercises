@@ -1,0 +1,25 @@
+Request URL
+https://stackoverflow.com/users/login?ssrc=head&returnurl=https%3a%2f%2fstackoverflow.com%2fquestions
+
+https://accounts.google.com/o/oauth2/auth?client_id=717762328687-iludtf96g1hinl76e4lc1b9a82g457nn.apps.googleusercontent.com&scope=profile+email&redirect_uri=https%3a%2f%2fstackauth.com%2fauth%2foauth2%2fgoogle&state=%7b%22sid%22%3a1%2c%22st%22%3a%2259%3a3%3a1b8%2c16%3a151eae4b4a31ea69%2c10%3a1765739085%2c16%3abf378167c057c78b%2c01d51f0e06ee366826fad256a4675f6cd7551f408caa3d7c9eac34c36483a85f%22%2c%22cid%22%3a%22717762328687-iludtf96g1hinl76e4lc1b9a82g457nn.apps.googleusercontent.com%22%2c%22k%22%3a%22Google%22%2c%22ses%22%3a%22d4ca2d408496457190de5fb27e5547de%22%7d&response_type=code
+
+
+https://stackauth.com/auth/oauth2/google?state=%7B%22sid%22%3A1%2C%22st%22%3A%2259%3A3%3A1b8%2C16%3A151eae4b4a31ea69%2C10%3A1765739085%2C16%3Abf378167c057c78b%2C01d51f0e06ee366826fad256a4675f6cd7551f408caa3d7c9eac34c36483a85f%22%2C%22cid%22%3A%22717762328687-iludtf96g1hinl76e4lc1b9a82g457nn.apps.googleusercontent.com%22%2C%22k%22%3A%22Google%22%2C%22ses%22%3A%22d4ca2d408496457190de5fb27e5547de%22%7D&code=4%2F0ATX87lO4Ss-wBz5u4-4ZAmEC6-_xmz_uT1Os8KUXxFGCHkGmzj4weXOPXa-TWr-uWeRX4A&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=none
+
+
+https://stackoverflow.com/users/oauth/google?code=4%2f0ATX87lO4Ss-wBz5u4-4ZAmEC6-_xmz_uT1Os8KUXxFGCHkGmzj4weXOPXa-TWr-uWeRX4A&state=%7b%22sid%22%3a1%2c%22st%22%3a%2259%3a3%3a1b8%2c16%3a151eae4b4a31ea69%2c10%3a1765739085%2c16%3abf378167c057c78b%2c01d51f0e06ee366826fad256a4675f6cd7551f408caa3d7c9eac34c36483a85f%22%2c%22cid%22%3a%22717762328687-iludtf96g1hinl76e4lc1b9a82g457nn.apps.googleusercontent.com%22%2c%22k%22%3a%22Google%22%2c%22ses%22%3a%22d4ca2d408496457190de5fb27e5547de%22%7d&s=d4ca2d408496457190de5fb27e5547de
+
+
+https://stackoverflow.com/questions
+
+Notizen:
+response_type=code
+client_id
+redirect_uri
+response_type=code = Authorization Code Flow
+Passiert server-seitig kein token/key einsehbar 
+Redirect to stackoverflow
+
+Schlussfolgerung:
+Again: Authorization Code Flow
+Passiert server-seitig kein token/key einsehbar a%2217a1bb4946d544abb5d6bb321cea018d%22%7d&s=17a1bb4946d544abb5d6bb321cea018d
