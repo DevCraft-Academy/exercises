@@ -29,7 +29,7 @@ describe('trim', () => {
         expect(result).toBe('hello');
   });
 });
-
+ 
 describe('capitalize', () => {
   test('makes first letter uppercase', () => {
     const result = capitalize('hello');
