@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Message-Encryption</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-height: 50px;
+        }
+    </style>
+    <script src="cryptography.js"></script>
+</head>
+<body>
+
+    <h1>Message-Encryption</h1>
+
+    <!-- Texteingabe -->
+    <label for="message">Message-Input:</label>
+    <textarea id="message" placeholder="Put in a message..."></textarea>
+
+    <!-- Button zum Auslösen der Verschlüsselung -->
+    <button id="sendMessage">Encrypt</button>
+
+    <!-- Anzeigebereiche -->
+    <h2>Decrypted original message</h2>
+    <div id="decryptedMessage" class="output"></div>
+
+    <h2>Encrypted message</h2>
+    <div id="encryptedMessage" class="output"></div>
+</body>
+</html>
