@@ -15,6 +15,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.static("./public"));
+
 app.use((req, res, next) => {
   const apiKey = req.headers["x-api-key"];
   if (apiKey && apiKey === API_KEY) {
