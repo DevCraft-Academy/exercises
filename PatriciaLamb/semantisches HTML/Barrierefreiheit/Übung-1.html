@@ -1,0 +1,96 @@
+# Website: https://squaremaker.de/
+
+der Punkt 'Warum Squaremaker' ist nicht fokussierbar
+Nachdem ich focusable auf true gesetzt habe und das Attribut 'data-skip-link="nav-item-383"' gelöscht habe, hat es trotzdem keinen Fokus beim Durchtabben bekommen.
+Erst durch Umbau des 
+<div class="c-nav-main__label">Warum SQUAREMAKER</div>
+in
+<button class="c-nav-main__label">Warum SQUAREMAKER</button>
+hat es einen Fokus auf das Element bekommen. Das Design wurde dadurch geändert und müsste mit weiteren Klassen angepasst werden.
+
+# angepasster Code Snippet
+...
+  <nav id="nav" class="c-nav-main m-nav-mini-dropdown c-nav-main--white" role="navigation">
+    <div class="c-nav-main__list">
+      <div data-uid="383" class="c-nav-main__item sub">
+        <div class="c-nav-main__link" data-skip-link="nav-item-383">
+          <button class="c-nav-main__label">Warum SQUAREMAKER</button><svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512" class="c-icon c-icon--smaller" width="20" height="20" aria-hidden="true"
+            focusable="true">
+            <path
+              d="M240 64c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 176L32 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l176 0 0 176c0 8.8 7.2 16 16 16s16-7.2 16-16l0-176 176 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-176 0 0-176z">
+            </path>
+          </svg>
+        </div>
+...
+
+
+# ursprünglicher Code Snippet
+<header class="s-header s-header--floating js-sticky-header"><a class="c-logo" href="/"><svg class="c-logo__image"
+      xmlns="http://www.w3.org/2000/svg" width="222" height="50" viewBox="0 0 222.73 50">
+      <path d="M18.18 4.54H4.54v13.64h13.64V4.54Zm-4.55 9.09H9.09V9.09h4.54v4.54Z" style="fill: none"></path>
+      <path class="c-logo__color--primary"
+        d="M9.09 9.09h4.54v4.54H9.09V9.09Zm181.82 22.73v4.54h4.54v-4.54h-4.54Zm-18.18-4.54h18.18v4.54h-13.64v4.55h13.64v4.54h-13.64V50h-4.55V27.27Zm18.18 13.64h4.54v9.09h-4.54v-9.09ZM0 22.73h22.73V0H0v22.73ZM4.54 4.54h13.64v13.64H4.54V4.54Zm100 9.09h4.55v4.54h-4.55v-4.54Zm4.55 4.55h4.54v4.54h-4.54v-4.54ZM90.91 4.54h4.54v13.64h-4.54V4.54Zm18.18 0h4.54v9.09h-4.54V4.54ZM95.45 18.18h9.09v4.54h-9.09v-4.54ZM109.09 0v4.54H95.45V0h13.64ZM18.18 27.27h4.54v4.54h-4.54v-4.54Zm13.64 0h9.09v4.54h-9.09v9.09h-4.54V18.17h4.54v9.09Z">
+      </path>
+      <path class="c-logo__color--secondary"
+        d="M81.82 31.82h-4.54v4.54h4.54V50h4.54V27.27h-4.54v4.54Zm-9.09 9.09h4.54v-4.54h-4.54v4.54Zm-4.55-13.64h-4.55V50h4.55V36.36h4.54v-4.55h-4.54v-4.54Zm0-22.73h-4.55v4.54h4.55V4.54Zm13.64 13.64h4.54v-4.54h-4.54v4.54ZM68.18 4.54h18.18V0H68.18v4.54Zm13.64 13.64H63.64v4.54h18.18v-4.54ZM68.18 9.09v4.54h13.64V9.09H68.18Zm50-9.09v18.18h4.54V0h-4.54Zm18.18 18.18h4.54V0h-4.54v18.18Zm-13.64 4.54h13.64v-4.54h-13.64v4.54Zm9.09 22.73h4.54v-4.54h-4.54v4.54Zm4.55 4.55h4.54v-4.54h-4.54V50Zm-4.55-13.64h4.54v-4.54h-4.54v4.54Zm4.55-4.54h4.54v-4.54h-4.54v4.54Zm-13.64 4.55v-9.09h-4.54v22.73h4.54v-9.09h9.09v-4.54h-9.09ZM222.73 4.54V0H200v22.73h22.73v-4.54h-18.18v-4.55h13.64V9.1h-13.64V4.55h18.18ZM145.46 50h22.73v-4.54h-18.18v-4.55h13.64v-4.54h-13.64v-4.55h18.18v-4.54h-22.73v22.73ZM150 13.64h13.64v9.09h4.55V4.54h-4.55v4.54H150V4.54h-4.54v18.18H150v-9.09ZM163.64 0H150v4.54h13.64V0ZM109.1 27.27H95.46v4.54h13.64v4.54H95.46v-4.54h-4.54v18.18h4.54V40.9h13.64v9.09h4.54V31.81h-4.54v-4.54Zm81.82-18.18h4.54V4.55h-4.54v4.54Zm-18.18 13.64h4.55v-9.09h13.64V9.1h-13.64V4.55h13.64V0h-18.18v22.73Zm18.18 0h4.54v-9.09h-4.54v9.09ZM31.82 0h-4.54v13.64h4.54V9.1h4.54V4.55h-4.54V0Zm13.64 9.09h4.55V0h-9.09v4.54h4.54v4.55ZM13.64 31.82H9.1v-4.54H4.55v4.54H0v4.54h13.64v-4.54ZM50 36.37H36.36v4.54h4.54v4.54h4.54v-4.54h4.55v-4.54ZM22.73 50.01h13.64v-4.54H22.73v4.54Zm22.73-18.18H50v-4.54h-4.54v4.54ZM4.54 40.91H0V50h13.64v-4.55h-9.1v-4.54ZM45.45 50h4.54v-4.54h-4.54V50ZM40.9 18.18h-4.54v4.55h9.09v-4.55h4.54v-4.54H40.9v4.54ZM13.63 36.36v4.54h4.55v4.54h4.54v-9.09h-9.09Z">
+      </path>
+    </svg></a>
+  <nav id="nav" class="c-nav-main m-nav-mini-dropdown c-nav-main--white" role="navigation">
+    <div class="c-nav-main__list">
+      <div data-uid="383" class="c-nav-main__item sub">
+        <div class="c-nav-main__link" data-skip-link="nav-item-383">
+          <div class="c-nav-main__label">Warum SQUAREMAKER</div><svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512" class="c-icon c-icon--smaller" width="20" height="20" aria-hidden="true"
+            focusable="false">
+            <path
+              d="M240 64c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 176L32 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l176 0 0 176c0 8.8 7.2 16 16 16s16-7.2 16-16l0-176 176 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-176 0 0-176z">
+            </path>
+          </svg>
+        </div>
+        <ul class="m-nav-mini-dropdown__layer" id="nav-item-383">
+          <li><a href="/warum-squaremaker/" class="m-nav-mini-dropdown__link"><span
+                class="m-nav-mini-dropdown__label">Übersicht</span></a></li>
+          <li><a class="m-nav-mini-dropdown__link" href="/uebersicht/features/"><span
+                class="c-nav-mini-dropdown__label">Features</span></a></li>
+          <li><a class="m-nav-mini-dropdown__link" href="/uebersicht/vorteile/"><span
+                class="c-nav-mini-dropdown__label">Vorteile</span></a></li>
+        </ul>
+      </div>
+      <div data-uid="386" class="c-nav-main__item"><a href="/preise/" data-title="Preise" data-id="386"
+          class="c-nav-main__link">
+          <div class="c-nav-main__label">
+            Preise
+          </div>
+        </a></div>
+    </div>
+  </nav><a id="mmenu-toggler" href="/" class="c-nav-mobile js-ajax-element" data-url="/get-mobile-navigation/"
+    data-test="1654077637" data-no-observer="true" data-target="body" data-stay="true" aria-label="Menu Button"
+    tabindex="0" data-once="true"><span class="c-nav-mobile__bar c-nav-mobile__bar--top"></span><span
+      class="c-nav-mobile__bar c-nav-mobile__bar--bottom"></span></a>
+  <script>
+    window.curPageIds = '256'
+  </script>
+  <ul class="c-nav-meta">
+    <li class="c-nav-main__item c-nav-meta__item"><a href="https://login.squaremaker.de" target="_blank"
+        rel="noreferrer" class="c-nav-main__link c-nav-meta__link">
+        Login
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="c-icon c-icon--smaller" width="20"
+          height="20" aria-hidden="true" focusable="false">
+          <path
+            d="M128 128l0 64 192 0 0-64c0-53-43-96-96-96s-96 43-96 96zM96 192l0-64C96 57.3 153.3 0 224 0s128 57.3 128 128l0 64 16 0c44.2 0 80 35.8 80 80l0 160c0 44.2-35.8 80-80 80L80 512c-44.2 0-80-35.8-80-80L0 272c0-44.2 35.8-80 80-80l16 0zM32 272l0 160c0 26.5 21.5 48 48 48l288 0c26.5 0 48-21.5 48-48l0-160c0-26.5-21.5-48-48-48L80 224c-26.5 0-48 21.5-48 48z">
+          </path>
+        </svg></a></li>
+    <li class="c-nav-meta__btn--sqm"><a href="https://squaremaker.de/#c763" target="_self"
+        class="c-btn c-btn-sqm-animation c-nav-meta__btn"><span class="c-btn__rte c-btn__rte--icon"><span
+            class="c-btn__label">Kontakt aufnehmen</span><span class="c-btn__icon"><svg
+              xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 30 30" class="c-icon c-icon--big" width="20"
+              height="20" aria-hidden="true" focusable="false">
+              <defs></defs>
+              <path class="sqm-button-path sqm-button-dot" d="M0 12h6v6H0z"></path>
+              <path class="sqm-button-path sqm-button-slab" d="M18 12h12v6H18z"></path>
+              <path class="sqm-button-path sqm-button-line" d="M12 0h6v30h-6z"></path>
+              <path class="sqm-button-path sqm-button-hero" d="M6 0h18v6H6zM6 24h18v6H6z"></path>
+            </svg></span></span></a></li>
+  </ul>
+</header>
