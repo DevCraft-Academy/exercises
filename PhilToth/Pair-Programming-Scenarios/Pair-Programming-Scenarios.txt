@@ -1,0 +1,41 @@
+***************************************************************************************************************
+Scenario-1: Dominanz eines Teammitglieds und fehlende Beteiligung 
+
+Klare Rollen definieren: Fahrer (tippt) und Navigator (denkt strategisch) festlegen und regelmäßig wechseln.
+Redezeit strukturieren: z. B. durch „Thinking Aloud“ oder kurze Check-ins, in denen beide ihre Sicht teilen.
+Feedback-Regeln vereinbaren: Beiträge aktiv anhören und zusammenfassen („Habe ich dich richtig verstanden…?“).
+Retrospektiven nutzen: Dominanz offen, aber konstruktiv im Team reflektieren.
+
+Im schlimmsten Fall: 
+Deeskalieren und kurz darüber reden wo das tatsächliche Problem liegt.
+Angesicht zu Angesicht lösen und besprechen.
+Andere Überlegung über sich ergehen lassen => Oder mit Vorgesetzten besprechen , wenn es überhaupt nicht geht.
+***************************************************************************************************************
+Scenario-2: Häufige Meinungsverschiedenheiten über Lösungsansätze
+
+Ziel vor Methode klären: Erst Einigkeit über Anforderungen und Kriterien erzielen.
+Timeboxing: Beide Lösungswege kurz prototypisch testen und vergleichen.
+Gemeinsame Coding-Guidelines: Vorab Prinzipien (z. B. Clean Code, Performance, Lesbarkeit) festlegen.
+Dritte Meinung einholen: Bei festgefahrenen Diskussionen kurz ein anderes Teammitglied konsultieren.
+***************************************************************************************************************
+Scenario-3: Beide übernehmen gleichzeitig die Fahrerrolle
+
+Explizite Rollenvereinbarung: Zu Beginn jeder Session Fahrer und Navigator festlegen.
+Regelmäßiger Rollenwechsel: z. B. alle 15–30 Minuten oder nach einem Task.
+Technische Hilfsmittel: Nur eine Tastatur/Maus aktiv nutzen oder Remote-Tools mit „Driver Control“ einsetzen.
+Session-Moderator: Einer achtet explizit auf Rollen- und Prozessdisziplin.
+***************************************************************************************************************
+Scenario-4: Ablehnung von Feedback und Vorschlägen
+
+Psychologische Sicherheit fördern: Fehler und Vorschläge als Lernchance betrachten.
+Feedback-Regeln definieren: Konstruktiv, konkret und lösungsorientiert („Ich schlage vor…“).
+Ich-Botschaften nutzen: „Ich sehe ein Risiko bei…“ statt „Das ist falsch“.
+Feedback retrospektiv besprechen: Nicht im Code-Kampf, sondern im Review- oder Retro-Format.
+***************************************************************************************************************
+Scenario-5: Fokus auf Details statt auf Meilensteine
+
+Klare Ziele für jede Session: Was soll am Ende konkret erreicht sein?
+Priorisierung nach Business Value: Erst funktionale Meilensteine, dann Optimierungen.
+Timeboxing für Detailarbeit: z. B. „15 Minuten Refactoring, dann weiter“.
+Pair-Programming gezielt einsetzen: Für komplexe, kritische Aufgaben – nicht für jede Kleinigkeit.
+***************************************************************************************************************
