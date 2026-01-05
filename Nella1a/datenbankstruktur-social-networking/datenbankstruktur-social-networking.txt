@@ -1,0 +1,48 @@
+User:
+- id (PK)
+- email (UNIQUE)
+- vorname
+- nachname
+- username (UNIQUE)
+- created_at
+Beziehungen: 
+*Beitrag: One to Many 
+*Kommentar: One to Many
+
+Beitrag:
+- id (PK)
+- text
+- user_id (FK → User.id)
+- created_at
+Beziehung:
+*User: Many to One 
+*Kommentar: One to Many 
+
+Kommentar:
+- id (PK)
+- text
+- created_at
+- user_id (FK → User.id)
+- beitrag_id (FK → Beitrag.id)
+Beziehung:
+*User: Many to One 
+*Beitrag: Many to One 
+
+Freundschaften:
+- id (PK)
+- sender_id (FK → User.id)
+- empfaenger_id (FK → User.id)
+- status (pending, accepted, rejected)
+- created_at
+Beziehung:
+*User (Absender):Many-To-One
+*User(Empfänger): Many-To-One
+
+
+Hauptfunktionen
+User: Profil anzeigen, Account verwalten, Freunde verwalten
+Freundschaft: Freundschaftsanfrage senden, annehmen, ablehnen
+Beitrag: erstellen, anzeigen, bearbeiten, löschen
+Kommentar: erstellen, anzeigen, bearbeiten, löschen 
+
+
