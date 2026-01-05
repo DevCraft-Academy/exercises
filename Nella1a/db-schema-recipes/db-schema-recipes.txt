@@ -1,0 +1,27 @@
+Entities and Tables
+
+Recipe
+-id (PK)
+-name
+-description
+-instructions
+-created_at
+
+Relationships:
+-Ingredients: 1:N
+-UserRatings: 1:N
+
+
+Ingredient
+-id (PK)
+-name
+-quantity
+-unit_id (FK)
+
+
+UserRating
+-id (PK)
+-recipe_id (FK)
+-user_id (FK)
+-rating
+-created_at
