@@ -9,11 +9,7 @@ app.use(apiKeyInheader);
 const PORT = 3000;
 const API_KEY = 'not-so-secret-just-for-testing';
 const BOOKS = [
-  {
-    id: 1,
-    title: 'Der Alchimist',
-    author: 'Paulo Coelho',
-  },
+  { id: 1, title: 'Der Alchimist', author: 'Paulo Coelho' },
   { id: 2, title: '1984', author: 'George Orwell' },
 ];
 
