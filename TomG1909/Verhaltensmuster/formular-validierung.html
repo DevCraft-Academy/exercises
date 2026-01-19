@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formular-Validierung mit Strategy Pattern</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 600px; 
+            margin: 20px auto; 
+            padding: 20px; 
+        }
+        .field-group { 
+            margin-bottom: 15px; 
+        }
+        label { 
+            display: block; margin-bottom: 5px; 
+        }
+        input { 
+            width: 100%; padding: 8px; border: 1px solid #ddd; 
+        }
+        input.valid { 
+            border-color: green; 
+        }
+        input.invalid { 
+            border-color: red; 
+        }
+        .error-message { 
+            color: red; font-size: 14px; 
+        }
+        .success-message { 
+            color: green; font-size: 14px; 
+        }
+        button { 
+            padding: 10px 20px; margin-top: 15px; 
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Formular-Validierung mit Strategy Pattern</h1>
+        
+        <p><strong>Behavioral Design Pattern:</strong> Strategy Pattern</p>
+        
+        <form id="validationForm">
+            <div class="field-group">
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+                <div id="email-message" class="error-message"></div>
+            </div>
+            
+            <div class="field-group">
+                <label for="password">Passwort:</label>
+                <input type="password" id="password" name="password" required>
+                <div id="password-message" class="error-message"></div>
+            </div>
+            
+            <div class="field-group">
+                <label for="phone">Telefonnummer:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <div id="phone-message" class="error-message"></div>
+            </div>
+            
+            <button type="submit">Formular absenden</button>
+        </form>
+    </div>
+
+    <script>
+        // Strategy Pattern: Verschiedene Validierungsstrategien
+        class ValidationStrategy {
+            validate(value) {
+                throw new Error("validate() method must be implemented");
+            }
+        }
+
+        // Konkrete Strategien für verschiedene Feldtypen
+        class EmailValidationStrategy extends ValidationStrategy {
+            validate(value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!value) {
+                    return { valid: false, message: "E-Mail ist erforderlich" };
+                }
+                if (!emailRegex.test(value)) {
+                    return { valid: false, message: "Ungültiges E-Mail-Format" };
+                }
+                return { valid: true, message: "Gültige E-Mail-Adresse" };
+            }
+        }
+
+        class PasswordValidationStrategy extends ValidationStrategy {
+            validate(value) {
+                if (!value) {
+                    return { valid: false, message: "Passwort ist erforderlich" };
+                }
+                if (value.length < 8) {
+                    return { valid: false, message: "Passwort muss mindestens 8 Zeichen lang sein" };
+                }
+                if (!/(?=.*[a-zA-Z])(?=.*\d)/.test(value)) {
+                    return { valid: false, message: "Passwort muss Buchstaben und Zahlen enthalten" };
+                }
+                return { valid: true, message: "Starkes Passwort" };
+            }
+        }
+
+        class PhoneValidationStrategy extends ValidationStrategy {
+            validate(value) {
+                const phoneRegex = /^(\+49|0)[1-9]\d{8,11}$/;
+                if (!value) {
+                    return { valid: false, message: "Telefonnummer ist erforderlich" };
+                }
+                if (!phoneRegex.test(value.replace(/\s/g, ''))) {
+                    return { valid: false, message: "Ungültiges Telefonnummer-Format (z.B. +49123456789)" };
+                }
+                return { valid: true, message: "Gültige Telefonnummer" };
+            }
+        }
+
+        // Context-Klasse für die Validierung
+        class FieldValidator {
+            constructor(strategy) {
+                this.strategy = strategy;
+            }
+
+            setStrategy(strategy) {
+                this.strategy = strategy;
+            }
+
+            validate(value) {
+                return this.strategy.validate(value);
+            }
+        }
+
+        // Validierungs-Manager
+        class FormValidationManager {
+            constructor() {
+                this.validators = {
+                    email: new FieldValidator(new EmailValidationStrategy()),
+                    password: new FieldValidator(new PasswordValidationStrategy()),
+                    phone: new FieldValidator(new PhoneValidationStrategy())
+                };
+                this.validFields = new Set();
+            }
+
+            validateField(fieldName, value) {
+                const validator = this.validators[fieldName];
+                if (!validator) return { valid: false, message: "Unbekanntes Feld" };
+                
+                const result = validator.validate(value);
+                
+                // UI aktualisieren
+                this.updateFieldUI(fieldName, result);
+                
+                // Gültige Felder verfolgen
+                if (result.valid) {
+                    this.validFields.add(fieldName);
+                } else {
+                    this.validFields.delete(fieldName);
+                }
+                
+                return result;
+            }
+
+            updateFieldUI(fieldName, result) {
+                const field = document.getElementById(fieldName);
+                const messageElement = document.getElementById(`${fieldName}-message`);
+                
+                // CSS-Klassen aktualisieren
+                field.classList.remove('valid', 'invalid');
+                field.classList.add(result.valid ? 'valid' : 'invalid');
+                
+                // Nachricht anzeigen
+                messageElement.textContent = result.message;
+                messageElement.className = result.valid ? 'success-message' : 'error-message';
+            }
+
+            isFormValid() {
+                return this.validFields.size === Object.keys(this.validators).length;
+            }
+        }
+
+        // Initialisierung
+        const formValidator = new FormValidationManager();
+        const form = document.getElementById('validationForm');
+
+        // Event-Listener für Feldvalidierung (blur)
+        ['email', 'password', 'phone'].forEach(fieldName => {
+            const field = document.getElementById(fieldName);
+            field.addEventListener('blur', (e) => {
+                formValidator.validateField(fieldName, e.target.value);
+            });
+            
+            // Live-Validierung bei Eingabe (optional)
+            field.addEventListener('input', (e) => {
+                if (e.target.classList.contains('invalid') || e.target.classList.contains('valid')) {
+                    formValidator.validateField(fieldName, e.target.value);
+                }
+            });
+        });
+
+        // Form-Submit Event
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Alle Felder validieren
+            const formData = new FormData(form);
+            let allValid = true;
+            
+            for (let [fieldName, value] of formData) {
+                const result = formValidator.validateField(fieldName, value);
+                if (!result.valid) allValid = false;
+            }
+            
+            if (allValid) {
+                alert('Formular erfolgreich validiert und kann abgesendet werden!');
+                console.log('Formulardaten:', Object.fromEntries(formData));
+            } else {
+                alert('Bitte korrigieren Sie die Fehler im Formular.');
+            }
+        });
+    </script>
+</body>
+</html>
