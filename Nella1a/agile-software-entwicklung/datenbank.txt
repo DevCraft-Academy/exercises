@@ -1,0 +1,19 @@
+1. Ausgangspunkt: Bevor ich eine technische Richtung festlege, definiere ich gemeinsam mit CTO & Business:
+
+- Produkt-/Business-Ziele
+- Keine Ausfälle zu Peak-Zeiten
+- Schnelle Ladezeiten
+- Planbares Wachstum für die nächsten 2–3 Jahre
+- Budget-Rahmen & ROI-Erwartung (CFO)
+
+2. Analysephase
+- Lastprofile & Bottlenecks messen
+- Read vs. Write, Peak-Traffic
+- Query-Hotspots
+- Kostenvergleich. Vertial vs Horizontal,  Hardware-Kosten,  Entwicklungszeit + Betriebskomplexität
+- Risikoabschätzung: Downtime-Risiko, Time-to-Market, Team-Know-how
+
+3. Umsetzung:
+Kurzfristig (Stabilität sichern): Vertikale Skalierung mit dem Ziel Ausfälle zu stoppen & UX stabilisieren
+
+Mittel-/Langristig: Nachhaltig skalieren mittels horizontaler Skalierung (Sharding)
