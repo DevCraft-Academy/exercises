@@ -1,0 +1,15 @@
+HTML
+- Gut strukturiert (Head mit Meta-Tags, externe CSS-/JS-Dateien verlinkt).
+- Die UI ist klar in Input/Button und Listenausgabe getrennt.
+- Verwendung sinnvoller IDs.
+- Für bessere Accessibility könnte dem Input ein <label> (oder aria-label) gegeben und der Button als type="button" deklariert werden, damit er in Formular-Kontexten nicht versehentlich submitten würde.
+
+CSS
+- Übersichtlich, gut lesbar und die Styles sind logisch nach Elementen (body, h1, Container, List Items, Buttons) aufgebaut.
+- Nutzung von Flexbox für das Layout sowie Hover-States für visuelles Feedback.
+- Statt #id-Selektoren (z. B. #add-task, #task-input) könnten Klassen verwendet werden (z. B. .btn, .input), damit die Styles wiederverwendbarer sind und die Spezifität niedriger bleibt.
+
+JS
+- Der Code initialisiert korrekt nach DOMContentLoaded und sammelt DOM-Referenzen zentral, was die Lesbarkeit erhöht.
+- Klare logik: trimmen, prüfen, neues <li> erstellen, Delete-Handler setzen, Liste erweitern, Input leeren.
+- Statt innerHTML sollte für Nutzereingaben textContent verwendet werden, um potenzielle XSS-Sicherheitsrisiken zu vermeiden.
