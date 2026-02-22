@@ -7,7 +7,7 @@ beforeEach(() => {
 });
 
 describe("Task Creation", () => {
-  describe("Task Creation > With Default Values", () => {
+  describe("with default values", () => {
     let task;
 
     beforeEach(() => {
@@ -31,7 +31,7 @@ describe("Task Creation", () => {
     });
   });
 
-  describe("Task Creation > With Invalid Data", () => {
+  describe("with invalid data", () => {
     test("should throw error if no title", () => {
       expect(() => {
         taskManager.createTask({ description: "No title" });
@@ -45,7 +45,7 @@ describe("Task Creation", () => {
     });
   });
 
-  describe("Task Creation > With Different Priority Levels", () => {
+  describe("with different priority levels", () => {
     test("should create task with high priority", () => {
       const task = taskManager.createTask({
         title: "Urgent task",
@@ -79,7 +79,7 @@ describe("Task Creation", () => {
 });
 
 describe("Task Completion", () => {
-  describe("Task Completion > Completion Logic", () => {
+  describe("completion logic", () => {
     let task;
 
     beforeEach(() => {
@@ -115,7 +115,7 @@ describe("Task Completion", () => {
     });
   });
 
-  describe("Task Completion > Invalid Actions", () => {
+  describe("invalid actions", () => {
     test("should throw error if id is invalid", () => {
       expect(() => {
         taskManager.completeTask("invalid-id");
