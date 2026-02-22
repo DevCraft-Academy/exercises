@@ -15,29 +15,21 @@ function trim(str) {
     return "";
   }
 
-  // BUG: Only removes leading whitespace, not trailing!
-  let result = "";
-  let startIndex = 0;
-  let endIndex = str.length - 1;
+  return str.trim();
 
-  // Find first non-whitespace character
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] !== " ") {
-      startIndex = i;
-      break;
-    }
-  }
+  // // BUG: Only removes leading whitespace, not trailing!
+  // let result = "";
+  // let startIndex = 0;
 
-  // Bugfix: Also find last non-whitespace character to trim trailing spaces
-  // Find last non-whitespace character
-  for (let i = str.length - 1; i >= 0; i--) {
-    if (str[i] !== " ") {
-      endIndex = i;
-      break;
-    }
-  }
+  // // Find first non-whitespace character
+  // for (let i = 0; i < str.length; i++) {
+  //   if (str[i] !== " ") {
+  //     startIndex = i;
+  //     break;
+  //   }
+  // }
 
-  return str.slice(startIndex, endIndex + 1);
+  // return str.slice(startIndex);
 }
 
 /**

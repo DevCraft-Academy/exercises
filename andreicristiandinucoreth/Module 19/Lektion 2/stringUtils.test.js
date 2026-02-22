@@ -25,6 +25,18 @@ describe("trim", () => {
     expect(result).toBe("");
   });
 
+  test("returns empty string for non-string input", () => {
+    const result = trim(123);
+
+    expect(result).toBe("");
+  });
+
+  test("returns empty string for string with only spaces", () => {
+    const result = trim("     ");
+
+    expect(result).toBe("");
+  });
+
   test("works with string without spaces", () => {
     const result = trim("hello");
 
