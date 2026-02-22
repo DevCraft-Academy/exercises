@@ -97,18 +97,24 @@ function fizzBuzz(n) {
   //   return String(n);
 
   // Refactor
-  if (n % 3 === 0 && n % 5 === 0) {
-    return "FizzBuzz";
-  }
-  if (n % 3 === 0) {
-    return "Fizz";
-  }
-  if (n % 5 === 0) {
-    return "Buzz";
-  }
-  return String(n);
+  //   if (n % 3 === 0 && n % 5 === 0) {
+  //     return "FizzBuzz";
+  //   }
+  //   if (n % 3 === 0) {
+  //     return "Fizz";
+  //   }
+  //   if (n % 5 === 0) {
+  //     return "Buzz";
+  //   }
+  //   return String(n);
 
   // Now all tests pass
+
+  // We can refactor further
+  let result = "";
+  if (n % 3 === 0) result += "Fizz";
+  if (n % 5 === 0) result += "Buzz";
+  return result || String(n);
 }
 
 module.exports = fizzBuzz;
