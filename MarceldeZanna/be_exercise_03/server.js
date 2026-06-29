@@ -1,10 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const fs = require('fs');
 const crypto = require('crypto');
 const path = require('path');
-const { SECRET_API_KEY: FILE_SECRET } = require('./secret_key.js');
-const SECRET_API_KEY = process.env.SECRET_API_KEY || FILE_SECRET;
+
+const SECRET_API_KEY = process.env.SECRET_API_KEY;
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 const CONFIG = {
