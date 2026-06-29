@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self';"
+    />
+    <title>Lektion-19</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="./main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Formular</h1>
+    </header>
+    <main>
+      <form>
+        <label for="fullName">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="fullName"
+          placeholder="Name eingeben"
+          required
+        />
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          title="Invalid email address"
+          placeholder="Email Addresse eingeben"
+        />
+        <label for="story">Tell us your story:</label>
+        <textarea id="story" name="story" rows="5" cols="33" required>
+          It was a dark and stormy night...
+        </textarea>
+        <button type="submit" id="submit">Absenden</button>
+      </form>
+    </main>
+  </body>
+</html>
