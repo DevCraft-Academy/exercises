@@ -41,7 +41,7 @@ app.delete('/book/:id', (req, res) => {
 // Post-Route zum Hinzufügen eines Buches
 app.post("/book", (req, res) => {
     if (!req.body.title || !req.body.author) {
-        res.status(400).send("Titel oder Autor fehlt");
+        return res.status(400).send("Titel oder Autor fehlt");
     }
     const newBook = {
         id: generateId(),
@@ -54,6 +54,9 @@ app.post("/book", (req, res) => {
 
 // Route, um alle Bücher abzurufen
 app.get("/books", (req, res) => {
+    if(!books) {
+        return res.status(400).send("Keine Bücher vorhanden");
+    }
     res.json(books);
 });
 
