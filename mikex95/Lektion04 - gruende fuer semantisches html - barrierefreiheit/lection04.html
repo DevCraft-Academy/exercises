@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formular mit Fokus-Indikatoren</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      form {
+        max-width: 450px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      fieldset {
+        width: 100%;
+        padding: 30px;
+      }
+      input,
+      textarea,
+      select,
+      button {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      input:focus,
+      textarea:focus,
+      select:focus,
+      button:focus {
+        outline: 2px solid #007bff;
+        outline-offset: 2px;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Feedback-Formular</h1>
+    <form action="#" method="post">
+      <fieldset class="test">
+        <legend>Persönliche Informationen</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="age">Alter:</label>
+        <input type="number" id="age" name="age" min="1" max="120" />
+      </fieldset>
+
+      <fieldset>
+        <legend>Feedback</legend>
+        <label for="feedback">Ihr Feedback:</label>
+        <textarea id="feedback" name="feedback" rows="4" required></textarea>
+
+        <label for="rating">Bewertung:</label>
+        <select id="rating" name="rating">
+          <option value="">Bitte wählen</option>
+          <option value="1">1 - Schlecht</option>
+          <option value="2">2</option>
+          <option value="3">3 - Durchschnitt</option>
+          <option value="4">4</option>
+          <option value="5">5 - Hervorragend</option>
+        </select>
+
+        <label>
+          <input type="checkbox" name="newsletter" /> Newsletter abonnieren
+        </label>
+
+        <label>
+          <input type="radio" name="contact" value="email" /> Kontakt per E-Mail
+        </label>
+        <label>
+          <input type="radio" name="contact" value="phone" /> Kontakt per
+          Telefon
+        </label>
+      </fieldset>
+
+      <button type="submit">Absenden</button>
+      <button type="reset">Zurücksetzen</button>
+    </form>
+  </body>
+</html>
