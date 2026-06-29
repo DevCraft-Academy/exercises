@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lektion-18</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        gap: 8px;
+      }
+
+      .error {
+        color: red;
+      }
+
+      .success {
+        color: green;
+      }
+    </style>
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Formular</h1>
+    </header>
+    <main>
+      <form>
+        <label for="fullName">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="fullName"
+          placeholder="Name eingeben"
+          required
+        />
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          title="Invalid email address"
+          placeholder="Email Addresse eingeben"
+        />
+        <label for="password">Passwort</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          maxlength="16"
+          placeholder="Passwort eingeben"
+        />
+        <label for="verifyPassword">Passwort bestätigen</label>
+        <input
+          id="verifyPassword"
+          type="password"
+          name="verifyPassword"
+          placeholder="Passwort bestätigen"
+        />
+        <button type="submit" id="submit">Absenden</button>
+      </form>
+    </main>
+  </body>
+</html>
