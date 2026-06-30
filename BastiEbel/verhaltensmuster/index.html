@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flexibles Formular-Validierungssystem</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 1rem;
+    }
+    input.invalid {
+      border: 1px solid red;
+    }
+    .feedback {
+      color: red;
+      font-size: 0.9em;
+      margin-left: 0.5em;
+    }
+    button {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>Registrierungsformular</h2>
+  <form id="myForm" novalidate>
+    <label>
+      E-Mail:
+      <input type="email" id="email" name="email" />
+      <span class="feedback" id="emailFeedback"></span>
+    </label>
+    <label>
+      Passwort:
+      <input type="password" id="password" name="password" />
+      <span class="feedback" id="passwordFeedback"></span>
+    </label>
+    <label>
+      Telefonnummer:
+      <input type="text" id="phone" name="phone" />
+      <span class="feedback" id="phoneFeedback"></span>
+    </label>
+    <button type="submit">Absenden</button>
+  </form>
+
+  <script>
+    
+    class Validator {
+      constructor(next = null) {
+        this.next = next;
+      }
+      validate(value) {
+        if (this.next) {
+          return this.next.validate(value);
+        }
+        return { valid: true };
+      }
+    }
+
+    // E-Mail-Validator
+    class EmailFormatValidator extends Validator {
+      validate(value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          return { valid: false, message: "Ungültiges E-Mail-Format." };
+        }
+        return super.validate(value);
+      }
+    }
+
+    // Passwort-Validatoren
+    class PasswordLengthValidator extends Validator {
+      validate(value) {
+        if (value.length < 8) {
+          return { valid: false, message: "Mindestens 8 Zeichen." };
+        }
+        return super.validate(value);
+      }
+    }
+    class PasswordAlphaNumValidator extends Validator {
+      validate(value) {
+        if (!/[A-Za-z]/.test(value) || !/\d/.test(value)) {
+          return { valid: false, message: "Buchstaben und Zahlen erforderlich." };
+        }
+        return super.validate(value);
+      }
+    }
+
+    // Telefonnummer-Validator
+    class PhoneFormatValidator extends Validator {
+      validate(value) {
+        const phoneRegex = /^\+?\d{7,15}$/;
+        if (!phoneRegex.test(value)) {
+          return { valid: false, message: "Ungültiges Telefonformat." };
+        }
+        return super.validate(value);
+      }
+    }
+
+    // Validator-Ketten aufbauen
+    const emailValidator = new EmailFormatValidator();
+    const passwordValidator = new PasswordLengthValidator(
+      new PasswordAlphaNumValidator()
+    );
+    const phoneValidator = new PhoneFormatValidator();
+
+    // Feedback-Funktion
+    function showFeedback(inputId, feedbackId, result) {
+      const input = document.getElementById(inputId);
+      const feedback = document.getElementById(feedbackId);
+      if (result.valid) {
+        input.classList.remove("invalid");
+        feedback.textContent = "";
+      } else {
+        input.classList.add("invalid");
+        feedback.textContent = result.message;
+      }
+    }
+
+    // Event-Handler für Blur-Events
+    document.getElementById("email").addEventListener("blur", (e) => {
+      const result = emailValidator.validate(e.target.value);
+      showFeedback("email", "emailFeedback", result);
+    });
+    document.getElementById("password").addEventListener("blur", (e) => {
+      const result = passwordValidator.validate(e.target.value);
+      showFeedback("password", "passwordFeedback", result);
+    });
+    document.getElementById("phone").addEventListener("blur", (e) => {
+      const result = phoneValidator.validate(e.target.value);
+      showFeedback("phone", "phoneFeedback", result);
+    });
+
+    // Formular-Submit
+    document.getElementById("myForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const emailResult = emailValidator.validate(
+        document.getElementById("email").value
+      );
+      const passwordResult = passwordValidator.validate(
+        document.getElementById("password").value
+      );
+      const phoneResult = phoneValidator.validate(
+        document.getElementById("phone").value
+      );
+      showFeedback("email", "emailFeedback", emailResult);
+      showFeedback("password", "passwordFeedback", passwordResult);
+      showFeedback("phone", "phoneFeedback", phoneResult);
+
+      if (emailResult.valid && passwordResult.valid && phoneResult.valid) {
+        alert("Formular erfolgreich übermittelt!");
+      }
+    });
+  </script>
+</body>
+</html>
