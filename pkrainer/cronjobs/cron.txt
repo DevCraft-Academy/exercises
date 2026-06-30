@@ -1,0 +1,28 @@
+Tägliches Datenbackup:
+Cron-Expression: 0 3 * * *
+Befehl: /opt/installed/backup.sh /main/data /backup/
+tägliches Backup um 3 Uhr morgens. backup Skript wird ausgeführt (verwendet rysnc) um daten aus /main/data in /backup zu sichern
+
+Log-Rotation:
+
+Cron-Expression: 0 0 * * 0
+Befehl: /usr/sbin/logrotate /etc/logrotate.d/shop-service
+Dieser Cron-Job rotiert Log-Dateien jeden Sonntag um Mitternacht. Er verwendet den Befehl logrotate mit der Konfigurationsdatei /etc/logrotate.d/shop-service, um die Logs, die in dieser Konfigurationsdatei definiert sind /app/log/shop-service/), zu verwalten.
+
+Geplante Benachrichtigungen:
+
+Cron-Expression: 0 9 * * *
+Befehl: /usr/bin/mail -s "System Report"  admin@company.com < /main/app/logs/status.txt
+Dieser Cron-Job sendet täglich um 9 Uhr morgens Systemstatusberichte. Er verwendet den Befehl mail, um den Bericht an admin@company.com zu mailen.
+
+Regelmäßige Bereinigung:
+
+Cron-Expression: 0 14 * * 6
+Befehl: /bin/find /tmp -type f -atime +7 -exec rm {} \\;
+Dieser Cron-Job führt eine Bereinigung jeden Samstag um 14 Uhr. Der Befehl find wird verwendet, um Dateien im Verzeichnis /tmp zu entfernen, die in den letzten 7 Tagen nicht zugegriffen wurden.
+
+Individuelle Aufgabe:
+
+Cron-Expression: 45 23 * * *
+Befehl: psql -h dbserver -d maindb -U cronuser < datacleanup.sql
+Jedentag um 23:45 wird ein plsql script ausgeführt um daten zu bereinigen
