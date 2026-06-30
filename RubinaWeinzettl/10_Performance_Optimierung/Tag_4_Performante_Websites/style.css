@@ -1,0 +1,30 @@
+ /* Füge einige grundlegende, schnell ladende Stile hinzu */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  color: #333;
+}
+
+p {
+  color: #555;
+}
+
+/* Füge ein einfaches, schnell ladendes Bild hinzu */
+.fast-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+.slow-image {
+    width: 1920px;
+    height: auto;
+}
