@@ -1,0 +1,33 @@
+Review:
+
+html:
+
+- Das HTML-template ist übersichtlich und gut strukturiert
+- Auch das script.js am Ende des body ist eine gute Strategie, um das Skript erst auszuführe, wenn die Seite gerendert wurde.
+- Den KOmmentar im ul-Tag kannst, zeigt klar an, worum es da geht.
+- Um für Menschen mit Einschränkungen deine Seite noch zugänglicher zu machen,
+schlage ich vor, ARIA-Attribute zu ergänzen
+- Auch wäre ein label für das Eingabefeld nützlich
+- Falls du schon ein Favicon hast, kannst du im Head-Bereich noch eins ergänzen. Dadurch wirkt deine Seite schon professioneller
+
+CSS:
+
+- Das CSS ist entlang deiner html-Struktur orientiert. Dadurch lassen sich dein CSS gut lesen und die Klassen finden.
+- Der Kontrast zwischen Hintergrundfarben und Text ist ausreichend hoch
+- Für kleinere Bildschirmbreiten ergänze am besten noch Mediaqueries, damit deine Seite auch bei Mobilgeräten richtig gut aussieht.
+- Du könntest für eine bessere Sichtbarkeit des Buttons noch :focus anpassen
+- Für ein einheitliches Layout könntest du noch Variablen anlegen, die du dann zentrale bei Bedarf abänderst
+
+js
+
+- durch DOMContentLoaded-Event-Listene stellst du sicher, dass die Variablen aus alle Fälle nicht undefined sind. Das ist prima
+- Der Event Listener für den click-Event auf addTaskButton ist korrekt implementiert
+- Berücksichtige, dass innerHTML anfällig für Sicherheitsprobleme ist. Arbeite am besten mit der appendChild-Methode, um diese Sicherheitslücke zu schließen
+- Den Delete-Button könntest du auch dynamisch mit einem Aria-Label versehen.
+- Du könntest noch den Code, der für die Erstellunge der Listenelemente zuständig ist in einer weitere Funktion auslagern, um deinen Code übersichtlicher und wiederverwendbar zu machen.
+
+Die Seite ist insgesamt gut strukturiert und bietet eine solide Grundlage. 
+Mit kleinen Verbesserungen wie der Nutzung von ARIA-Attributen, Labels, 
+Media Queries und der Umstellung auf sicherere Methoden im JavaScript könnte die Benutzerfreundlichkeit, 
+Zugänglichkeit und Sicherheit weiter optimiert werden. Besonders positiv hervorzuheben 
+ist die übersichtliche Struktur des HTML-Templates und der Fokus auf eine klare Trennung der Logik.
