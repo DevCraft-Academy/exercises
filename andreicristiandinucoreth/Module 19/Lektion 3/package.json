@@ -1,0 +1,16 @@
+{
+  "name": "lesson-03-exercise-organization",
+  "version": "1.0.0",
+  "description": "Exercise: Organizing a messy test suite",
+  "main": "taskManager.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "keywords": ["testing", "jest", "test-organization"],
+  "author": "DevCraft Academy",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
