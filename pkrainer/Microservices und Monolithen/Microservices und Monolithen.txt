@@ -1,0 +1,24 @@
+Anforderung: Social-Media-Plattform
+
+Bewerte die Projektanforderungen:
+- Angesichts dieser Anforderungen würde ich mich für eine Microservice-Architektur entscheiden.
+
+Architekturentscheidung:
+- Ich habe mich für eine Microservice-Architektur entschieden, weil diese gut Skaliert werden kann, mit Echtzeitinteraktionen und einen veränderbaren und wachsenden Funktionsumfang zurechtkommt.
+Vor- und Nachteile:
+ - Vorteile
+  - Skalierbarkeit: Einzelne Microservices können unabhängig skalieren werden damit alle Funktionalitäten in Echtzeit verfügbar sind 
+  - Flexibilität: Durch die Unabhängigkeit von den Services lassen sich Funktionen leicht hinzufügen
+  - Hohe Verfügbarkeit: Microservices bieten Redundanz und hohe Verfügbarkeit, um einen unterbrechungsfreien Service zu gewährleisten.
+ - Nachteile
+  - Erhöhte Komplexität: Die Verwaltung mehrerer Dienste kann komplex sein
+  - Deployment: Das Deployment einzelner Service erfordert mehr Aufwand.
+  - Kommunikationsaufwand: Microservices benötigen effiziente Kommunikations- und Datenaustauschmechanismen.
+Skalierbarkeitsplan:
+- In einer Microservice Umgebung können Dienste und Kommunikations- und Datenaustauschmechanismen unabhängig voneinander skaliert werden
+
+Alternative Architekturbetrachtung:
+- Ist in diesen fall nicht zielbringend da sich ein Monolith nicht für die Anforderung eignet
+
+Fazit
+- Die Wahl einer Microservice-Architektur passt gut zu den Anforderungen des Projekts an Skalierbarkeit, Echtzeitfunktionen und der Bewältigung einer wachsenden Nutzerbasis.
