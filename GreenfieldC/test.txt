@@ -1,0 +1,50 @@
+Alt:
+
+  private loadRecipesBasedOnPath(): void {
+    const currentPath = this.router.url;
+    if (currentPath.includes('/recipes')) {
+      this.recipeService.getAllRecipes().subscribe((recipes) => {
+        this.recipes = recipes;
+        this.setAllIngredients();
+        this.filteredRecipes.emit(this.recipes);
+        this.cdr.detectChanges();
+      });
+    } else if (currentPath.includes('/favorites')) {
+      this.favoriteService.getFavorites().subscribe((data) => {
+        this.recipes = data;
+        this.setAllIngredients();
+        this.filteredRecipes.emit(this.recipes);
+        this.cdr.detectChanges();
+      });
+    }
+  }
+
+  Neu
+
+   private loadRecipesBasedOnPath(): void {
+    const currentPath = this.router.url;
+
+    if (currentPath.includes('/recipes')) {
+      this.fetchRecipes(() => this.recipeService.getAllRecipes());
+    } else if (currentPath.includes('/favorites')) {
+      this.fetchRecipes(() => this.favoriteService.getFavorites());
+    }
+  }
+
+  private fetchRecipes(fetchFunction: () => Observable<Recipe[]>): void {
+    fetchFunction().subscribe((recipes) => {
+      this.recipes = recipes;
+      this.setAllIngredients();
+      this.filteredRecipes.emit(this.recipes);
+      this.cdr.detectChanges();
+    });
+  }
+
+  Refaktorisiere loadRecipesBasedOnPath, um die Lesbarkeit zu verbessern und Duplikate zu reduzieren.
+
+Die Methode `loadRecipesBasedOnPath` wurde refaktorisiert, um die doppelte Logik beim Abrufen von Rezepten zu eliminieren. Eine neue Hilfsmethode `fetchRecipes` wurde eingeführt, um die gemeinsame Logik für das Abrufen von Rezepten, das Setzen von Zutaten, das Emittieren gefilterter Rezepte und das Auslösen der Change Detection zu kapseln.
+
+Details:
+- Die doppelte Logik in `loadRecipesBasedOnPath` wurde in die wiederverwendbare Methode `fetchRecipes` ausgelagert.
+- Die Methode `fetchRecipes` akzeptiert eine Funktion, die ein `Observable<Recipe[]>` zurückgibt, um sowohl die Pfade `/recipes` als auch `/favorites` dynamisch zu behandeln.
+- Diese Änderung verbessert die Wartbarkeit und Lesbarkeit, indem sie dem DRY-Prinzip (Don't Repeat Yourself) folgt.
