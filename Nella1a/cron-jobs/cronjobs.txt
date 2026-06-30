@@ -1,0 +1,24 @@
+Tägliches Datenbackup:
+Aufgabe: Plane ein tägliches Backup eines Verzeichnisses namens /important-data in ein Backup-Verzeichnis /backup-folder um 3 Uhr morgens.
+
+0 3 * * * rsync -a /important-data/ /backup-folder/important-data/
+
+Log-Rotation:
+Aufgabe: Rotiere Log-Dateien jeden Sonntag um Mitternacht, um zu verhindern, dass sie zu groß werden. Deine Logs befinden sich in /var/log/myapp/.
+
+0 0 * * 0 /usr/sbin/logrotate /etc/logrotate.d/myapp
+
+Geplante Benachrichtigungen:
+Aufgabe: Sende täglich um 9 Uhr morgens E-Mails mit Systemstatusberichten.
+
+0 9 * * * df -h | mail -s "Systemstatusbericht" info@example.com
+
+Regelmäßige Bereinigung:
+Aufgabe: Plane ein Bereinigungsskript, das jeden Samstag um 14 Uhr läuft, um temporäre Dateien aus dem Verzeichnis /tmp zu entfernen.
+
+0 14 * * 6 find /tmp -type f -mtime +1 -delete
+
+Individuelle Aufgabe:
+Aufgabe: Erstelle einen individuellen Cron-Job für eine Aufgabe deiner Wahl. Definiere den Zeitplan und den auszuführenden Befehl. Sei kreativ!
+
+ 0 1 1 * echo "$(date '+%F %T') - HAPPY NEW YEAR - " >> /var/log/greetings.log
