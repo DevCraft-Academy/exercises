@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weitere Structural Design Patterns</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .summary {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+    <!--Interface zu Testzwecken -->
+    <h1>Weitere Structural Design Patterns</h1>
+    <h2>Café Order System</h2>
+
+    <div class="section">
+        <label for="beverage">Choose a Beverage:</label>
+        <select id="beverage">
+          <option value="Coffee">Coffee</option>
+          <option value="Tea">Tea</option>
+        </select>
+    </div>
+
+    <div class="section">
+        <label>Add Ingredients:</label><br />
+        <input type="checkbox" id="milk" /> Milk (+$0.50)<br />
+        <input type="checkbox" id="sugar" /> Sugar (+$0.20)<br />
+        <input type="checkbox" id="choco" /> Chocolate Syrup (+$0.70)<br />
+    </div>
+
+    <button id="orderButton">Place Order</button>
+
+    <div class="summary" id="orderSummary"></div>
+
+    <script type="module">
+        import Coffee from './beverages/Coffee.js';
+        import Tea from './beverages/Tea.js';
+        import Milk from './decorators/Milk.js';
+        import Sugar from './decorators/Sugar.js';
+        import ChocolateSyrup from './decorators/ChocolateSyrup.js';
+
+        document.getElementById('orderButton').addEventListener('click', placeOrder);
+
+
+        function placeOrder () {
+            const selected = document.getElementById('beverage').value;
+            let drink;
+
+            // Instantiate selected base drink
+            if (selected === 'Coffee') {
+              drink = new Coffee();
+            } else {
+              drink = new Tea();
+            }
+
+            // Decorate with selected ingredients
+            if (document.getElementById('milk').checked) {
+              drink = new Milk(drink);
+            }
+            if (document.getElementById('sugar').checked) {
+              drink = new Sugar(drink);
+            }
+            if (document.getElementById('choco').checked) {
+              drink = new ChocolateSyrup(drink);
+            }
+
+            // Display summary
+            const summary = document.getElementById('orderSummary');
+            summary.textContent = `You ordered: ${drink.getDescription()} | Total: $${drink.cost().toFixed(2)}`;      
+      };
+    </script>
+</body>
+</html>
