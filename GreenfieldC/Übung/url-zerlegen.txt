@@ -1,0 +1,29 @@
+URL zerlegen
+
+
+1.https://www.lynxbroker.de/suche/?q=ETF
+
+Protokoll: https
+Subdomain: www
+Domain: lynxbroker.de
+Port: 443
+Pfad: /suche
+Query: ?q=ETF
+Fragment: ---
+
+2. https://fth.de/spenden/#testament
+
+Protokoll: https
+Domain: fth.de
+Port: 443
+Pfad: /spenden
+Query: --
+Fragment: #testament
+
+3.https://www.google.com/maps/@50.5826644,8.6787674,17z?hl=de&entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D
+
+Protokoll: https
+Subdomain: www
+Domain: google.com
+Pfad: /maps/@50.5826644,8.6787674,17z
+Query: ?hl=de&entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D
