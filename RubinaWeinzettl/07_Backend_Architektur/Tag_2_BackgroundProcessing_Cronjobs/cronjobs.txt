@@ -1,0 +1,14 @@
+1)
+0 3 * * * cp /Users/rubinaw/Documents/_WebDevelopment/DevCraftAcademy/exercises/RubinaWeinzettl/07_Backend_Architektur/Tag_2_BackgroundProcessing_Cronjobs/important-data /Users/rubinaw/Documents/_WebDevelopment/DevCraftAcademy/exercises/RubinaWeinzettl/07_Backend_Architektur/Tag_2_BackgroundProcessing_Cronjobs/backup-folder
+
+2)
+0 0 * * 0 /usr/sbin/logrotate /etc/logrotate.d/myapp
+
+3)
+0 9 * * * /usr/bin/bash /usr/local/bin/system_report.sh | mail -s "Systemstatus-Bericht" it@rubina.at
+
+4)
+0 14 * * 6 /usr/local/bin/cleanup_tmp.sh
+
+5) Eigenes Beispiel: Führe das Bash-Skript im angegebenen Pfad jede Woche von Montag bis Freitag um 1 Uhr Früh aus
+0 1 * * 1-5 /bin/bash /Users/rubinaw/Documents/_WebDevelopment/DevCraftAcademy/exercises/RubinaWeinzettl/07_Backend_Architektur/Tag_2_BackgroundProcessing_Cronjobs/script.sh
