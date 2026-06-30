@@ -1,0 +1,5 @@
+Beispielseite: https://www.pcwelt.de/article/2501349/test-die-besten-laptops-unter-500-euro.html
+
+Hier wird bereits vieles korrekt umgesetzt, das Erscheinungsdatum des Artikels ist sichtbar, als auch der Textausschnitt des Suchergebnisses erwähnt sofort den Testsieger der Kategorie. Hilfreich wäre hier ggf. noch ein Bild des Testsieger-Laptops sowie der Preis. 
+
+Semantisches html kommt auf der webseite bereits zum Einsatz, der Artikel ist zum Beispiel in <article> tags gewrapped, innerhalb dieser tags wird wiederum in <header>, <main> und <footer> gegliedert auch die Überschriften-Hierarchie scheint korrekt. Für die Bilder wird ebenfalls das <figure> tag genutzt und sie sind alle mit einem kurzen prägnanten alt Attribut versehen. Was jedoch auffällt ist, dass übermäßig oft das <div> oder <span> tag genutzt wird anstatt auf <p> zurückzugreifen. Ebenfalls wird bei der Strukturierung der Navigation der Seite völlig auf das <nav> tag sowie Listenelemente verzichtet, hier gebe es Verbesserungspotenzial.
