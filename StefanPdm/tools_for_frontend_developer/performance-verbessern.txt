@@ -1,0 +1,102 @@
+lazy loading and lazy calculating
+------------------------------------
+calculate and render only when needed, triggered by scrolling down
+
+html:
+
+    <h1>Performance Challenge</h1>
+    <button id="startButton">Start</button>
+    <ul id="listContainer"></ul>
+
+
+
+css:
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:disabled{
+  background-color: gray;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 5px;
+    background-color: #f5f5f5;
+}
+
+.odd-item {
+  background-color: #d2caca;
+}
+
+js:
+
+document.addEventListener("DOMContentLoaded", () => {
+    const startButton = document.getElementById("startButton");
+    const listContainer = document.getElementById("listContainer");
+
+    let currentIndex = 0;
+    const totalItems = 1000;
+    const chunkSize = 10; // Anzahl der Einträge pro Lazy Load Schritt
+
+    const loadItems = () => {
+        const fragment = document.createDocumentFragment();
+
+        for (let i = 0; i < chunkSize; i++) {
+            if (currentIndex >= totalItems) {
+                return; // Beenden, wenn alle Einträge geladen wurden
+            }
+
+            const listItem = document.createElement("li");
+            listItem.textContent = `Eintrag ${currentIndex + 1} - ${Math.random()}`;
+             if ((currentIndex + 1) % 2 === 0) { // Jeder fünfte Eintrag als Beispiel
+                listItem.classList.add('odd-item');
+            }
+            fragment.appendChild(listItem);
+            currentIndex++;
+        }
+
+        listContainer.appendChild(fragment);
+    };
+
+    const onScroll = () => {
+        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+        if (scrollTop + clientHeight >= scrollHeight - 5) {
+            // Lazy Load, wenn der Benutzer fast am Ende der Seite ist
+            loadItems();
+        }
+    };
+
+    startButton.addEventListener("click", () => {
+        startButton.setAttribute("disabled", "true");
+        listContainer.innerHTML = ""; // Liste leeren
+        currentIndex = 0; // Index zurücksetzen
+        loadItems(); // Erste Liste laden
+        startButton.removeAttribute('disabled')
+
+        // Scroll-Event hinzufügen
+        window.addEventListener("scroll", onScroll);
+    });
+});
