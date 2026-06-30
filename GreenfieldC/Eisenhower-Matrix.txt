@@ -1,0 +1,7 @@
+Liste von Aufgaben am Montag:
+
+Kritischen Fehler im vorhandenen Code beheben. (zuerst erledigen, wichtig und dringend)
+Programmieraufgaben für die nächste Woche planen. (einplanen, wichtig nicht dringend)
+Am Team-Meeting teilnehmen. (einplanen, wichtig)
+Projektdokumentation aktualisieren. (nicht dringend, wichtig, einplanen)
+Neue Programmiersprache recherchieren. (nicht dringend, nicht wichtig, einplanen)
