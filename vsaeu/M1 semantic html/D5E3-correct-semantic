@@ -1,0 +1,17 @@
+<body class="container">
+    <header class="header">
+        <h1 class="logo">Delicious Treats</h1>
+    </header>
+    <main class="content">
+        <section>
+            <h2 class="section">Featured Recipes</h2>
+            <article class="recipe">
+                <h3 class="name">Chocolate Chip Cookies</h3>
+                <h4 class="description">These cookies are so tasty!</h4>
+            </article>
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="copyright">© 2023 Delicious Treats</p>
+    </footer>
+</body>
