@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Newsletter sign-up</title>
+    </head>
+    <body>
+        <header>
+            <h1>Sign up for the newsletter!</h1>
+        </header>
+        <main>
+            <form action="newsletter.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="accept">I accept the terms and conditions and wish to sign up for this newsletter</label>
+                <input type="checkbox" id="accept" name="accept" required>
+
+                <button type="submit">Sign up!</button>
+            </form>
+        </main>
+    </body>
+</html>
