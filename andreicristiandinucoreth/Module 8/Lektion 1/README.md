@@ -1,0 +1,52 @@
+# UE - Database structure for Social Networking Platform
+
+## Key Entities
+  - User
+    - Attributes:
+      - UserID (Primary Key)
+      - FirstName
+      - LastName
+      - DateOfBirth
+      - Email
+      - ProfilePicture
+    - Relations:
+      - User - Post (One to Many)
+      - User - Comments (One to Many)
+      - User - User (Many to Many through FriendRequest)
+  - Post
+    - Attributes:    
+      - PostID (Primary Key)
+      - CreatedByUser (refers to User -> UserID)
+      - Content
+    - Relations: 
+      - Post - User (Many to One)
+      - Post - Comments (One to Many)
+  - Comment
+    - Attributes:
+      - CommentID (Primary Key)
+      - BelongsToPost (refers to Post -> PostID)
+      - CreatedByUser (refers to User -> UserID)
+      - Content
+    - Relations:
+      - Comment - Post (Many to One)
+      - Comment - User (Many to One)
+  - FriendRequest
+    - Attributes:
+      - RequestId (Primary Key)
+      - RequestCreatedBy (refers to User -> UserID)
+      - RequestSentTo (refers to User -> UserID)
+      - Date
+      - Status
+    - Relations:
+      - FriendRequest - User (Many to One, User that created the request)
+      - FriendRequest - User (Many to One, User that the request is sent to)
+
+## Functions
+  - User Profile
+    - Uses the *User* entity to show the profile of the user
+  - Friend Request
+    - Manages friend requests, sent from one *User* to another *User*
+  - Add a Post
+    - A *User* can create a *Post* 
+  - Add a Comment
+    - A *User* can add a *Comment* to a *Post*
