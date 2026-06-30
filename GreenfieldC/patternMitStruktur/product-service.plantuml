@@ -1,0 +1,21 @@
+@startuml
+
+interface ProductService {
+    +getProducts()
+}
+
+class RealProductService {
+    +getProducts()
+}
+
+class ProductServiceProxy {
+    -realService : RealProductService
+    -cache
+    +getProducts()
+}
+
+ProductService <|.. RealProductService
+ProductService <|.. ProductServiceProxy
+ProductServiceProxy --> RealProductService
+
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+interface PaymentMethod {
+    +processPayment(amount)
+}
+
+class PayPal {
+    +processPayment(amount)
+}
+
+class CreditCard {
+    +processPayment(amount)
+}
+
+class BankTransfer {
+    +processPayment(amount)
+}
+
+PaymentMethod <|.. PayPal
+PaymentMethod <|.. CreditCard
+PaymentMethod <|.. BankTransfer
+
+class PaymentMethodFactory {
+    +static createPaymentMethod(type)
+}
+
+PaymentMethodFactory ..> PayPal
+PaymentMethodFactory ..> CreditCard
+PaymentMethodFactory ..> BankTransfer
+@enduml
+class CreditCardFactory {
+    +createPaymentMethod()
+}
+
+class BankTransferFactory {
+    +createPaymentMethod()
+}
+
+PaymentMethodFactory <|.. PayPalFactory
+PaymentMethodFactory <|.. CreditCardFactory
+PaymentMethodFactory <|.. BankTransferFactory
+
+PayPalFactory --> PayPal
+CreditCardFactory --> CreditCard
+BankTransferFactory --> BankTransfer
+@enduml

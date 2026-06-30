@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Formular Validierung mit Behavioral Pattern</title>
+    <style>
+        .error { color: red; font-size: 0.9em; }
+        .valid { color: green; font-size: 0.9em; }
+        input:invalid { border-color: red; }
+        input:valid { border-color: green; }
+    </style>
+</head>
+<body>
+    <form id="mainForm" novalidate>
+        <div>
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="feedback" id="emailFeedback"></span>
+        </div>
+        <div>
+            <label for="password">Passwort:</label>
+            <input type="password" id="password" name="password" required>
+            <span class="feedback" id="passwordFeedback"></span>
+        </div>
+        <div>
+            <label for="phone">Telefonnummer:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <span class="feedback" id="phoneFeedback"></span>
+        </div>
+        <button type="submit">Absenden</button>
+    </form>
+    <script src="index.js"></script>
+</body>
+</html>
