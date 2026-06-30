@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Requests</title>
+</head>
+
+<body>
+    <h1>HTTP Requests</h1>
+    <ul>
+        <li>GET-Request: Ist erfolgreich, Statuscode: 200</li>
+        <li>POST-Request: Statuscode: 404 - not found. Angaben im Header vorhanden</li>
+        <li>PUT-Request: Statuscode: 405 - Method not allowed und anschließend 404 - not found</li>
+        <li>DELETE-Request: Statuscode: 405 - Method not allowed und anschließend 404 - not found</li>
+    </ul>
+
+    <p>
+        Der GET-Request ist für das Abrufen von Informationen vom Server geeignet
+        Der POST-Request ist am besten für das schicken neuer Daten, wie z.B. Angsben aus einem Formular,
+        an den Server geeignet.
+        Der PUT-Request ist am besten dazu geeignet bestehende Daten zu aktualisieren.
+        Der DELETE-Request wird benötigt um Daten vom Server zu löschen.
+    </p>
+</body>
+
+</html>
