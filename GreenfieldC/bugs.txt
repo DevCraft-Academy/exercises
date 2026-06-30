@@ -1,0 +1,28 @@
+Bug-Reports
+
+Buch-ID Inkonsistenz:
+Problem: Wenn ein neues Buch hinzugefügt wird, scheint es, dass seine ID bereits einem anderen Buch zugewiesen wurde. Das neue Buch überschreibt das alte Buch.
+Erwartetes Verhalten: Jedes Buch sollte eine einzigartige ID haben. paresInt()-Methode raus, weil ich string für id nutze.
+
+Lösung: uuid implementiert
+--------------------------------
+Löschen von Büchern:
+Problem: Beim Versuch, ein Buch zu löschen, das nicht existiert, wird dennoch die Antwort „OK” zurückgegeben, und es scheint, dass ein anderes Buch stattdessen gelöscht wird.
+Erwartetes Verhalten: Es sollte eine klare Fehlermeldung zurückgegeben werden, wenn ein nicht existierendes Buch gelöscht werden soll, und es sollten keine anderen Bücher beeinflusst werden.
+Hinzufügen eines neuen Buches:
+Problem: Beim Hinzufügen eines neuen Buches über den POST-Endpoint wird manchmal ein Fehler geworfen, und die Buchliste ist danach nicht mehr abrufbar.
+Erwartetes Verhalten: Ein Buch sollte erfolgreich hinzugefügt werden, und die Buchliste sollte danach weiterhin abrufbar sein.
+
+Lösung: books.push(newBook)
+
+Fehlende Validierung:
+Problem: Es ist möglich, ein Buch ohne Titel oder Autor hinzuzufügen.
+Erwartetes Verhalten: Das Backend sollte sicherstellen, dass sowohl Titel als auch Autor beim Hinzufügen eines Buches vorhanden sind und ansonsten eine klare Fehlermeldung zurückgeben.
+
+Lösung: Return, wenn Bedingungen nicht erfüllt werden, damit Buch nicht angelegt wird.
+Außerdem werden Leerzeichen als Wert als ungültige Werte erkannt und das Buch nicht anglegt.
+
+Mehrere Antworten:
+Problem: Beim Hinzufügen eines Buches ohne Titel oder Autor gibt das Backend manchmal mehrere Antworten zurück.
+
+Lösung: Return wenn Titel oder Author fehlen
