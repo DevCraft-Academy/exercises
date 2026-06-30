@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Meine Express-App</title>
+</head>
+
+<body>
+    <h1>Hallo <%= name %>!</h1>
+    <p>Willkommen auf meiner Express-Seite.</p>
+    <form action="/willkommen" method="post">
+        <div>
+            <label for="name">Enter your name: </label>
+            <input type="text" name="name" id="name" />
+        </div>
+        <button type="submit">Absenden</button>
+    </form>
+
+</body>
+
+</html>
