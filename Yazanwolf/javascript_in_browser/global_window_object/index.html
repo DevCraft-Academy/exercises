@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+    style-src 'self' 'unsafe-inline';
+    script-src 'self' 'unsafe-inline';">
+    <script src="main.js" defer></script>
+    <!-- The following script is added for testing and must not be allowed to load or execute -->
+    <script src="https://www.google.com/test" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Subscription Form</title>
+</head>
+<body>
+    <form id="register-form" class="container">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="John Smith" required>
+        <span id="name-error" class="error hidden">Name cannot be empty!</span>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="john.smith@example.com" required>
+        <span id="email-error" class="error hidden">Invalid Email address!</span>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Share your thoughts with us.." required></textarea>
+        <span id="message-error" class="error hidden">Message must not be empty!</span>
+        <button type="submit">Send</button>
+    </form>
+    <article class="registration">
+        <h1 id="register-success" class="success hidden">Successfully registered!</h1>
+    </article>
+</body>
+</html>

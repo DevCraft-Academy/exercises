@@ -1,0 +1,60 @@
+.container {
+    width: 50%;
+    margin: 3rem auto 3rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    width: 50%;
+    font-size: large;
+    margin: 0.1rem auto 0 auto;
+}
+
+input, textarea {
+    width: 50%;
+    height: 25px;
+    margin: 0 auto 0 auto;
+    border-radius: 4px;
+}
+
+#message {
+    min-height: 100px;
+}
+
+button {
+    min-width: 15%;
+    height: 30px;
+    border-radius: 50px;
+    margin: 0.4rem auto 1rem auto;
+    background-color: rgb(133, 242, 93);
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: rgb(80, 240, 21);
+}
+
+button:active {
+    background-color: rgb(124, 247, 108);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.error {
+    color: red;
+    margin: 0 auto 0 auto;
+    font-size: small;
+}
+
+.registration {
+    display: flex;
+    flex-direction: row;
+}
+
+.success {
+    color: green;
+    margin: 0 auto 0 auto;
+}
