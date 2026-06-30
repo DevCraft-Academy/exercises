@@ -1,0 +1,155 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap");
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background: #eeeeee;
+  color: #222;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Fredoka One", cursive;
+  letter-spacing: 1px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas: "header header" "nav main" "sidebar main" "characters characters" "footer footer";
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.header {
+  grid-area: header;
+  background: #fdd835;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.header h1 {
+  font-size: 3rem;
+  color: #1976d2;
+  margin: 0;
+}
+
+.nav {
+  grid-area: nav;
+  background: white;
+  padding: 1rem;
+}
+.nav ul {
+  list-style: none;
+  padding: 0;
+}
+.nav ul li a {
+  display: block;
+  padding: 0.5rem;
+  color: #1976d2;
+  text-decoration: none;
+}
+.nav ul li a:hover {
+  background: #fdd835;
+  color: black;
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.main {
+  grid-area: main;
+  background: white;
+  padding: 1rem;
+}
+.main h2 {
+  font-size: 2rem;
+  color: #f06292;
+}
+.main p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.characters {
+  grid-area: characters;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.characters h2 {
+  text-align: center;
+  color: #1976d2;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.characters .character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+.characters .character {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.characters .character img {
+  width: auto;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid #fdd835;
+  transition: transform 0.3s ease-in-out;
+}
+.characters .character p {
+  margin-top: 0.5rem;
+  font-family: "Fredoka One", cursive;
+}
+.characters .character:hover {
+  transform: scale(1.05);
+}
+.characters .character:hover img {
+  transform: rotate(-3deg) scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: white;
+  padding: 1rem;
+}
+.sidebar .fact::before {
+  content: "💡 ";
+  font-size: 1.2rem;
+}
+.sidebar .fact:hover {
+  color: #f06292;
+  transform: rotate(-1deg) scale(1.02);
+  transition: all 0.2s ease;
+}
+
+.footer {
+  grid-area: footer;
+  background: #fdd835;
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.5rem !important;
+  }
+  .grid-container {
+    grid-template-areas: "header" "nav" "main" "sidebar" "characters" "footer";
+    grid-template-columns: 1fr;
+  }
+  .nav ul li a {
+    text-align: center;
+  }
+  .characters .character-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
