@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weltbester Newsletter</title>
+</head>
+
+<body>
+    <main>
+        <h1>Melde dich hier zum weltbesten Newsletter an!</h1>
+        <form id="newsletter" method="POST" action="submit-form.php">
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Ihr Name">
+
+            <label for="email">E-Mail*</label>
+            <input type="email" id="email" name="email" placeholder="Ihre E-Mail">
+
+            <button type="submit">Anmelden</button>
+        </form>
+    </main>
+</body>
+
+</html>
+
+Erklärung: Durch die Verwendung der Typen wie email und name kann auf touch-eingaben das entsprechende Tastatur-Layout
+angezeigt werden.
+Über den submit Button kann das Formular direkt versendet werden. Das 'reqired' kennzeichnet das Eingabefeld als
+verpflichtend und kann entsprechend validiert werden. Für die Validierung ist keine zusätzliche Logik notwendig.
