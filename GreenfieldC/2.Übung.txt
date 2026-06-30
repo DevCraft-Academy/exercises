@@ -1,0 +1,2 @@
+1. Habe es in mobile first abgeändert, weil sich die Website dadurch bessern anpasst
+2. Außerdem habe ich die Seite mit container umschlossen, und css so angepasst, dass footer immer am unteren Rand klebt.

@@ -1,0 +1,18 @@
+Verbesserungen für Screenreader:
+
+1. ARIA-Attribute hinzugefügt
+2. Alt-Attribut für img verbessert
+
+Tastaturavigation:
+1. :focus für a- und button-tags verbessert (css-Klassen)
+
+Weitere Barriereprobleme
+
+- Der Kontrast von h2 ist nicht gut. Schrift muss dunkler gemachtw werden
+- Submit-Button ist versteckt. Muss sichtbar werden und eine Funktion für diesen Button implementiert werden
+- div.container -> main-tag
+- div.content -> article-tag
+- Click Me-Button hat keine Funktion bzw. bräuchte label für mehr Infos. "Click me" kann ja alles bedeuten.
+- a-tag nach "by" nicht richtig implementiert. a-Tag fixen und ganze Zeile in Footer, abschließende Info der Seite
+- Das Foto austauschen, weil durch die wilde Animation die Schrift kaum lesbar ist
+- Unterteilung der Seite mit sections zwecks besserer Übersichtlichkeit
