@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public-Key-Kryptographie mit Web Crypto API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        textarea, button {
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 60px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-right: 10px;
+        }
+
+        .output {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f9f9f9;
+            word-break: break-all;
+            min-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Public-Key-Kryptographie Demo</h1>
+    
+    <div>
+        <label for="messageInput">Nachricht eingeben:</label>
+        <textarea id="messageInput" placeholder="Gib hier deine Nachricht ein..."></textarea>
+    </div>
+
+    <div>
+        <button id="encryptBtn" disabled>Verschlüsseln</button>
+        <button id="decryptBtn" disabled>Entschlüsseln</button>
+    </div>
+
+    <div id="statusMessage"></div>
+
+    <div>
+        <h3>Verschlüsselte Nachricht:</h3>
+        <div class="output" id="encryptedOutput">Hier wird die verschlüsselte Nachricht angezeigt...</div>
+    </div>
+
+    <div>
+        <h3>Entschlüsselte Nachricht:</h3>
+        <div class="output" id="decryptedOutput">Hier wird die entschlüsselte Nachricht angezeigt...</div>
+    </div>
+
+    <script>
+        // Globale Variablen
+        let keyPair = null;
+        let encryptedData = null;
+
+        // DOM-Elemente
+        const messageInput = document.getElementById('messageInput');
+        const encryptBtn = document.getElementById('encryptBtn');
+        const decryptBtn = document.getElementById('decryptBtn');
+        const statusMessage = document.getElementById('statusMessage');
+        const encryptedOutput = document.getElementById('encryptedOutput');
+        const decryptedOutput = document.getElementById('decryptedOutput');
+
+        // Hilfsfunktionen
+        function showStatus(message) {
+            statusMessage.innerHTML = `<p>${message}</p>`;
+        }
+
+        function arrayBufferToBase64(buffer) {
+            const bytes = new Uint8Array(buffer);
+            let binary = '';
+            for (let i = 0; i < bytes.byteLength; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return btoa(binary);
+        }
+
+        // Schlüsselpaar generieren
+        async function generateKeyPair() {
+            try {
+                showStatus('Generiere Schlüsselpaar...');
+                
+                keyPair = await window.crypto.subtle.generateKey(
+                    {
+                        name: 'RSA-OAEP',
+                        modulusLength: 2048,
+                        publicExponent: new Uint8Array([1, 0, 1]),
+                        hash: 'SHA-256'
+                    },
+                    true, // extractable
+                    ['encrypt', 'decrypt']
+                );
+
+                encryptBtn.disabled = false;
+                showStatus('Schlüsselpaar erfolgreich generiert!');
+            } catch (error) {
+                showStatus('Fehler beim Generieren der Schlüssel: ' + error.message);
+            }
+        }
+
+        // Nachricht verschlüsseln
+        async function encryptMessage() {
+            if (!keyPair) {
+                showStatus('Bitte erst ein Schlüsselpaar generieren!');
+                return;
+            }
+
+            const message = messageInput.value.trim();
+            if (!message) {
+                showStatus('Bitte eine Nachricht eingeben!');
+                return;
+            }
+
+            try {
+                showStatus('Verschlüssele Nachricht...');
+                
+                const encoder = new TextEncoder();
+                const data = encoder.encode(message);
+                
+                encryptedData = await window.crypto.subtle.encrypt(
+                    {
+                        name: 'RSA-OAEP'
+                    },
+                    keyPair.publicKey,
+                    data
+                );
+
+                const encryptedBase64 = arrayBufferToBase64(encryptedData);
+                encryptedOutput.textContent = encryptedBase64;
+                
+                decryptBtn.disabled = false;
+                showStatus('Nachricht erfolgreich verschlüsselt!');
+            } catch (error) {
+                showStatus('Fehler beim Verschlüsseln: ' + error.message);
+            }
+        }
+
+        // Nachricht entschlüsseln
+        async function decryptMessage() {
+            if (!keyPair || !encryptedData) {
+                showStatus('Keine verschlüsselte Nachricht vorhanden!');
+                return;
+            }
+
+            try {
+                showStatus('Entschlüssele Nachricht...');
+                
+                const decryptedData = await window.crypto.subtle.decrypt(
+                    {
+                        name: 'RSA-OAEP'
+                    },
+                    keyPair.privateKey,
+                    encryptedData
+                );
+
+                const decoder = new TextDecoder();
+                const decryptedMessage = decoder.decode(decryptedData);
+                
+                decryptedOutput.textContent = decryptedMessage;
+                showStatus('Nachricht erfolgreich entschlüsselt!');
+            } catch (error) {
+                showStatus('Fehler beim Entschlüsseln: ' + error.message);
+            }
+        }
+
+        // Event-Listener
+        encryptBtn.addEventListener('click', encryptMessage);
+        decryptBtn.addEventListener('click', decryptMessage);
+
+        // Automatische Initialisierung
+        async function initializeApp() {
+            await generateKeyPair();
+        }
+
+        // App beim Laden der Seite initialisieren
+        window.addEventListener('DOMContentLoaded', initializeApp);
+
+    </script>
+</body>
+</html>
