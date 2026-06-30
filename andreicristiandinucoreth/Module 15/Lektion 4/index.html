@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deine schnelle Website</title>
+    <style>
+      /* Füge einige grundlegende, schnell ladende Stile hinzu */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        background-color: #f0f0f0;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      p {
+        color: #555;
+      }
+
+      .slow-image {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+    <script>
+      setTimeout(() => {
+        console.log("This is a slow script");
+      }, 3000);
+    </script>
+  </head>
+  <body>
+    <h1>Willkommen auf deiner schnellen Website!</h1>
+    <p>
+      Dies ist eine flinke und reaktionsfähige Website. Sie beinhaltet ein
+      schnell ladendes Bild.
+    </p>
+
+    <!-- Füge nach Bedarf mehr Inhalte hinzu -->
+    <img
+      class="slow-image"
+      src="https://images.pexels.com/photos/34020185/pexels-photo-34020185.jpeg"
+      alt="Slow image"
+    />
+
+    <script>
+      function fibonacci(n) {
+        if (n <= 1) return n;
+        console.log("Calculating fibonacci for", n);
+        return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+
+      function slowFunction() {
+        console.log("Starting slow function");
+        const result = fibonacci(25);
+        console.log("Fibonacci result:", result);
+      }
+
+      setTimeout(() => {
+        slowFunction();
+      }, 100);
+    </script>
+  </body>
+</html>
+
+<!-- 
+Results:
+Significantly slowed down the page load time overall. 
+The image is large and takes time to load, and the Fibonacci calculation is computationally intensive, blocking the main thread for a noticeable period. 
+As we start the Fibonacci calculation shortly after the page loads, it can interfere with the loading of other resources and make the page feel sluggish.
+This results in a poor user experience as the page appears unresponsive during the calculation.
+-->
