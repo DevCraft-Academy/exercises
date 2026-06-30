@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Keyboard navigation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Sign up for free</h1>
+      <form>
+        <fieldset>
+          <legend>Basic information</legend>
+          <label for="first-name">First name</label>
+          <input
+            id="first-name"
+            name="first-name"
+            type="text"
+            tabindex="0"
+            required
+          />
+          <label for="last-name">Last name</label>
+          <input id="last-name" name="last-name" type="text" required />
+          <label for="gender">Gender</label>
+          <select id="gender">
+            <option selected>Prefer not to say</option>
+            <option value="male">Male</option>
+            <option value="femail">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <legend>Contact information</legend>
+          <label for="user-email">Email</label>
+          <input id="user-email" name="user-email" type="email" required />
+          <label for="tel">Phone/Mobile</label>
+          <input id="tel" name="tel" type="tel" required />
+        </fieldset>
+        <button type="submit">Subscribe</button>
+      </form>
+    </main>
+  </body>
+</html>
