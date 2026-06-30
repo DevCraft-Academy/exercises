@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Willkommen</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, system-ui, sans-serif;
+      background: #0d1117;
+      color: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 35%),
+                  linear-gradient(180deg, #020617 0%, #111827 100%);
+      padding: 2rem;
+    }
+
+    .card {
+      width: min(100%, 520px);
+      padding: 2rem;
+      border-radius: 28px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.45);
+    }
+
+    .eyebrow {
+      margin: 0 0 1rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #7dd3fc;
+    }
+
+    h1 {
+      margin: 0 0 1.25rem;
+      font-size: clamp(2rem, 2.5vw, 2.75rem);
+      line-height: 1.05;
+      color: #f8fafc;
+    }
+
+    .summary {
+      display: grid;
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+      padding: 1.45rem 1.25rem;
+      border-radius: 20px;
+      background: rgba(30, 41, 59, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .summary p {
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 1rem;
+    }
+
+    .summary span {
+      color: #94a3b8;
+    }
+
+    .message {
+      margin: 0 0 1.75rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      color: #020617;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <p class="eyebrow">Willkommen</p>
+    <h1>Hallo, <%= username %>!</h1>
+
+    <div class="summary">
+      <p><span>Alter</span><strong><%= age %> Jahre</strong></p>
+      <p>
+        <span>Primärhand</span>
+        <strong>
+          <%= handedness === 'rechtshaender'
+              ? 'Rechtshänder'
+              : handedness === 'linkshaender'
+                ? 'Linkshänder'
+                : 'Beides' %>
+        </strong>
+      </p>
+    </div>
+
+    <p class="message">
+      Deine Daten wurden erfolgreich erfasst. Schön, dass du dabei bist!
+    </p>
+
+    <a class="button" href="/">Zurück zum Formular</a>
+  </main>
+</body>
+</html>
