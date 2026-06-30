@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Form with Express</title>
+    </head>
+    <body>
+        <form action="/willkommen" method="post" style="display: flex; flex-direction: column; width: 200px;">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required/>
+            </div>
+
+            <div class="form-group">
+                <label for="color">Prefered Color</label><br>
+                <label for="red">Red</label>
+                <input type="radio" name="color" value="red" id="red" required/>
+
+                <label for="blue">Blue</label>
+                <input type="radio" name="color" value="blue" id="blue" required/>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
