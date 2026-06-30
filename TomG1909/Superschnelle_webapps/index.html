@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple PWA</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2196F3">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            background: #2196F3;
+            color: white;
+            padding: 20px;
+            margin: -20px -20px 20px -20px;
+            text-align: center;
+        }
+
+        .status {
+            background: #4caf50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .status.offline {
+            background: #f44336;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .btn {
+            background: #2196F3;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #1976D2;
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .pending-list {
+            margin-top: 20px;
+        }
+
+        .pending-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Simple PWA</h1>
+            <p>Mit Service Worker & Background Sync</p>
+        </div>
+
+        <div id="status" class="status">Online</div>
+
+        <div id="message" class="hidden"></div>
+
+        <form id="dataForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Nachricht:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit" class="btn" id="submitBtn">Senden</button>
+        </form>
+
+        <div class="pending-list">
+            <h3>Wartende Übertragungen:</h3>
+            <div id="pendingItems"></div>
+        </div>
+    </div>
+
+    <script>
+        class SimplePWA {
+            constructor() {
+                this.pendingKey = 'pendingRequests';
+                this.init();
+            }
+
+            async init() {
+                await this.registerServiceWorker();
+                this.setupEventListeners();
+                this.updateStatus();
+                this.displayPendingRequests();
+            }
+
+            async registerServiceWorker() {
+                if ('serviceWorker' in navigator) {
+                    try {
+                        await navigator.serviceWorker.register('sw.js');
+                        console.log('Service Worker registriert');
+                    } catch (error) {
+                        console.error('Service Worker Registrierung fehlgeschlagen:', error);
+                    }
+                }
+            }
+
+            setupEventListeners() {
+                // Online/Offline Status
+                window.addEventListener('online', () => {
+                    this.updateStatus();
+                    this.syncPendingRequests();
+                });
+
+                window.addEventListener('offline', () => {
+                    this.updateStatus();
+                });
+
+                // Form Submit
+                document.getElementById('dataForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleSubmit();
+                });
+
+                // Service Worker Messages
+                navigator.serviceWorker.addEventListener('message', (event) => {
+                    if (event.data.type === 'SYNC_SUCCESS') {
+                        this.showMessage('Daten erfolgreich synchronisiert!', 'success');
+                        this.displayPendingRequests();
+                    }
+                });
+            }
+
+            updateStatus() {
+                const statusEl = document.getElementById('status');
+                if (navigator.onLine) {
+                    statusEl.textContent = 'Online';
+                    statusEl.className = 'status';
+                } else {
+                    statusEl.textContent = 'Offline';
+                    statusEl.className = 'status offline';
+                }
+            }
+
+            async handleSubmit() {
+                const form = document.getElementById('dataForm');
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    message: formData.get('message'),
+                    timestamp: new Date().toISOString()
+                };
+
+                const submitBtn = document.getElementById('submitBtn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Senden...';
+
+                try {
+                    if (navigator.onLine) {
+                        await this.submitData(data);
+                        this.showMessage('Daten erfolgreich gesendet!', 'success');
+                        form.reset();
+                    } else {
+                        await this.storeForSync(data);
+                        this.showMessage('Offline: Daten gespeichert für spätere Synchronisierung', 'warning');
+                        form.reset();
+                    }
+                } catch (error) {
+                    await this.storeForSync(data);
+                    this.showMessage('Fehler beim Senden - Daten gespeichert für spätere Synchronisierung', 'warning');
+                    form.reset();
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Senden';
+                    this.displayPendingRequests();
+                }
+            }
+
+            async submitData(data) {
+                // Simulierte API
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                if (Math.random() < 0.1) throw new Error('Simulated error');
+                console.log('Data submitted:', data);
+            }
+
+            async storeForSync(data) {
+                const pending = JSON.parse(localStorage.getItem(this.pendingKey) || '[]');
+                pending.push({
+                    id: Date.now(),
+                    data: data,
+                    attempts: 0
+                });
+                localStorage.setItem(this.pendingKey, JSON.stringify(pending));
+            }
+
+            async syncPendingRequests() {
+                const pending = JSON.parse(localStorage.getItem(this.pendingKey) || '[]');
+                if (pending.length === 0) return;
+
+                const successful = [];
+                for (const item of pending) {
+                    try {
+                        await this.submitData(item.data);
+                        successful.push(item.id);
+                    } catch (error) {
+                        console.error('Sync failed for item:', item.id);
+                    }
+                }
+
+                if (successful.length > 0) {
+                    const remaining = pending.filter(item => !successful.includes(item.id));
+                    localStorage.setItem(this.pendingKey, JSON.stringify(remaining));
+                    this.showMessage(`${successful.length} Anfrage(n) synchronisiert!`, 'success');
+                    this.displayPendingRequests();
+                }
+            }
+
+            displayPendingRequests() {
+                const pending = JSON.parse(localStorage.getItem(this.pendingKey) || '[]');
+                const container = document.getElementById('pendingItems');
+                
+                if (pending.length === 0) {
+                    container.innerHTML = '<p>Keine wartenden Übertragungen</p>';
+                    return;
+                }
+
+                container.innerHTML = pending.map(item => `
+                    <div class="pending-item">
+                        <strong>${item.data.name}</strong> (${item.data.email})<br>
+                        <small>Erstellt: ${new Date(item.data.timestamp).toLocaleString()}</small>
+                    </div>
+                `).join('');
+            }
+
+            showMessage(text, type) {
+                const messageEl = document.getElementById('message');
+                messageEl.textContent = text;
+                messageEl.className = `message ${type}`;
+                messageEl.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    messageEl.classList.add('hidden');
+                }, 5000);
+            }
+        }
+
+        // App initialisieren
+        new SimplePWA();
+    </script>
+</body>
+</html>
