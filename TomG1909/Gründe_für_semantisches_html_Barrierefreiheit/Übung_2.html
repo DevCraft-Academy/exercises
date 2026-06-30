@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formular</title>
+
+    <style>
+        input:focus,
+        button:focus,
+        select:focus {
+            border: 5px solid green;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+
+<body>
+    <form action="submit-form.php" method="post">
+        <fieldset>
+            <legend>Persönliche Angaben</legend>
+            <label for="formOfAddress">Anrede</label>
+            <select id="formOfAddress" name="formOfAddress">
+                <option value="mr">Herr</option>
+                <option value="mrs">Frau</option>
+                <option value="family">Familie</option>
+            </select>
+
+            <label for="firstname">Vorname</label>
+            <input type="text" id="firstname" name="firstname" />
+
+            <label for="lastname">Name*</label>
+            <input type="text" id="lastname" name="lastname" required />
+        </fieldset>
+        <fieldset>
+            <legend>Kontaktinformationen</legend>
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="phone">Telefonnummer</label>
+            <input type="tel" id="phone" name="phone" />
+        </fieldset>
+        <button type="submit">Absenden</button>
+    </form>
+</body>
+
+</html>
