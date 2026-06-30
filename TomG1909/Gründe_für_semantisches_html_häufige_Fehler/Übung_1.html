@@ -1,0 +1,88 @@
+Fehlerliste
+
+1. sollte nur ein h1 tag verwendet werden
+2. In der navigation fehlt ein leerraum zwischen dem a-tag und dem href
+3. Falls header und footer tag innerhalb des article tags nochmal zum Einsatz kommen, sollten sie mit entsprechenden
+aria-labels gekennzeichnet werden z.B. footer-artikel. Korrekterweise wird auf einer Seite footer, header und main nur
+einmal verwendet.
+4. Um Struktur innerhalb des article-tags herzustellen sollte man statt header-tag und footer-tag besser in sections
+unterteilen
+5. Die blockquote tags sollten nicht eingesetzt werden, da es sich hier um kein Zitat handelt
+6. Die Tags im footer innerhalb der article tags gehören stattdessen in eine eigene section
+7. Es fehlen aria-labels und role Attribute vollständig
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Blog Article</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+
+<body>
+    <header role="banner">
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li>
+                    <a href=" /about">About</a>
+                </li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Welcome to My Blog</h1>
+    </header>
+
+    <main>
+        <article>
+            <section aria-label="Exploring the Wonders of Semantic HTML">
+                <h2>Exploring the Wonders of Semantic HTML</h2>
+                <p class="meta">Published on <time datetime="2023-08-16">August 16, 2023</time> by <span
+                        class="author">John Doe</span></p>
+
+
+                <p>Semantic HTML provides a powerful way to structure web content, making it more meaningful and
+                    accessible.</p>
+                <p>When you use semantic elements like &lt;heading&gt;, &lt;navigation&gt;, &lt;content&gt;, and
+                    &lt;end&gt;, you not only improve your site's SEO, but you also enhance its usability for assistive
+                    technologies.</p>
+                <p>For example, the &lt;heading&gt; element is used to mark the beginning of a section, while the
+                    &lt;navigation&gt; element indicates a navigation menu. This helps screen readers and search engines
+                    understand the content's structure.</p>
+
+                <p>By embracing semantic HTML, you create a more inclusive and user-friendly web for everyone.</p>
+
+                <p>Furthermore, semantic HTML improves your site's maintainability and future-proofing. As web standards
+                    change, browsers can better adapt to new technologies and rendering methods when you provide clear
+                    semantic context.</p>
+            </section>
+            <section aria-label="Benefits of Semantic HTML">
+                <h2>Benefits of Semantic HTML:</h2>
+                <ul>
+                    <li>Enhances accessibility</li>
+                    <li>Improves SEO</li>
+                    <li>Facilitates better document structure</li>
+                    <li>Increases maintainability</li>
+                </ul>
+            </section>
+            <section>
+                <p class="tags">Tags:
+                    <a href="/tags/semantic-html">Semantic HTML</a>,
+                    <a href="/tags/accessibility">Accessibility</a>,
+                    <a href="/tags/web-dev">Web Dev</a>
+                </p>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 My Blog. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
