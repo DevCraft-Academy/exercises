@@ -1,0 +1,44 @@
+<!-- # Übung 2
+
+Überschrift von <h4> zu <h1> geändert, damit die Seite eine korrekte Heading-Hierarchie hat.
+„Ingredients“ und „Instructions“ von <span> zu echten Überschriften (<h2>) gemacht, damit Abschnitte semantisch erkennbar sind.
+Zutaten von mehreren <p><span> zu einer <ul> mit <li> umgebaut, weil es eine Liste gleichwertiger Punkte ist.
+Anweisungen als geordnete Liste (<ol>) strukturiert, weil Schritte eine Reihenfolge haben.
+Optional: aria-labelledby genutzt, um Sections/Article für Screenreader eindeutig zu benennen.
+Wrapper .container beibehalten, damit das vorhandene CSS (max-width/zentriert) weiterhin wirkt. -->
+
+<main class="container">
+  <article aria-labelledby="recipe">
+    <h1 id="recipe" class="title">Recipe: Chocolate Brownies</h1>
+    <section aria-labelledby="ingredients" class="ingredients">
+      <h2 id="ingredients" class="section">Ingredients</h2>
+      <ul>
+        <li class="item">2 cups all-purpose flour</li>
+        <li class="item">1 cup sugar</li>
+        <li class="item">1/2 cup cocoa powder</li>
+      </ul>
+    </section>
+    <section aria-labelledby="instructions" class="instructions">
+      <h2 id="instructions" class="section">Instructions</h2>
+      <ol>
+        <li class="step">Preheat the oven to 350°F</li>
+        <li class="step">Mix dry ingredients in a bowl</li>
+      </ol>
+    </section>
+  </article>
+</main>
+
+<style>
+  body, html {
+    font-size: 18px;
+    font-family: Tahoma, sans-serif;
+    background-color: #ece6ff;
+    color: #950fa4;
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,44 @@
+# Übung 2
+<!-- Formularfelder mit Fokus erstellen -->
+<form>
+  <fieldset>
+    <legend>
+      Kontaktaufnahme
+    </legend>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+  
+    <label for="telefon" name="telefon" required>Handynummer</label>
+    <input type="tel" id="telefon">
+  
+    <label for="newsletter">Möchten Sie in unseren Email Newsletter?</label>
+    <select id="newsletter">
+      <option value="yes">Ja</option>
+      <option value="no">Nein</option>
+    </select>
+
+    <button type="submit">Abschicken</button>
+    <button type="reset">Zurücksetzen</button>
+  </fieldset>
+</form>
+
+<style>
+  label {
+    display: block;
+    margin-top: 0.75rem;
+  }
+
+  input, select, button {
+    width: 100%;
+    max-width: 28rem;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  input:focus-visible,
+  select:focus-visible,
+  button:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+  }
+</style>
