@@ -1,0 +1,5 @@
+Internetseite: https://www.ekg-buchenau.de/1/index.html
+
+1. Schriftgröße der Links im Header vergrößert, um sie besser lesbar zu machen.
+2. Letzte Tabellenspalte gelöscht, weil es unnötig viel Platz mit keiner wichtigen Info enhält.
+3. Habe ein h1 eingefügt, die dem Nutzer ermöglicht schneller zu erfassen, worum es auf der Seite geht.
