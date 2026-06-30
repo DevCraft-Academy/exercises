@@ -1,0 +1,100 @@
+https://experiments.withgoogle.com/domino
+
+Warum gefällt mir das Projekt?
+Das Projekt gefällt mir, weil es meine kreative Ader und Experimentierfreudigkeit anspricht.
+
+Welche Browser-APIs wurden, falls vorhanden, verwendet?
+Three.js nutzt WebGL-API
+
+Welche Drittanbieter-Frameworks oder Bibliotheken wurden, falls vorhanden, verwendet?
+Three.js, Tween, Mobile Detect, dat.GUI, three-orbit-controls, Physijs 
+
+Welche Drittanbieter-APIs wurden, falls vorhanden, verwendet?
+--
+
+Wird internes oder externes JavaScript in den Dateien verwendet? Wie werden die Skripte geladen?
+-Es wird internes und externes JS verwendet.
+-Das Google Analytics Skript wird asynchron geladen
+-Das externe Skript /js/bundle.js wird synchron geladen
+
+Wird ein Code-Transpiler verwendet?
+Nein.
+
+Was würdest du ändern, um dieses Experiment noch besser zu machen?
+- Die Bibliotheken auf die neusten Versionen akutalisieren
+- JS-Dateien kürze und damit übersichtlicher halten
+
+---------------------------------------------------------------
+
+https://github.com/jeonghopark/scanseqjs
+
+Warum gefällt mir das Projekt?
+Zeigt etwas, von dem ich nicht wusste, dass es möglich mit JS und dem Browser möglich ist (Inaktioin über Webkamera)
+
+Welche Browser-APIs wurden, falls vorhanden, verwendet?
+
+createCanvas
+-Diese Funktion ist Teil der p5.js-Bibliothek und erstellt ein HTML5-Canvas-Element.
+
+Tone.js-Bibliothek
+verwendet Web Audio API, um Audio-Effekte und Synthesizer zu erstellen und zu steuern
+
+
+Welche Drittanbieter-Frameworks oder Bibliotheken wurden, falls vorhanden, verwendet?
+-Tone.js
+-p5js
+
+Welche Drittanbieter-APIs wurden, falls vorhanden, verwendet?
+-Tone.js
+-cookieinfo.min.js
+-p5.dom.min.js:
+
+Wird internes oder externes JavaScript in den Dateien verwendet? Wie werden die Skripte geladen?
+Externes JavaScript wird durch <script>-Tags mit dem src-Attribut geladen.
+
+Wird ein Code-Transpiler verwendet?
+nein
+
+Was würdest du ändern, um dieses Experiment noch besser zu machen?
+Eine Aufnahmefunktion einbauen
+
+----------------------------------------------------------------------------
+https://github.com/MaxBittker/sandspiel
+
+Warum gefällt mir das Projekt?
+Elemente reakieren alle miteinander.
+
+Welche Browser-APIs wurden, falls vorhanden, verwendet?
+
+React: Arbeitet häufig mit dem Virtual DOM und anderen nativen Browser-APIs.
+Regl: Ist eine WebGL-Bibliothek und verwendet somit die WebGL-API.
+
+
+
+Welche Drittanbieter-Frameworks oder Bibliotheken wurden, falls vorhanden, verwendet?
+React (react, react-dom, react-router-dom, react-firebaseui, react-youtube)
+Regl (WebGL-Bibliothek)
+Firebase (firebase, firebase-admin, firebase-tools)
+Dat.GUI (dat.gui)
+Sentry (@sentry/browser, @sentry/react, @sentry/wasm, @sentry/tracing)
+Webpack (webpack, webpack-cli, webpack-dev-server)
+Babel (@babel/core, babel-loader, @babel/preset-env, @babel/preset-react, etc.)
+Weitere: classnames, gh-pages, glslify, style-loader, css-loader, workbox-webpack-plugin
+
+Welche Drittanbieter-APIs wurden, falls vorhanden, verwendet?
+React 
+Regl 
+Firebase
+Dat.GUI
+Sentry 
+Babel 
+Weitere: classnames, gh-pages, glslify, style-loader, css-loader, workbox-webpack-plugin
+
+Wird internes oder externes JavaScript in den Dateien verwendet? Wie werden die Skripte geladen?
+
+
+Wird ein Code-Transpiler verwendet?
+Ja, Babel:
+
+Was würdest du ändern, um dieses Experiment noch besser zu machen?
+Neueste Versionen von React, Webpack etc.
