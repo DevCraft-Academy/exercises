@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Übung Formular - DOM Events erkunden</title>
+</head>
+<body>
+    <header>
+        <h1>Register at our website</h1>
+    </header>
+    <form id="registerForm">
+        <!-- not empty realisiert durch required -->
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Please enter username" required>
+        <!-- E-Mail Validierung realisiert durch native Browserfunktion bei Type E-Mail -->
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" placeholder="Please enter e-mail" required />
+        <label for="pwd">Password</label>
+        <input type="password" id="pwd" placeholder="Please enter password" required>
+        <label for="confirmpwd">Confirm Password</label>
+        <input type="password" id="confirmpwd" placeholder="Please confirm password" required>
+        <div id="error" class="hidden"></div>
+        <div id="success" class="hidden">Registration successful!</div>
+        <button type="submit" value="register">Register</button>
+    </form>
+    <output id="output"></output>
+    <script src="validate_form.js"></script>
+</body>
+</html>
