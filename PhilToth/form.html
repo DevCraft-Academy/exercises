@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>XSS Simulation und Verhinderung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+        }
+
+        section {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .output {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border: 1px dashed #666;
+        }
+
+        .error {
+            color: red;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>XSS – Simulation und Verhinderung</h1>
+
+    <!-- ===================== -->
+    <!-- 1. UNSICHERE VERSION -->
+    <!-- ===================== -->
+    <section>
+        <h2>1. Unsichere Version (XSS anfällig)</h2>
+        <p>
+            Diese Version gibt die Benutzereingabe direkt mit <code>innerHTML</code> aus.
+            <br />Teste hier: <code>&lt;script&gt;alert('XSS');&lt;/script&gt;</code>
+        </p>
+
+        <input type="text" id="unsafeInput" placeholder="Text eingeben" />
+        <button onclick="showUnsafe()">Absenden</button>
+
+        <div id="unsafeOutput" class="output"></div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 2. SICHERE VERSION -->
+    <!-- ===================== -->
+    <section>
+        <h2>2. Sichere Version (Bereinigung + Validierung)</h2>
+        <p>
+            Diese Version:
+        <ul>
+            <li>bereinigt die Ausgabe (HTML-Escaping)</li>
+            <li>validiert die Eingabe und blockiert gefährliche Zeichen</li>
+        </ul>
+        </p>
+
+        <input type="text" id="safeInput" placeholder="Text eingeben" />
+        <button onclick="showSafe()">Absenden</button>
+
+        <div id="safeError" class="error"></div>
+        <div id="safeOutput" class="output"></div>
+    </section>
+
+    <script>
+        // =========================
+        // UNSICHERE VERARBEITUNG
+        // <img src=x onerror="alert('XSS via onerror!')"> seems to trigger 100%
+        // script tags plus alert('XSS') do not trigger ??? Or it depends on the browser? Maybe it got fixed?;
+        // =========================
+        function showUnsafe() {
+            const input = document.getElementById('unsafeInput').value;
+            // XSS-anfällig: direkte HTML-Ausgabe
+            document.getElementById('unsafeOutput').innerHTML = input;
+        }
+        // =========================
+        // SICHERE VERARBEITUNG
+        // =========================
+
+        // 1. Bereinigung (Escaping)
+        function escapeHTML(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        // 2. Validierung
+        function containsDangerousChars(str) {
+            // verbietet <, >, script
+            const pattern = /<\s*script\b[^>]*>(.*?)<\s*\/\s*script\s*>/i;
+            return pattern.test(str);
+        }
+
+        function showSafe() {
+            const input = document.getElementById('safeInput').value;
+            const errorDiv = document.getElementById('safeError');
+            const outputDiv = document.getElementById('safeOutput');
+
+            errorDiv.textContent = '';
+            outputDiv.textContent = '';
+
+            // Validierung
+            if (containsDangerousChars(input)) {
+                errorDiv.textContent = 'Fehler: Die Eingabe enthält gefährliche Zeichen oder Begriffe!';
+                return;
+            }
+
+            // Bereinigte Ausgabe
+            const safeText = escapeHTML(input);
+            console.log(safeText);
+            outputDiv.innerHTML = safeText;
+        }
+    </script>
+
+</body>
+
+</html>
