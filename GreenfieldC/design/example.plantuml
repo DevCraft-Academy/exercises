@@ -1,0 +1,63 @@
+# Übung: UML-Diagramme für ein Online-Bestellsystem
+
+## Teil 1: Klassendiagramm
+
+```plantuml
+@startuml
+class Kunde {
+  - name: String
+  - adresse: String
+  + bestellungAufgeben()
+}
+
+class Bestellung {
+  - datum: Date
+  - status: String
+  + artikelHinzufuegen(a: Artikel)
+  + bezahlen(z: Zahlung)
+}
+
+class Artikel {
+  - name: String
+  - preis: Double
+}
+
+class Zahlung {
+  - betrag: Double
+  - zahlungsart: String
+  + ausfuehren()
+}
+
+Kunde "1" -- "0..*" Bestellung : gibt auf
+Bestellung "1" -- "1..*" Artikel : enthält
+Bestellung "1" -- "1" Zahlung : wird bezahlt mit
+@enduml
+```
+
+## Teil 2: Zustandsdiagramm Bestellung
+
+```plantuml
+@startuml
+[*] --> Erstellt
+Erstellt --> Bestätigt : Bestellung bestätigen
+Bestätigt --> In_Zubereitung : Zubereitung starten
+In_Zubereitung --> Fertig_zur_Lieferung : Zubereitung abgeschlossen
+Fertig_zur_Lieferung --> Geliefert : Lieferung abgeschlossen
+@enduml
+```
+
+## Teil 3: Sequenzdiagramm Bestellung
+
+```plantuml
+@startuml
+actor Kunde
+participant "Bestellsystem" as System
+participant Küche
+
+Kunde -> System : Bestellung aufgeben()
+System -> System : Bestellung prüfen
+System -> Küche : Bestellung weiterleiten
+Küche -> System : Bestellung bestätigt
+System -> Kunde : Bestellbestätigung senden
+@enduml
+```

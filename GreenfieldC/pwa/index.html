@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA Demo App</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>PWA Demo App</h1>
+        <nav>
+            <a href="#" id="nav-home">Home</a>
+            <a href="#" id="nav-data">Daten</a>
+        </nav>
+    </header>
+    <main id="app-main">
+        <section id="content">
+            <p>Lade Inhalte...</p>
+        </section>
+        <section id="form-section">
+            <h2>Neuen Eintrag hinzufügen</h2>
+            <form id="data-form">
+                <input type="text" id="input-data" placeholder="Dein Text" required>
+                <button type="submit">Absenden</button>
+            </form>
+            <div id="form-status"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service-worker.js');
+        });
+      }
+    </script>
+</body>
+</html>
