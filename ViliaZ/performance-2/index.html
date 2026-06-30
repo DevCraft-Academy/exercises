@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fox24.de</title>
+    <script>
+        let cache = new Map();
+        async function init() {
+            try {
+                let url = `https://randomfox.ca/floof/`;
+                const { storedCacheData, isValid } = getCachedData(url);
+                if (!storedCacheData || !isValid) {
+                    let res = await fetch(url);
+                    let dataJson = await res.json();
+                    storeDataInCache(url, dataJson);
+                    renderInfo(dataJson, false);
+                } else {
+                    renderInfo(storedCacheData, true);
+                }
+            } catch (e) {
+                console.log('error on API request', e);
+                renderErrorMessage()
+            }
+        }
+
+        function storeDataInCache(url, data) {
+            data.savedAt = Date.now()
+            cache.set(url, data);
+        }
+
+        function getCachedData(url) {
+            const cachedData = cache.get(url)
+            let isValid = false;
+            if (cachedData) {
+             isValid = (Date.now() -cachedData.savedAt > 3000) ? false : true
+            }
+            return { cachedData, isValid }
+        }
+
+        function renderInfo(dataToRender, isCachedData) {
+            let imgEl = document.querySelector('.main img');
+            if (imgEl) {
+                imgEl.setAttribute('src', dataToRender.image);
+            }
+
+            let infoField = document.querySelector('#cacheInfo');
+            if (infoField) {
+                infoField.innerText = isCachedData ? "CACHE" : "SERVER";
+            }
+
+            let dataInfo = document.querySelector('#cacheData');
+            if (dataInfo) {
+                dataInfo.innerText = JSON.stringify(dataToRender)
+            }
+        }
+
+        function renderErrorMessage(){
+            let dataInfo = document.querySelector('#cacheData');
+            if (dataInfo) {
+                dataInfo.innerText = "Sorry, no data found. Please try again later and refresh the page."
+            }
+        }
+
+    </script>
+
+</head>
+
+<body onload="init()">
+    <section class="main">
+        <img alt="foximage" src="https://placehold.co/600x400">
+        <button onclick="init()">Get new Image</button>
+        <div>Data retrieved from: <span id="cacheInfo"></span></div>
+        <div>Data:
+            <pre id="cacheData"></pre>
+        </div>
+
+    </section>
+    <style>
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            min-width: 600px;
+            width: 50%;
+            margin: auto;
+            margin-top: 34px;
+        }
+
+        .main img {
+            max-height: 60vh;
+        }
+
+        button {
+            border: 0.2px solid white;
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: darkgrey;
+            color: white
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</body>
+
+</html>
