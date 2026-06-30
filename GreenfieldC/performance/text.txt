@@ -1,0 +1,4 @@
+Ich habe große Bilder eingebunden,
+um Performanceprobleme zu versachen.
+
+Dadurch ist das Ergebnis der Leistung der Seite deutlich abgesunken.
