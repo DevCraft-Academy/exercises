@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap");
+
+$yellow: #fdd835;
+$blue: #1976d2;
+$pink: #f06292;
+$gray: #eeeeee;
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background: $gray;
+  color: #222;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Fredoka One", cursive;
+  letter-spacing: 1px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nav main"
+    "sidebar main"
+    "characters characters"
+    "footer footer";
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.header {
+  grid-area: header;
+  background: $yellow;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav {
+  grid-area: nav;
+  background: white;
+  padding: 1rem;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li a {
+      display: block;
+      padding: 0.5rem;
+      color: $blue;
+      text-decoration: none;
+
+      &:hover {
+        background: $yellow;
+        color: black;
+        transform: scale(1.05);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+}
+
+.main {
+  grid-area: main;
+  background: white;
+  padding: 1rem;
+
+  h2 {
+    font-size: 2rem;
+    color: $pink;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+.characters {
+  grid-area: characters;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    color: $blue;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+  }
+
+  .character {
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+
+    img {
+      width: auto;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px solid $yellow;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      font-family: "Fredoka One", cursive;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+
+      img {
+        transform: rotate(-3deg) scale(1.1);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: white;
+  padding: 1rem;
+
+  .fact::before {
+    content: "💡 ";
+    font-size: 1.2rem;
+  }
+
+  .fact:hover {
+    color: $pink;
+    transform: rotate(-1deg) scale(1.02);
+    transition: all 0.2s ease;
+  }
+}
+
+.footer {
+  grid-area: footer;
+  background: $yellow;
+  padding: 1rem;
+  text-align: center;
+}
