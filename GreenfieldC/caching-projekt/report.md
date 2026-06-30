@@ -1,0 +1,11 @@
+- Zwei Caching-Strategien: 
+  - "Cache für 5 Minuten": Daten werden für 5 Minuten im localStorage gehalten, danach neu geladen.
+  - "Immer aus Cache": Daten werden immer aus dem Cache geladen, wenn vorhanden.
+- Visueller Indikator zeigt an, wenn Daten aus dem Cache stammen.
+- Fehlerbehandlung:
+  - Bei Netzwerkfehlern werden, falls vorhanden, gecachte Daten angezeigt.
+  - Falls keine Daten im Cache sind, wird eine Fehlermeldung angezeigt.
+- Herausforderungen:
+  - Unterscheidung, wann Daten aus Cache oder aus Netzwerk kommen.
+  - Benutzerfreundliche Anzeige bei Fehlern und Cache-Nutzung.
+  - Umgang mit fehlenden oder ungültigen Cache-Daten.

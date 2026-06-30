@@ -1,0 +1,39 @@
+@startuml
+
+abstract class Component {
+    - type: string
+    - name: string
+    - specs: object
+    + getDescription(): string
+}
+
+class CPU {
+    + constructor(name, cores, frequency)
+}
+
+class GPU {
+    + constructor(name, memory)
+}
+
+class RAM {
+    + constructor(name, size, type)
+}
+
+class Storage {
+    + constructor(name, capacity, storageType)
+}
+
+class PCConfiguration {
+    - components: object
+    + addComponent(component: Component)
+    + getConfiguration(): string
+}
+
+Component <|-- CPU
+Component <|-- GPU
+Component <|-- RAM
+Component <|-- Storage
+
+PCConfiguration "1" o-- "*" Component
+
+@enduml

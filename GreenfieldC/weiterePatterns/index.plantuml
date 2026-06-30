@@ -1,0 +1,26 @@
+@startuml
+abstract class Beverage {
+    +getDescription(): String
+    +cost(): Number
+}
+
+class Coffee
+class Tea
+
+abstract class IngredientDecorator extends Beverage
+
+class Milk
+class Sugar
+class ChocolateSyrup
+class Lemon
+
+Beverage <|-- Coffee
+Beverage <|-- Tea
+Beverage <|-- IngredientDecorator
+IngredientDecorator <|-- Milk
+IngredientDecorator <|-- Sugar
+IngredientDecorator <|-- ChocolateSyrup
+IngredientDecorator <|-- Lemon
+
+IngredientDecorator o-- Beverage : wraps
+@enduml
