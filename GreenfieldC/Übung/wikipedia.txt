@@ -1,0 +1,21 @@
+Welche Ressource wurde als Erstes geladen? Warum?
+
+Zuerst wurde das html-Grundgerüst geladen.
+Das ist sinnvoll, weil das das Rückgrad der Seite ist.
+
+
+
+
+In welcher Reihenfolge werden die verschiedenen Ressourcentypen (z.B. Dokument, Stylesheet, Skript, Bild) geladen?
+
+Dokument (HTMKL)
+Stylesheet
+Bilder
+Skripte
+Favicon
+
+
+Wie beeinflusst die Position eines Elements im HTML die Ladereihenfolge?
+
+Die Daten im head werden zuerst geladen, nach dem Dokument (HTML)
+JS am Ende des Bodies erlaubt es dem Browser zunächst den HTML-INhalt zu laden und zu rendern.
