@@ -1,0 +1,12 @@
+body, html {
+    font-size: 18px;
+    font-family: Tahoma, sans-serif;
+    background-color: #ece6ff;
+    color: #950fa4;
+  }
+  
+  .container {
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: center;
+  }
