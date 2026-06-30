@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Köstliche Desserts Galerie</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      figure {
+        margin: 20px;
+        display: inline-block;
+        text-align: center;
+      }
+      img {
+        max-width: 300px;
+        height: auto;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Köstliche Desserts Galerie</h1>
+
+    <figure>
+      <img
+        src="schokoladenkuchen.jpg"
+        alt="Saftiger Schokoladenkuchen mit Schokoladenglasur und frischen Beeren"
+      />
+      <figcaption>
+        Ein klassischer Schokoladenkuchen, perfekt für Geburtstagsfeiern und
+        besondere Anlässe.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="obsttoertchen.jpg"
+        alt="Bunte Obsttörtchen mit Erdbeeren, Heidelbeeren und Kiwi"
+      />
+      <figcaption>
+        Frische Obsttörtchen, die mit saisonalen Früchten belegt sind, ideal für
+        den Sommer.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="tiramisu.jpg"
+        alt="Traditionelles Tiramisu mit Kaffeegeschmack und Mascarpone-Creme"
+      />
+      <figcaption>
+        Ein köstliches Tiramisu, das mit einer Schicht Kakaopulver verfeinert
+        ist.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="pavlova.jpg"
+        alt="Pavlova mit einer knusprigen Baiserschicht und frischen Früchten"
+      />
+      <figcaption>
+        Eine luftige Pavlova, die mit Sahne und frischen Beeren serviert wird.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img src="cheesecake.jpg" alt="Cremiger Käsekuchen mit Erdbeersauce" />
+      <figcaption>
+        Ein klassischer Käsekuchen, der mit einer fruchtigen Erdbeersauce
+        garniert ist.
+      </figcaption>
+    </figure>
+  </body>
+</html>
