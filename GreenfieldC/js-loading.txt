@@ -1,0 +1,9 @@
+Einordnung der Ladestrategie
+
+Das Skript script1.js ist im head-Tag eingebettet und wird so geladen und ausgeführt,
+dass es beim Rendern der Seite blockierend wirkt.
+In unserem Fall wirkt es noch nicht spürbar zu Verzögerungen für den Nutzer,
+aber bei einer größeren Datei, kann das zu einem Problem werden.
+
+Lösung: Ergänzung des defer Attributs. Dadurch wird das Skript geladen, wird aber erst ausgeführt, wenn die Seite vollständig gerendert wurde.
+
