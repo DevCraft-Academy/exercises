@@ -1,0 +1,7 @@
+# UE1 - JavaScript-Ladeprobleme beheben
+
+1. The 'script1' and the inline script are both included in the `<head>` so they will block the render of the page until they are executed. Also, the inline script being defined 'inline' means that it could not be cached by the browser.
+
+2. Using both `async` and `defer` at least in testing lead to the same result, with the 'script1' console being executed last, but this is probably because the page is so small that it loads pretty fast. There is no sense in using either attribute on 'script2' as it is linked at the end of the page anyway. If we do give it an `async` on it, it does end up being executed after script1 probably because the loading time of them then become pretty comparable.
+
+3. 'script1' should use a `defer` as it does not affect any DOM element and it is not needed before the page has loaded. Alternatively, it can be placed at the end of the `<body>` together with the other script. 'script2' can stay as it is, it's not blocking the render. The 'inline script' should be put in it's own .js file and get linked. 'script3' does not have any influence on the user experience, as it is only loaded when the button gets clicked. If this script would have more logic in it, it would maybe make sense to also have it load in the `<body>` tag, so the clicking of the button does not have to wait on the loading of the js file, but in it's current content that is not relevant.
