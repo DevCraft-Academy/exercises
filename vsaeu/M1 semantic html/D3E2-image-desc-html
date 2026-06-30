@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bildergalerie</title>
+  </head>
+  <body>
+    <h1>Köstliche Desserts Galerie</h1>
+    <figure> // Gruppiert img und figcaption
+        <img src="schokoladenkuchen.jpg" alt="Schokoladenkuchen" /> // alt für a11y und SEO. Kurze prägnante Beschreibung für Suchmaschine und Screenreader
+        <img src="fruchttorte.jpg" alt="Fruchttorte" />
+        <img src="kaesekuchen.jpg" alt="Käsekuchen" />
+        <figcaption>Sehen Sie sich unsere köstlichen, hasueigenen Desserts an</figcaption> // Bildunterschrift: kann ausführlicher als alt sein. mehr beschreibung
+    </figure>
+    <!-- Alternativ: figure úm jedes img mit eigener figcaption- je nach Wunsch/Zieldesign -->
+  </body>
+</html>
