@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="script.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required />
+        <p id="usernameError" class="error"></p>
+        <label for="email">E-Mail:</label>
+        <input type="email" name="email" required />
+        <p id="emailError" class="error"></p>
+        <p><label for="message">Nachricht:</label></p>
+        <textarea name="message" rows="4" cols="50"></textarea>
+
+        <p><button type="submit">Abschicken</button></p>
+    </form>
+</body>
+
+</html>
