@@ -49,7 +49,7 @@ app.post("/book", (req, res) => {
         author: req.body.author,
     };
     books.push(newBook);
-    res.send(newBook);
+    return res.status(201).json(newBook);
 });
 
 // Route, um alle Bücher abzurufen
