@@ -1,46 +1,46 @@
-Receipe {
-    id: UUID                    //primaryKey
+Recipe {
+    id: UUID                        //primaryKey
     name: string
     description: string
-    manual: string              // ** weitere Tabelle -ausgelassen- **
-    creator: creator            // 1 : 1 //foreignKey
-    incredients: incredient     // Many : 1 //foreignKey
-    reviews: review             // Many : 1 //foreignKey
+    manual: string                  // ** weitere Tabelle -ausgelassen- **
+    creator: creator                // 1 : 1 //foreignKey
+    ingredientsId: ingredient.id    // 1 : M //foreignKey
+    reviewId: review.id             // 1 : M //foreignKey
 }
 
-Incredient {
-    id: UUID                    //primaryKey
+Ingredient {
+    id: UUID                        //primaryKey
     name: string
     amount: float
     unit: string
 }
 
 Review {
-    id: UUID                    //primaryKey
+    id: UUID                        //primaryKey
     text: string
-    rating: number              //** 5-Star-Rating **
-    user: user                  // Many : 1 //foreignKey       
+    rating: number                  //** 5-Star-Rating **
+    userId: user.id                 // 1 : 1 //foreignKey       
     dateOfRating: new Date
 }
 
 Creator {
-    id: UUID                    //primaryKey
-    user: user                  // 1 : 1 //foreignKey
+    id: UUID                        //primaryKey
+    userId: user.id                 // 1 : 1 //foreignKey
 }
 
 User {
-    id: UUID                    //primaryKey
+    id: UUID                        //primaryKey
     firstname: string
     lastname: string
     username: string
-    password: OAuth             //** OAuth???? **
-    adress: adress              // 1 : 1 //foreignKey
+    password: OAuth                 //** OAuth???? **
+    adress: adress                  // 1 : 1 //foreignKey
 }
 
 Adress {
-    id: UUID                    //primaryKey
+    id: UUID                        //primaryKey
     country: string
-    zipcode: string             //** da nicht in jedem land nur zahlen**
+    zipcode: string                 //** da nicht in jedem land nur zahlen**
     street: string
     no: string
     state?: string
