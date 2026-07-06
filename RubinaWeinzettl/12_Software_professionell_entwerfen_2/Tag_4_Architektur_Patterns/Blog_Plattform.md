@@ -1,0 +1,84 @@
+Übungen "Software professionell entwerfen 2" - Tag 4
+Architektur Patterns
+
+Allgemeines:
+Das Thema ist eine Blog-Plattform die nach dem MVC-Archtitekturpattern aufgebaut ist.
+
+
+1. Model
+SQL-Datenbank (Beziehung siehe Entity Relationship Model)
+- Tabelle Users - enthält Informationen über den User
+  UserID (PK)
+  Username (Varchar)
+  FName (Varchar)
+  Name (Varchar)
+  PermissionID (FK)
+- Tabelle Permissions - enthält Informationen, welche Arten von Berechtigungen es gibt und was man damit machen darf
+  PermissionID (PK)
+  Description (Varchar)
+- Tabelle UserPermissions - enthält die Information, welcher User über welche Berechtigung verfügt - also was er im System machen darf
+  UserID (FK)
+  PermissionID (FK)
+- Articles
+  ArticleID (PK)
+  UserID (PK,FK)
+  CreationDate (Datetime)
+  Title (Varchar)
+  Content (Longtext)
+  ApprovementStatus (Tinyint) - Flag ob ein Artikel abgelehnt wurde, Korrekturen verlangt werden oder freigeschalten ist
+  isPublished (Boolean)
+- Comments
+  Comment_ID (PK)
+  Article_ID (PK, FK)
+  User_ID (PK, FK)
+  Content (Longtext)
+  isApproved (Boolean)
+
+2. View
+   - Login-Seite
+   - Benutzer-Registrierung-Seite
+   - Startseite:
+        - Liste mit der Vorschau der letzten 5 Artikel und einem Link zum gesamten Artikel
+        - Paging, mit dem man zu den älteren Artikeln navigieren kann
+        - Suchfeld
+        - Navigationmenü mit
+             - Profil-Übersicht
+             - Kontoeinstellungen
+             - Artikel schreiben und bearbeiten
+   Artikel-Lese-Detailansicht:
+        - Ansicht des gesamten Textes und aller Bilder
+        - unten ein Formular, mit dem eingeloggte User Kommentare hinzufügen können
+   Profilübersicht:
+        Hier wird der Benutzername, alle persönlichen Daten und die Berechtigung angezeigt, die der User hat und kann sie auch bearbeiten
+   Kontoeinstellungen:
+        Hier kann der User Anzeigeeinstellungen vornehmen
+   Artikel schreiben und bearbeiten:
+        - Listenansicht der bisher geschriebenen Artikel und ein Button, der zur Bearbeitungsansicht führt
+        - weiterer Button zur Neuerstellung eines Artikels
+   Artikel-Schreibe-Detailsansicht:
+        - Neuerstellungsmodus: eine leere Artikelbearbeitungsseite wird aufgerufen
+        - Bearbeitungsmodus: Die gleiche Bearbeitungsansicht wird mit dem Content des gewählten Artikels angezeigt
+
+3. Controller
+   - Usermanagement-Controller
+     - register()
+     - login ()
+     - logout ()
+     - hasPermission() - regelt anhand der Permissions eines Users, welche Komponenten angezeigt werden
+     - approveArticle()
+     - approveComment()
+   - Article-Controller
+     - addArticle() - Artikel hinzufügen, ist noch im Entwurfsmodus
+     - setArticleStatus() - damit kann man Freigabe eines Artikels zur Publikation beantragen oder den Artikel auf Entwurf zurücksetzen
+     - editArticle()
+     - listArticles() - Funktion für die eigenen Artikel im Userinterface
+     - getArticles() - Funktion zur Anzeige aller Artikel auf der Startseite inkl. zugehöriger Kommentare
+     - searchArticles()
+     - filterArticles ()
+   - Comment-Controller
+     - addComment - Freigabe wird gleich nach Abschicken erfragt
+     - editComment - erfordert neuerliche Freigabe durch Admin
+   - Notification-Controller
+    - sendNoticfication() - sendet Notification an Admins, wenn ein Kommentar bestätigt oder ein Artikel zur bereit zur Freigabe gesetzt wird
+  
+   
