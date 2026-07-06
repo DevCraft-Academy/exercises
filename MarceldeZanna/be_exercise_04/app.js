@@ -28,7 +28,7 @@ app.delete('/book/:id', (req, res) => {
     const book = books.find(b => b.id === id)
     if (!book) return res.status(404).send('Buch nicht gefunden')
     books = books.filter(b => b.id !== id)
-    res.json(book)
+    return res.status(201).send('Buch erfolgreich entfernt');
 })
 
 // Post-Route zum Hinzufügen eines Buches

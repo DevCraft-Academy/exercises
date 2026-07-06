@@ -68,19 +68,18 @@ describe('DELETE /book/:id'), () => {
     const newBook = {
       title: 'Der Test',
       author: 'Testi der Tester',
-      id: '100000'
     };
 
-    const response = await request(app)
+    const postResponse = await request(app)
       .post('/book')
       .send(newBook)
       .expect(201)
       .expect('Content-Type', /json/);
 
-    const response = await request(app)
-      .delete('/book/100000')
+    const deleteResponse = await request(app)
+      .delete(`/book/${postResponse.body.id}`)
       .expect(201);
 
-    expect(response.text).toBe('Buch erfolgreich entfernt');
+    expect(deleteResponse.text).toBe('Buch erfolgreich entfernt');
   })
 }
