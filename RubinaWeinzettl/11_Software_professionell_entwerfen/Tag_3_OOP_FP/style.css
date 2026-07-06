@@ -1,0 +1,19 @@
+body { 
+    font-family: sans-serif; 
+    padding: 2rem; 
+}
+
+.task { 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    padding: 1rem; 
+    margin-bottom: 1rem; 
+}
+
+.completed { 
+    background-color: #d4edda; 
+}
+
+button { 
+    margin-left: 0.5rem; 
+}
