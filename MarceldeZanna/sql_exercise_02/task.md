@@ -4,7 +4,6 @@ Recipe {
     description: string
     manual: string                  // ** weitere Tabelle -ausgelassen- **
     creator: creator                // 1 : 1 //foreignKey
-    ingredientsId: ingredient.id    // 1 : M //foreignKey
     reviewId: review.id             // 1 : M //foreignKey
 }
 
@@ -13,6 +12,7 @@ Ingredient {
     name: string
     amount: float
     unit: string
+    recipeId: recipe.id             // 1 : M //foreignKey
 }
 
 Review {
@@ -21,6 +21,7 @@ Review {
     rating: number                  //** 5-Star-Rating **
     userId: user.id                 // 1 : 1 //foreignKey       
     dateOfRating: new Date
+    recipeId: recipe.id.            // 1 : 1 //foreignKey
 }
 
 Creator {

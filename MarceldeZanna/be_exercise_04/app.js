@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.get("/book/:id", (req, res) => {
     const book = books.find((b) => b.id === parseInt(req.params.id));
     if (!book) {
-        res.status(404).send("Buch nicht gefunden");
+        return res.status(404).send("Buch nicht gefunden");
     }
     res.json(book);
 });

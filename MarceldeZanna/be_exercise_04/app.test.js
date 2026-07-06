@@ -17,7 +17,6 @@ describe('GET /books', () => {
       author: 'George Orwell'
     });
   });
-
 });
 
 describe('GET /book/:id', () => {
@@ -42,3 +41,46 @@ describe('GET /book/:id', () => {
     expect(response.text).toBe('Buch nicht gefunden');
   });
 });
+
+describe('POST /book', () => {
+  it('sollte ein neues Buch anlegen und es zurückgeben', async () => {
+    const newBook = {
+      title: 'Der kleine Prinz',
+      author: 'Antoine de Saint-Exupéry'
+    };
+
+    const response = await request(app)
+      .post('/book')
+      .send(newBook)
+      .expect(201)
+      .expect('Content-Type', /json/);
+
+    expect(response.body).toMatchObject({
+      title: 'Der kleine Prinz',
+      author: 'Antoine de Saint-Exupéry'
+    });
+    expect(response.body).toHaveProperty('id');
+  });
+});
+
+describe('DELETE /book/:id'), () => {
+  it('sollte prüfen ob Bücher vorhanden sind und das erste Element entfernen', async () => {
+    const newBook = {
+      title: 'Der Test',
+      author: 'Testi der Tester',
+      id: '100000'
+    };
+
+    const response = await request(app)
+      .post('/book')
+      .send(newBook)
+      .expect(201)
+      .expect('Content-Type', /json/);
+
+    const response = await request(app)
+      .delete('/book/100000')
+      .expect(201);
+
+    expect(response.text).toBe('Buch erfolgreich entfernt');
+  })
+}
