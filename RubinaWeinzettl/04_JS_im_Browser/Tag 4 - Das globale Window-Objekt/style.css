@@ -1,0 +1,68 @@
+body {
+    width: 50%;
+    margin: auto;
+}
+
+h1 {
+    font-family: Verdana, sans-serif;
+}
+
+input {
+  width: 100%;
+  font-family: Verdana, sans-serif;
+  border-style: solid;
+  border-color: grey;
+  border-width: 0.5px;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+textarea {
+  width: 100%;
+  font-family: Verdana, sans-serif;
+  border-style: solid;
+  border-color: grey;
+  border-width: 0.5px;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+label {
+    font-family: Verdana, sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+button {
+    margin-top: 1.5em;
+    font-family: Verdana, sans-serif;
+    color: white;
+    background-color: green;
+    border-style: solid;
+    border-color: lightgrey;
+    border-width: 0.5px;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+#errorName, #errorMail, #errorMessage {
+    margin-top: 1.5em;
+    color: red;
+}
+
+#success {
+    margin-top: 1.5em;
+    color: green;
+}
