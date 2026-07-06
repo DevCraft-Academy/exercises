@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--lang attribute added -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Stylesheet for custom styles -->
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Spezialkonzepte für CSS</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class ="row mb-5">
+            <div class="col-12 mb-5 px-0">
+                <header>
+                    <!--Desktop Navbar-->
+                    <div class="d-none d-lg-block">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top p-4 float-end" role="navigation">
+                            <div class="container-fluid">
+                                 <span class="navbar-brand">
+                                    <img src="assets/logo.svg">
+                                </span>
+                                <h1 class="text-dark">Awesome Company </h1>
+                                <ul class="navbar-nav ">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">About Awesomeness</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Awesome Services</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Contact with Awesome People</a>
+                                    </li>    
+                                </ul>
+                            </div>    
+                        </nav>
+                    </div>
+                    <!--Mobile Navbar-->
+                    <div class="d-lg-none d-md-block d-sm-block d-xs-block">  
+                        <div class="collapse multi-collapse" id="nav-mobile">
+                            <ul class="navbar-nav navbar-light bg-light">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About Awesomeness</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Awesome Services</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contact with Awesome People</a>
+                                </li>    
+                            </ul>
+                        </div>  
+                        <nav class="navbar navbar-light bg-light">
+                            <div class="container-fluid">
+                                <span class="navbar-brand">
+                                    <img src="assets/logo.svg">
+                                </span>
+                                <h1 class="text-dark small">Awesome Company </h1>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-mobile" aria-controls="nav-mobile" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            </div>    
+                        </nav>
+                    </div>    
+                </header>
+            </div>
+        </div>
+        <div class="container">    
+            <div class="row mt-5">
+                <div class="col-12 mt-5">
+                    <main>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="col-xxl-3 col-lg-3 col-md-3 float-end">
+                                    <aside class="sidebar card">
+                                        <div class="card-body">
+                                            <h2>Seitenleiste</h2>
+                                            <p>Einige Inhalte für die Seitenleiste.</p>
+                                            <ul>
+                                                <li><i class="fa fa-car"></i> &nbspAwesome Car</li>
+                                                <li><i class="fa fa-book"></i> Awesome Book</li>
+                                                <li><i class="fa fa-image"></i> Awesome Image</li>
+                                            </ul>
+                                        </div>    
+                                    </aside>
+                                </div>    
+                                <div class="col-xxl- 9 col-lg-9 col-md-9 col-sm-12 col-xs-12 float-start">
+                                    <div class="row">
+                                        <section>
+                                            <h2>About the company</h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla justo ut ipsum iaculis, nec cursus arcu efficitur.</p>
+                                        </section>
+                                    </div>
+                                </div>                           
+                                <div class="col-xxl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12 float-start">
+                                    <div class="row">
+                                        <section>
+                                            <h2>About Us</h2>
+                                            <p>We are a team of passionate individuals dedicated to delivering high-quality web solutions to our clients.</p>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>    
+                    </main>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-light light bg-light d-flex justify-content-center fixed-bottom mb-0 pb-0">         
+                    <footer>
+                        <p>&copy; 2023 Your Company</p>
+                    </footer>
+                </div>    
+            </div>   
+        </div>    
+    </div>        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
