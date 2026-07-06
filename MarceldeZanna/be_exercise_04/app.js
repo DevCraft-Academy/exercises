@@ -7,13 +7,6 @@ const port = 3000;
 // Eine einfache In-Memory-Buch-Datenbank
 let books = [
     { id: 1, title: "1984", author: "George Orwell" },
-    { id: 2, title: "Brave New World", author: "Aldous Huxley" },
-    { id: 3, title: "Brave New World", author: "Aldous Huxley" },
-    { id: 4, title: "Brave New World", author: "Aldous Huxley" },
-    { id: 5, title: "Brave New World", author: "Aldous Huxley" },
-    { id: 6, title: "Brave New World", author: "Aldous Huxley" },
-    { id: 7, title: "Brave New World", author: "Aldous Huxley" },
-    { id: 8, title: "Brave New World", author: "Aldous Huxley" },
 ];
 
 let nextId = 2;
