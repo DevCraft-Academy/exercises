@@ -61,9 +61,16 @@ describe('POST /book', () => {
     });
     expect(response.body).toHaveProperty('id');
   });
+
+  it('sollte 400 melden, wenn Titel fehlt', async() => {
+    await request(app)
+      .post('/book')
+      .send({author: 'Author'})
+      .expect(400);
+  })
 });
 
-describe('DELETE /book/:id'), () => {
+describe('DELETE /book/:id', () => {
   it('sollte prüfen ob Bücher vorhanden sind und das erste Element entfernen', async () => {
     const newBook = {
       title: 'Der Test',
@@ -82,4 +89,4 @@ describe('DELETE /book/:id'), () => {
 
     expect(deleteResponse.text).toBe('Buch erfolgreich entfernt');
   })
-}
+})
