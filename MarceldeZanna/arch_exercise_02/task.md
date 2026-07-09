@@ -11,9 +11,9 @@ Befehl: rsync -a /important-data/ /backup-folder/
 2. Log-Rotation:
 Aufgabe: Rotiere Log-Dateien jeden Sonntag um Mitternacht, um zu verhindern, dass sie zu groß werden. Deine Logs befinden sich in /var/log/myapp/.
 
-Cron-Expression: 0 0 * * 7
+Cron-Expression: 0 0 * * 0
 
-Befehl: logscript /var/log/myapp/logfile
+Befehl: logrotate /etc/logrotate.d/myapp /var/log/myapp/logfile
 
 
 3. Geplante Benachrichtigungen:
