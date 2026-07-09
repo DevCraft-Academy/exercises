@@ -3,7 +3,7 @@
 1. Tägliches Datenbackup:
 Aufgabe: Plane ein tägliches Backup eines Verzeichnisses namens /important-data in ein Backup-Verzeichnis /backup-folder um 3 Uhr morgens.
 
-Cron-Expression: * 3 * * * 
+Cron-Expression: 0 3 * * * 
 
 Befehl: rsync -a /important-data/ /backup-folder/
 
@@ -29,12 +29,12 @@ Aufgabe: Plane ein Bereinigungsskript, das jeden Samstag um 14 Uhr läuft, um te
 
 Cron-Expression: 0 14 * * 6
 
-Befehl: ?????? kenne leider Bashscripts bis Dato kaum.
+Befehl: find /tmp -type f -mtime +1 -delete
 
 
 5. Individuelle Aufgabe:
 Aufgabe: Erstelle einen individuellen Cron-Job für eine Aufgabe deiner Wahl. Definiere den Zeitplan und den auszuführenden Befehl. Sei kreativ!
 
-Cron-Expression: /15 * * * *
+Cron-Expression: */15 * * * *
 
 Befehl: pfad.... /path/to/your_script.py
