@@ -78,7 +78,7 @@ describe('slugify', () => {
   test('returns empty string for empty input', () => {
     const result = slugify('');
     // TODO: Boolean comparison instead of checking the actual value
-    expect(result == '').toBe(true);
+    expect(result).toBe('');
   });
 });
 
