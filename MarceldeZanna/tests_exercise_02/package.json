@@ -1,0 +1,19 @@
+{
+  "name": "lesson-02-exercise-assertions",
+  "version": "1.0.0",
+  "description": "Exercise: Refactoring vague assertions to be specific and meaningful",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "keywords": ["testing", "assertions", "jest"],
+  "author": "DevCraft Academy",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true
+  }
+}
