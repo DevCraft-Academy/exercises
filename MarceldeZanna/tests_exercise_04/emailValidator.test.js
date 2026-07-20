@@ -46,15 +46,19 @@ describe('validateEmail - Null/Undefined/EmptyCase', () => {
   test('should not be empty string', () => {
     expect(() => validateEmail('')).toThrow('Email is required')
   });
+
+  test('should reject whitespace-only string', () => {
+    expect(() => validateEmail('   ')).toThrow('Email is required')
+  });
 });
 
 describe('validateEmail - Invalid Format Cases', () => {
   test('should contain one @', () => {
-    expect(() => validateEmail('ab.c')).toThrow('Please enter a valid email address')
+    expect(() => validateEmail('ab.c')).toThrow('Email must contain @')
   });
 
   test('should not contain more than one @', () => {
-    expect(() => validateEmail('a@b@.c')).toThrow('Please enter a valid email address')
+    expect(() => validateEmail('a@b@.c')).toThrow('Email must contain @')
   });
 
   test('should not allow consecutive dots after @', () => {
