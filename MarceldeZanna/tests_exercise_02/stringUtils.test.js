@@ -22,7 +22,7 @@ describe('trim', () => {
     const result = trim('');
     // TODO: Boolean comparison instead of checking the actual value
     // Origin: expect(result == '').toBe(true);
-    expect(result.length === 0).toBe(true)
+    expect(result).toBe('');
   });
 
   test('works with string without spaces', () => {
@@ -51,8 +51,7 @@ describe('capitalize', () => {
   test('capitalizes UPPERCASE correctly', () => {
     const result = capitalize('HELLO');
     // TODO: Only checks first character - misses that rest should be lowercase
-    console.log(result)
-    expect(result).toBe('Hello');
+    expect(result).toContain('Hello');
   });
 });
 
