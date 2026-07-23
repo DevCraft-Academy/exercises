@@ -1,0 +1,11 @@
+Bei den GET-Anfragen habe ich gesehen, dass ich einfach Inhalte vom virtuellen Server abrufe.
+POST hat Daten an den Server geschickt, diese wurden aber nicht wirklich verarbeitet.
+PUT und DELETE haben beim http-server keine Wirkung gezeigt, machen aber in echten APIs Sinn
+(z. B. um bestehende Daten zu ändern oder zu löschen). 
+OPTIONS liefert Infos, welche Methoden erlaubt sind. 
+
+Sinnvoll je nach Anwendungsfall: 
+GET fürs Lesen
+POST für Neues anlegen
+PUT für Änderungen
+DELETE zum Entfernen.
