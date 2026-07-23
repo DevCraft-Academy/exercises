@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Wetter App</title>
+    </head>
+    <body>
+        <h1>Wetter App</h1>
+        <form id="Wetterformular">
+            <label for="ort"></label>
+            <input type="text" id="ort">
+            <button type="submit">Abfragen</button>
+        </form>
+        <main>
+            <h2>
+                Wetterdaten für
+                <span id="ortAusgabe"></span>
+            </h2>
+            <article >
+                Temperatur: <span id="wetterdaten"></span>
+                <p id="errorMessage"></p>
+            </article>
+        </main>
+        <script src="weather.js"></script>
+    </body>
+</html>
