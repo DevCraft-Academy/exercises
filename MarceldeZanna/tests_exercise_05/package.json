@@ -1,0 +1,13 @@
+{
+  "name": "tdd-workflow-exercise",
+  "version": "1.0.0",
+  "description": "Exercise: FizzBuzz with TDD",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "keywords": ["testing", "tdd", "jest"],
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
