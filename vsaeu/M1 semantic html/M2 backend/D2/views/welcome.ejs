@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Meine Express-App</title>
+  </head>
+  <body>
+      <h1>Willkommen <%= name %>, kaufe deine Waschmaschine bei uns!</h1> <br>
+      <h2>AGBs gelesen? </h2>
+      <p><i><%= agb %></i></p>
+      <pre>
+        <code>
+            <%- JSON.stringify(req, null, 2) %>
+        </code>
+      </pre>
+  </body>
+</html>
