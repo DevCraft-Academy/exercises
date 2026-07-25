@@ -126,19 +126,21 @@ describe('WeatherClient', () => {
         ]
       };
 
-      global.fetch.mockForecast({
+      global.fetch.mockResolvedValue({
         ok: true,
         status: 200,
         json: async () => mockForecast
       });
 
+      const forecast = await client.getForecast('Berlin', 2);
+
       expect(forecast[1]).toEqual({
         date: '2026-01-03',
-        maxtemp_c: 4,
-        mintemp_c: 1,
+        maxTemp: 4,
+        minTemp: 1,
         condition: 'Rainy'
       });
-      expect(forecst[1].maxtemp_c).toBe(4);
+      expect(forecast[1].maxTemp).toBe(4);
     })
 
     // TODO: Write a test that verifies days=3 is used as default
