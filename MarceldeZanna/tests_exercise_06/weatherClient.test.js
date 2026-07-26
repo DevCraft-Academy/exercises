@@ -144,9 +144,39 @@ describe('WeatherClient', () => {
     })
 
     // TODO: Write a test that verifies days=3 is used as default
+    test('verifies that days=3 is used as default', async () => {
+      global.fetch.mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => ({ forecast: [] })
+      });
+
+      await client.getForecast('Berlin');
+
+      expect(fetch).toHaveBeenCalledWith(
+        expect.stringContaining('days=3')
+      )
+    })
 
     // TODO: Write tests for invalid days values (< 1 or > 7)
+    test('throws error when days is less than 1', async () => {
+
+      await expect(client.getForecast('Berlin', 0)).rejects.toThrow(
+        'Days must be between 1 and 7'
+      );
+    });
+
+    test('throws error when days is greater than 7', async () => {
+
+      await expect(client.getForecast('Berlin', 8)).rejects.toThrow(
+        'Days must be between 1 and 7'
+      );
+    });
 
     // TODO: Write a test that checks an error is thrown when city is missing
+    test('throws error when city is missing', async () => {
+
+      await expect(client.getForecast()).rejects.toThrow('City is required');
+    });
   });
 });
