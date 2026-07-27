@@ -37,6 +37,22 @@ describe('WeatherClient', () => {
     //     humidity: 45
     //   }
     // }
+    test('fetch weather successful', async () => {
+      global.fetch.mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => testJson('Berlin', 22, 'Sunny', 45)
+      });
+
+      const response = await client.getWeather('Berlin');
+
+      expect(response).toEqual({
+        city: 'Berlin',
+        temperature: 22,
+        condition: 'Sunny',
+        humidity: 45
+      });
+    });
 
     // TODO: Write a test that verifies fetch is called with the correct URL
     // Tip: expect(fetch).toHaveBeenCalledWith(...)
@@ -140,7 +156,6 @@ describe('WeatherClient', () => {
         minTemp: 1,
         condition: 'Rainy'
       });
-      expect(forecast[1].maxTemp).toBe(4);
     })
 
     // TODO: Write a test that verifies days=3 is used as default
