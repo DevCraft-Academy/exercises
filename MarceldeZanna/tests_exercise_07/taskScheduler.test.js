@@ -80,6 +80,33 @@ describe('TaskScheduler', () => {
 
       expect(taskFn).not.toHaveBeenCalled();
     })
-
   });
+
+  describe('edgeCases', () => {
+    test('zero delay', () => {
+      const taskScheduler = new TaskScheduler();
+      const taskFn = jest.fn();
+
+      taskScheduler.schedule('zero-test', taskFn, 0);
+      jest.advanceTimersByTime(0);
+      expect(taskFn).toHaveBeenCalledTimes(1);
+    })
+
+    test('handles multiple tasks at same time', () => {
+      /** Persönlicher Vermerk zur eigenen Dummheit, wenn man mit C & P vergisst die aufrufe jeweils zu bennen XD */
+      const taskScheduler = new TaskScheduler();
+      const callOne = jest.fn();
+      const callTwo = jest.fn();
+      const callThree = jest.fn();
+
+      taskScheduler.schedule('callOne', callOne, 2000);
+      taskScheduler.schedule('callTwo', callTwo, 2000);
+      taskScheduler.schedule('callThree', callThree, 2000);
+      
+      jest.advanceTimersByTime(2000)
+      expect(callOne).toHaveBeenCalledTimes(1)
+      expect(callTwo).toHaveBeenCalledTimes(1)
+      expect(callThree).toHaveBeenCalledTimes(1)
+    })
+  })
 });
