@@ -70,13 +70,16 @@ describe('TaskScheduler', () => {
 
   describe('cancelAll()', () => {
     // TODO: Test that cancelAll() prevents tasks from executing
-    const taskScheduler = new TaskScheduler();
-    const taskFn = jest.fn();
+    test('prevents tasks from executing', () => {
+      const taskScheduler = new TaskScheduler();
+      const taskFn = jest.fn();
 
-    taskScheduler.scheduleRecurring('test-loop', taskFn, 3000);
-    taskScheduler.cancelAll();
-    jest.advanceTimersByTime(8000);
+      taskScheduler.scheduleRecurring('test-loop', taskFn, 3000);
+      taskScheduler.cancelAll();
+      jest.advanceTimersByTime(8000);
 
-    expect(taskFn).not.toHaveBeenCalled();
+      expect(taskFn).not.toHaveBeenCalled();
+    })
+
   });
 });
