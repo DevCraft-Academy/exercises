@@ -71,13 +71,27 @@ describe('NewsAggregator', () => {
 
   test('throws error when category is missing', async () => {
     // TODO: Implement test
+    const aggregator = new NewsAggregator();
+
+    await expect(aggregator.fetchByCategory(null)).rejects.toThrow('Category is required')
+    await expect(aggregator.fetchByCategory('')).rejects.toThrow('Category is required')
   });
 
   test('returns top headlines sorted by views', async () => {
     // TODO: Implement test
+    const aggregator = new NewsAggregator();
+
+    const headlines = await aggregator.getTopHeadlines(3);
+
+    expect(headlines).toHaveLength(3);
+    // console.log(headlines)
+    expect(headlines[0].title).toBe('Global Summit');
+    expect(headlines[1].title).toBe('AI Breakthrough'); 
+    expect(headlines[2].title).toBe('New Framework Released');
   });
 
   test('handles 500 server error', async () => {
     // TODO: Test for 500 error
+    //** unnötiger Test, da dies schon in "fetches articles from multiple sources" behandelt wird*/
   });
 });
