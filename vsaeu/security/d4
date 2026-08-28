@@ -1,0 +1,14 @@
+Einloggen auf x.com
+Beobachtungen: 
+1. Über einen Get Request wird ein Button für den Social Login geladen. In der URL davon ist bereits eine client id hinterlegt, so wie zwei weitere Parameter
+2. Nach klick auf den Google Button kommt es zum Redirect zum OAuth Server bzw. zum Authorization Endpoint.
+Ein neues Pop up fenster/Consent screen mit mehreren Parametern in der URL wie clientId, Scope, Code Challenge geht auf.
+3. Im pop-up wähle ich eine verfügbare und bereits eingeloggte email Adresse aus. 
+Im Netzwerk Tab sind 2 URLs mit oauth Get und Post zu sehen. Hier generiert google serverseitig den Authorization Code
+4. Es wird geladen und dann bin ich eingeloggt. Das Token Ist nicht ersichtlich, es wird von google an x.com geleitet und bestätigt meine Berechtigung
+
+Weiteres:
+X mit Google Login = OAuth 2.0 Authorization Code Flow mit PKCE + OpenID Connect.
+Es gibt also eine code challenge
+
+Der Id token ist JWT
