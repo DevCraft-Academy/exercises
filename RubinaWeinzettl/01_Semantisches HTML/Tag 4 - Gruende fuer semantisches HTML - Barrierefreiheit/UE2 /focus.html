@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <title>Nerdiger Testblog, Fokuselemente</title>
+</head>
+<body>
+<header>
+    <h1>Nerd-Barbies Testblog mit Fokuselementen</h1>
+    <nav>
+        <a class ="nav_a" href="">Über mich &nbsp;|&nbsp;</a>
+        <a class ="nav_a" href="">Kontakt</a>
+    </nav>
+    <p>
+        <input type="search" id="search" name="search">
+        <label class="search_label" for="search" aria-label="suchen" role="search">Suche &nbsp;</label>
+    </p>
+</header>
+<main>
+    <article>
+        <h2><a href="">Nerd Shirts</a></h2>
+        <p>
+            In diesem Artikel schreibe ich darüber, warum ich gerne Nerds Shirts trage und warum ihr das auch tun solltet.
+            <a href=""> …weiterlesen</a>
+        </p>
+    </article>
+    <article>
+        <h2><a href="">Dr. Bauers Bart</a></h2>
+        <p>
+            Wer hat den schöneren Nerd-Bart? Dr. Bauer oder Florian Weinzettl? Heute analysiere ich die Vorteile beider Bärte.
+            <a href=""> …weiterlesen</a>
+        </p>
+    </article>
+    <article>
+    <h2><a href="">Totlangweiliger Artikel</a></h2>
+        <p>
+            Noch ein totlangweiliger Artikel, der keinen interessiert.
+            <a href=""> …trotzdem weiterlesen</a>
+        </p>
+    </article>
+    <aside>
+        <h2>Anmeldung zum Newsletter</h2>
+        <form action="subscribe.php" method="post" role="form">
+            <fieldset>
+                <label>Vor- & Nachname</label>
+                <input type="text" id="name" name="name" placeholder="Ihr Name" />
+                </br>
+                <label for="email">E-Mail-Adresse</label>
+                <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" />
+                </br>
+                <input type="checkbox" id="consent" name="consent" value="false">
+                <label class="checkbox_desc" for="consent">Ja, ich möchte einen Newsletter erhalten, der genauso sinnbefreit ist, wie diese Artikel!</label>
+                </br>
+                <button type="submit" aria-label="anmelden" role="button">Anmelden</button>
+            </fieldset>    
+        </form>    
+    </aside>
+</main>
+<footer>
+    <section>
+        <h2>Social Media Accounts</h2>
+        <ul>
+            <li><a href="">Nerdbook</a></li>
+            <li><a href="">LinkedNerds</a></li>
+            <li><a href="">Nerdagram</a></li>
+        </ul>
+    </section>
+    <section>
+        <h2>Impressum und Datenschutz</h2>
+        <nav>
+            <a class ="nav_a" href="impressum.html">Impressum</a> |
+            <a class ="nav_a" href="">Datenschutz</a>
+        </nav>
+    </section>
+</footer>
+</body>
+</html>
