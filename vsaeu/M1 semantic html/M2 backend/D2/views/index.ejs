@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Meine Express-App</title>
+  </head>
+  <body>
+      <h1>Halloooo <%= name %>, bitte melde dich!</h1>
+    <form action="/willkommen" method="post">
+<label for="name">Bitte Name eingeben</label>
+<input type="text" id="name" name="name">
+<br>
+<label for="agb">Bitte AGBs zwingend komplett durchlesen.</label>
+<input type="checkbox" name="agb" id="agb" required>
+<br>
+<button>Goooo</button>
+    </form>
+  </body>
+</html>
