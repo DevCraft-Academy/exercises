@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--lang attribute added -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Für das Beispiel habe ich Font Awesome mit einer CDN eingebunden, würde es aber normalerweise lokal installieren -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Übung 2: Verbesserungen für Responsive Design</title>
+</head>
+<body>
+    <header>
+        <!--div class="container"-->
+            <div class="topnav">
+                <nav>
+                    <div id="myLinks">           
+                        <a class="active" href="#">Home</a>
+                        <a href="#">About</a>
+                        <a href="#">Services</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </nav>
+                <a href="javascript:void(0);" class="icon" id="icon">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>    
+        <!--/div-->    
+    </header>
+    <main>
+        <section>
+            <h1>Welcome to Our Website</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla justo ut ipsum iaculis, nec cursus arcu efficitur.</p>
+        </section>
+        
+        <section>
+            <h2>About Us</h2>
+            <p>We are a team of passionate individuals dedicated to delivering high-quality web solutions to our clients.</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+    <script>
+    function showMobileNavLinks() {
+      var x = document.getElementById("myLinks");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+    
+   const icon = document.getElementById("icon");
+   icon.addEventListener("click", showMobileNavLinks);
+    </script>
+</body>
+</html>
