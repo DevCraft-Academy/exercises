@@ -1,0 +1,17 @@
+Übung: JavaScript-Ladeprobleme beheben
+
+1. Sieh dir mal an, wie die JavaScript-Dateien geladen werden. Kannst du dabei Probleme feststellen?
+- Wenn das zweite Script nicht geladen wird, kann das dritte ebenfalls nicht geladen werden, weil
+das dritte Script vom zweiten direkt abhängig ist (das Element wird in Script 2 erst erstellt).
+
+2. Experimentiere mit den async- und defer-Attributen. Wie beeinflussen sie das Laden und die Ausführung der Skripte? Sieh dir dazu die Console deiner Dev-Tools an, wo alle Scripts einen Satz hineinschreiben.
+- Wenn ich das "defer"-Attribut allen Scripten mitgebe, wird das Inline-Script als erstes geladen, obwohl es in der Reihenfolge
+nach Script 1 steht. Das wird daran liegen, dass er das Inline-Script schneller laden kann, weil das erste Script in eine
+Extradatei ausgelagert ist.
+Dasselbe passiert, wenn ich async mitgebe.
+Wenn ich die Attribute weglasse, lädt die Seite wie gewünscht.
+
+3. Überlege, wie die Skripte geladen werden sollten, um die beste User Experience zu bieten.
+- Sie sollten so geladen werden, wie sie mit async- oder defer-Attributen geladen werden. Wenn ich als Programmierer ein
+Inline-Script verwende, dann möchte ich idR, dass dieses Script sofort ausgeführt wird. Andernfalls würde ich dieses Script
+ebenfalls auslagern. Danach sollen die Scripts der Reihe nach geladen werden, also 1-3. 

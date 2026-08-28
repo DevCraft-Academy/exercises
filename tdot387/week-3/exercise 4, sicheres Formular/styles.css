@@ -1,0 +1,25 @@
+.form-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.form-row {
+    display: flex;
+    align-items: self-start;
+    flex-direction: column;
+}
+
+form {
+    width: 30%;
+}
+
+p {
+    margin: 0.5rem 0;
+    color: red;
+    font-size: smaller;
+}
+
+.d-none {
+    visibility: hidden;
+}
