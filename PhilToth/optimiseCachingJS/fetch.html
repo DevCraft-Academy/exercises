@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>JavaScript In-Memory Caching</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+    }
+
+    button {
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .from-cache {
+      background-color: #e0ffe0;
+    }
+
+    .from-network {
+      background-color: #e0f0ff;
+    }
+
+    img {
+      max-width: 300px;
+      display: block;
+      margin-top: 1rem;
+      border-radius: 8px;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+  <script src="server.js"></script>
+</head>
+<body>
+
+  <h1>🦊 Fox API – In-Memory Cache Demo</h1>
+  <button id="loadFox">Fuchs laden</button>
+
+  <div id="result"></div>
+
+
+
+</body>
+</html>
