@@ -1,0 +1,39 @@
+Hi!
+
+I deployed an app under https://6908f66cd4e3e1000865f32d--sportsradarfe.netlify.app/
+because I applied for sportradar for internship (did not get chosen , whatever)
+I thought I´d run the metrics on the app and summarize them here:
+
+🚀 Performance & Speed
+
+Good
+
+Extremely fast load times (FCP, LCP, Speed Index all ~0.4–0.5s)
+Content becomes visible almost instantly
+Indicates efficient assets, CDN usage, and good frontend optimization
+
+Bad
+None significant detected in performance metrics
+
+🔐 Security & Delivery
+
+Good
+
+Fully served over HTTPS
+No mixed-content issues
+Hosted on Netlify, benefiting from global CDN and modern delivery stack
+
+Bad
+No explicit issues, but security headers and advanced hardening are not visible in this report
+
+🛠️ Overall Quality & Optimization
+
+Good
+
+Lighthouse reports no critical warnings
+Page load experience is well within “best practice” thresholds
+Strong foundation for SEO and user experience
+
+Bad
+Report mainly reflects performance; accessibility, SEO, and best-practice audits are not clearly highlighted
+Possible missed opportunities outside speed (e.g. accessibility audits, metadata, or progressive enhancements)
