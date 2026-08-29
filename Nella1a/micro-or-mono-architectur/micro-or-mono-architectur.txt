@@ -1,0 +1,17 @@
+Architectural Decision
+
+Decision: Adopt a microservice architecture for the platform.
+
+Given the expected growth in user base, a microservice approach allows for independent scaling of individual components. The platform consists of distinct functionalities—user profiles, news feed, messaging, and notifications—which can be implemented as separate services. This enables building an MVP first, then gradually extending and refactoring the platform as needed. Service independence also reduces the impact of failures, improving overall reliability.
+
+Advantages
+Scalability: Services can be scaled independently, both vertically and horizontally.
+Modular development: Teams can focus on specific services, improving productivity and code ownership.
+Extensibility: New features can be added incrementally without affecting the core system.
+Resilience: Failures in one service are isolated and do not cascade to others.
+Independent data stores: Each service can manage its own database, optimizing performance and scaling as needed.
+
+Challenges
+Higher initial complexity: Deployment, configuration, and operational overhead are higher compared to a monolith, especially without a proof of concept.
+Team capacity: Small teams may struggle to develop and maintain multiple services in parallel.
+Infrastructure cost: More services require more monitoring, network coordination, and operational resources.
