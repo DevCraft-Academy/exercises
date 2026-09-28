@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fuchs-Bilder mit LocalStorage-Cache</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+      img {
+        max-width: 500px;
+        margin-top: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: orange;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Fuchs-Bilder mit LocalStorage-Cache</h1>
+    <button id="loadFoxBtn">Neues Bild laden</button>
+    <div id="imageContainer"></div>
+
+    <script>
+      const imageContainer = document.getElementById("imageContainer");
+      const cacheKey = "foxImageCache";
+
+      const foxIds = Array.from({ length: 10 }, (_, i) => i + 1);
+
+      function getRandomFoxId() {
+        const index = Math.floor(Math.random() * foxIds.length);
+        return foxIds[index];
+      }
+
+      function loadCache() {
+        const cached = localStorage.getItem(cacheKey);
+        return cached ? JSON.parse(cached) : {};
+      }
+
+      function saveCache(cache) {
+        localStorage.setItem(cacheKey, JSON.stringify(cache));
+      }
+
+      async function loadFoxImage() {
+        const foxId = getRandomFoxId();
+        const apiUrl = `https://randomfox.ca/images/${foxId}.jpg`;
+
+        const cache = loadCache();
+        const now = Date.now();
+        const maxAgeMs = 2 * 60 * 1000; // 2 Minuten
+
+        if (cache[apiUrl] && now - cache[apiUrl].timestamp < maxAgeMs) {
+          const cachedObj = cache[apiUrl];
+          const start = performance.now();
+          displayImage(cachedObj.url);
+          const end = performance.now();
+          const validUntil = cachedObj.validUntil
+            ? new Date(cachedObj.validUntil).toLocaleTimeString()
+            : new Date(cachedObj.timestamp + maxAgeMs).toLocaleTimeString();
+          console.log(
+            "Bild aus LocalStorage geladen:",
+            apiUrl,
+            "| Ladedauer:",
+            (end - start).toFixed(2),
+            "ms",
+            "| Gültig bis:",
+            validUntil
+          );
+          return;
+        }
+
+        console.log("Bild aus API laden:", apiUrl);
+        try {
+          const start = performance.now();
+          const response = await fetch(apiUrl);
+          const blob = await response.blob();
+          const objectUrl = URL.createObjectURL(blob);
+
+          const validUntil = now + maxAgeMs;
+          cache[apiUrl] = {
+            url: objectUrl,
+            size: blob.size,
+            timestamp: now,
+            validUntil: validUntil,
+          };
+          saveCache(cache);
+
+          displayImage(objectUrl);
+          const end = performance.now();
+          console.log(
+            "Bild aus API geladen:",
+            apiUrl,
+            "| Ladedauer:",
+            (end - start).toFixed(2),
+            "ms",
+            "| Gültig bis:",
+            new Date(validUntil).toLocaleTimeString()
+          );
+        } catch (error) {
+          console.error("Fehler beim Laden des Bildes:", error);
+        }
+      }
+
+      function displayImage(src) {
+        imageContainer.innerHTML = `<img src="${src}" alt="Fuchs BildF">`;
+      }
+
+      document
+        .getElementById("loadFoxBtn")
+        .addEventListener("click", loadFoxImage);
+    </script>
+  </body>
+</html>
