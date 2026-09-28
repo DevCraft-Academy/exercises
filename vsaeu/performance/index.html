@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deine schnelle Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+  // verzögere die Initialisierung um 2 Sekunden
+  setTimeout(() => {
+    document.getElementById('loadFoxBtn').addEventListener('click', loadFoxImage);
+  }, 2000);
+</script>
+    <style>
+      /* Füge einige grundlegende, schnell ladende Stile hinzu */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        background-color: #f0f0f0;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      p {
+        color: #555;
+      }
+
+      /* Füge ein einfaches, schnell ladendes Bild hinzu */
+      .fast-image {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Willkommen auf deiner schnellen Website!</h1>
+    <p>
+      Dies ist eine flinke und reaktionsfähige Website. Sie beinhaltet ein
+      schnell ladendes Bild.
+    </p>
+    <img class="fast-image" src="pexels-mario-vogt-2627668-29123248.jpg" alt="Schnell ladendes Bild" />
+
+    <div style="margin-top:24px;">
+      <button id="btnBlockingRender">Starte blocking Render (Methode 3)</button>
+      <button id="btnClearRender">Clear</button>
+    </div>
+    <div id="blockingContainer" style="margin-top:16px; display:grid; grid-template-columns:repeat(10,1fr); gap:6px;"></div>
+
+    <script>
+      const blockingContainer = document.getElementById('blockingContainer');
+
+      function makeBox(i) {
+        const el = document.createElement('div');
+        el.textContent = i + 1;
+        el.style.background = '#e74c3c';
+        el.style.color = '#fff';
+        el.style.padding = '10px';
+        el.style.textAlign = 'center';
+        el.style.borderRadius = '4px';
+        return el;
+      }
+
+      function clearBlocking() {
+        blockingContainer.innerHTML = '';
+        console.clear();
+      }
+
+      // CPU-intensive synchronous task to simulate blocking work
+      function heavyWork(iterations) {
+        let x = 0;
+        for (let i = 0; i < iterations; i++) {
+          x += Math.sqrt(i * Math.random());
+        }
+        return x;
+      }
+
+      function renderBlocking() {
+        clearBlocking();
+        const t0 = performance.now();
+        for (let i = 0; i < 100; i++) {
+          // tune iterations to control severity
+          heavyWork(200000);
+          blockingContainer.appendChild(makeBox(i));
+        }
+        console.log('Blocking render total: ', (performance.now() - t0).toFixed(2), 'ms');
+      }
+
+      document.getElementById('btnBlockingRender').addEventListener('click', () => {
+        // small timeout so UI updates before heavy blocking begins
+        setTimeout(renderBlocking, 50);
+      });
+      document.getElementById('btnClearRender').addEventListener('click', clearBlocking);
+
+      // Auto-start blocking render on page load (executes shortly after load)
+      window.addEventListener('load', () => setTimeout(renderBlocking, 50));
+    </script>
+  </body>
+</html>
