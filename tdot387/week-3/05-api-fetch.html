@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="city">
+    <button id="call" onclick="getWeatherData()">Abrufen</button>
+    <p id="result"></p>
+    <p id="error-message"></p>
+
+    <script>
+        const city = document.getElementById('city')
+        const call = document.getElementById('call')
+        const result = document.getElementById('result')
+        const errorMsg = document.getElementById('error-message')
+
+        async function getWeatherData() {
+            let userInput = city.value;
+            const apiKey = /*your api key */
+            result.innerText = '';
+            errorMsg.innerText = '';
+            try {
+                await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=${apiKey}`)
+                    .then((response) => {
+                        return response.json();
+                    })
+                    .then(data => {
+                        result.innerText = `Die Temperatur in ${userInput} beträgt ${(data.main.temp - 273.15).toFixed(2)}°C`
+                        city.value = '';
+                    })
+            }
+            catch {
+                errorMsg.innerText = `Keine Wetterangabe für "${userInput}" gefunden.`
+                city.value = '';
+            }
+        }
+
+        city.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') getWeatherData();
+        })
+    </script>
+</body>
+
+</html>

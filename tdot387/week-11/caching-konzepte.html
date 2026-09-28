@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Caching Konzepte</h1>
+    <button id="fetch-foxes">Füchse laden</button>
+    <p id="cache-countdown">Kein Cache aktiv</p>
+    <div id="displayed-fox"></div>
+
+    <script>
+  const cache = new Map();
+  const expires = 60000;
+  let countdownIntervalId = null;
+
+  function loadCacheFromLocalStorage() {
+    try {
+      const raw = localStorage.getItem("foxCache");
+      if (!raw) return;
+
+      const entries = JSON.parse(raw);
+      if (!Array.isArray(entries)) return;
+
+      for (const [key, value] of entries) {
+        if (
+          typeof key === "string" &&
+          value &&
+          typeof value === "object" &&
+          typeof value.timestamp === "number" &&
+          value.fox &&
+          typeof value.fox === "object"
+        ) {
+          cache.set(key, value);
+        }
+      }
+    } catch (e) {
+      console.error("Konnte Cache nicht aus localStorage laden:", e);
+    }
+  }
+
+  function saveCacheToLocalStorage() {
+    try {
+      localStorage.setItem("foxCache", JSON.stringify(Array.from(cache.entries())));
+    } catch (e) {
+      console.error("Konnte Cache nicht in localStorage speichern:", e);
+    }
+  }
+
+  function clearCountdown() {
+    if (countdownIntervalId !== null) {
+      clearInterval(countdownIntervalId);
+      countdownIntervalId = null;
+    }
+  }
+
+  function startCountdown(expireAt) {
+    clearCountdown();
+
+    const countdownEl = document.getElementById("cache-countdown");
+
+    function tick() {
+      const remaining = expireAt - Date.now();
+
+      if (remaining <= 0) {
+        countdownEl.textContent = "Cache abgelaufen";
+        clearCountdown();
+        return;
+      }
+
+      const seconds = Math.ceil(remaining / 1000);
+      countdownEl.textContent = `Cache gültig für: ${seconds}s`;
+    }
+
+    tick();
+    countdownIntervalId = setInterval(tick, 250);
+  }
+
+  async function fetchFoxes() {
+    const url = "https://randomfox.ca/floof/";
+
+    try {
+      let fox;
+      let cached = false;
+
+      const cachedEntry = cache.get(url);
+      const isValidCache =
+        cachedEntry && Date.now() - cachedEntry.timestamp < expires;
+
+      if (isValidCache) {
+        fox = cachedEntry.fox;
+        cached = true;
+      } else {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("Fuchs konnte nicht geladen werden");
+        }
+
+        fox = await response.json();
+
+        cache.set(url, { fox, timestamp: Date.now() });
+        saveCacheToLocalStorage();
+      }
+
+      displayResult(fox, cached);
+
+      const entry = cache.get(url);
+      const expireAt = entry.timestamp + expires;
+      startCountdown(expireAt);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  function displayResult(fox, cached) {
+    const displayedFox = document.getElementById("displayed-fox");
+
+    displayedFox.innerHTML = `
+      <p>${cached ? "Fuchs aus Cache:" : "Fuchs vom Server:"}</p>
+      <img src="${fox.image}" alt="Fuchs" width="300">
+    `;
+  }
+
+  loadCacheFromLocalStorage();
+
+  (function showCachedOnLoadIfValid() {
+    const url = "https://randomfox.ca/floof/";
+    const entry = cache.get(url);
+    if (!entry) return;
+
+    const isValid = Date.now() - entry.timestamp < expires;
+    if (!isValid) return;
+
+    displayResult(entry.fox, true);
+    startCountdown(entry.timestamp + expires);
+  })();
+
+  document.getElementById("fetch-foxes").addEventListener("click", fetchFoxes);
+</script>
+
+  </body>
+</html>

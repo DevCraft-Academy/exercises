@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form-container {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: self-start;
+            flex-direction: column;
+        }
+
+        form {
+            width: 30%;
+        }
+
+        p {
+            margin: 0.5rem 0;
+            color: red;
+            font-size: smaller;
+        }
+
+        .d-none {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <form id="form" type="submit">
+
+            <div class="form-row">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Max Mustermann">
+                </div>
+                <p class="d-none" id="name-error">Der Name darf nicht leer sein</p>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="email">E-Mail-Address</label>
+                    <input type="email" id="email" placeholder="sagich@euch.net">
+                </div>
+                <p class="d-none" id="mail-error">Geben Sie eine gültige Mailadresse ein</p>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Passwort eingeben">
+                </div>
+                <p class="d-none" id="pw-error">Das Passwort muss mindestens 8 Zeichen lang sein</p>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password">
+                </div>
+                <p class="d-none" id="cp-error-msg">Passwörter müssen übereinstimmen</p>
+            </div>
+
+            <button type="submit">Absenden</button>
+        </form>
+    </div>
+    <span style="color: green" id="success-msg"></span>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const form = document.getElementById('form');
+
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('name-error');
+
+            const mailAddress = document.getElementById('email');
+            const mailError = document.getElementById('mail-error');
+
+            const password = document.getElementById('password');
+            const pwError = document.getElementById('pw-error');
+
+            const confirmPassword = document.getElementById('confirm-password');
+            const cpError = document.getElementById('cp-error-msg');
+
+            const successMsg = document.getElementById('success-msg');
+
+            name.addEventListener('input', () => {
+                if (name.value == '') {
+                    nameError.classList.remove('d-none');
+                } else {
+                    nameError.classList.add('d-none');
+                }
+            });
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                let isValid = true;
+
+                if (name.value == '') {
+                    nameError.classList.remove('d-none');
+                    isValid = false;
+                } else {
+                    nameError.classList.add('d-none');
+                }
+
+                if (!validateMailAddress(mailAddress.value)) {
+                    mailError.classList.remove('d-none');
+                    isValid = false;
+                } else {
+                    mailError.classList.add('d-none');
+                }
+
+                if (password.value.length < 8) {
+                    pwError.classList.remove('d-none');
+                    isValid = false;
+                } else {
+                    pwError.classList.add('d-none');
+                }
+
+                if (password.value !== confirmPassword.value) {
+                    cpError.classList.remove('d-none');
+                    isValid = false;
+                } else {
+                    cpError.classList.add('d-none');
+
+                }
+
+                if (isValid) {
+                    successMsg.textContent = 'Das Formular passt und kann versendet werden.';
+                    successMsg.classList.remove('d-none')
+                } else {
+                    successMsg.classList.add('d-none')
+                }
+
+            });
+
+
+            function validateMailAddress(mail) {
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regex.test(mail);
+            }
+
+        });
+
+
+    </script>
+</body>
+
+</html>

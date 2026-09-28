@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input placeholder="Hier Text eingeben" id="inputField">
+        <button>Absenden</button>
+    </form>
+    <p id="text"></p>
+    <p id="error" style="color: red"></p>
+    <script>
+        const inputField = document.getElementById('inputField');
+        const btn = document.querySelector('button');
+        const text = document.getElementById('text');
+        const error = document.getElementById('error');
+
+        //Sanitize-Funktion (Im Browser werden die Zeichen angezeigt, die escaped wurden
+        function sanitizeHTML(string) {
+            return string
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;")
+        }
+
+        //Validierungsfunktion (soll ein Error angezeigt werden, wenn eines der Zeichen verwendet wird) 
+        function validateChars(string) {
+            const dangerousChars = /[<>"'&]/;
+            return dangerousChars.test(string);
+        }
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const value = inputField.value;
+            if (validateChars(value)) {
+                error.textContent = "Deine Eingabe enthält unerlaubte Zeichen";
+                text.textContent = '';
+                return;
+            } error.textContent = '';
+
+            const sanitizedText = sanitizeHTML(value);
+            text.textContent = `Dein Text: ${sanitizedText}`;
+        }); 
+    </script>
+</body>
+
+</html>
+<!-- Anmerkungen: XSS wurde bereits gleich von Beginn an vom Browser geblockt. 
+Ich habe zuerst *text.innerHTML = inputField.value;* versucht, da wurde mir dann 
+*<script>alert('XSS')</script>* direkt im Browser angezeigt, allerdings als String und nicht
+als Alertbox. Beim Ändern in outerHTML wurde mir weder eine Alertbox, noch der String als Ergebnis
+im DOM angezeigt. Ich habe im nächsten Schritt eine Funktion gebaut, die Zeichen wie "<" in 
+den HTML-String umwandelt. Damit es auch so angezeigt wird im DOM, habe ich "innerHTML" durch "textContent" ersetzt.
+Im nächsten Schritt habe ich zusätzlich eine Validate-Funktion eingebaut, die einen Error wirft, 
+wenn eines der unerlaubten Zeichen verwendet wird. -->
