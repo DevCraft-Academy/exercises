@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--lang attribute added -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Übung 1: Verbesserungen in Sachen Barrierefreiheit</title>
+</head>
+<body>
+    <!-- used more semantic elemets, f.ex. header for heading, section und article text and image based section, section and form for the form and an extra session for the alert button -->
+    <header>
+        <!--Die Klasse header brauchen wir hier nicht mehr, weil der Style über h1 festgelegt ist -->
+        <h1>Accessible Website</h1>
+    </header>    
+    <section>
+        <h2> Why this website is more accessible than the original one </h2>
+        <article>
+            <div class="container">
+                <h3>This article should be better to read</h3>
+                <p>This is a demonstration of a webseite with improved accessability.</p>
+                <ul>
+                    <li>The website has less div-Tags if not needed for styles and more semantic HTML elements</li>
+                    <li>This image has no alt attribute, making it inaccessible to screen readers.</li>                    
+                </ul>
+                <!-- figure and figcaption used, alt attribute added -->
+                <figure>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Under_construction_graphic.gif" height="150" width="200" alt="A construction site with the text 'Under Construction'.">
+                    <figcaption>
+                        Licence: Public Domain, Source: <a href="https://commons.wikimedia.org/wiki/File:Under_construction_graphic.gif#/media/File:Under_construction_graphic.gif">Wikipedia</a>
+                    </figcaption>
+                </figure>
+            </div>
+        </article>    
+    </section>
+    <section>
+        <h2>Contact Form</h2>
+        <!--added form tag for more semantic html and aria role and label for accessability-->
+        <form id="contact-form" aria-label="contact-information-form">
+          <label for="name">Name:</label>
+          <!-- input is not a good id for a name input; a -->
+          <input type="text" id="name" placeholder="Enter your name">
+          <!-- a hidden button cannot submit this form, changed to input type submit -->
+          <input type="submit" value="Submit">
+        </form>
+    </section>
+    <section>
+        <h2>Just A Fun Click Element</h2>
+        <!-- aria label added for description of what the button does -->
+        <button id="alert_dialog" type="button" onclick="alert('Clicked!')" aria-label="alert-dialog">Click me for fun to see what happens</button>  
+    </section>
+</body>
+</html>

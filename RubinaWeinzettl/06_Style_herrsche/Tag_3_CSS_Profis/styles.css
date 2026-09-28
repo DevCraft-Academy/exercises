@@ -1,0 +1,128 @@
+body {
+    font-family: Rounded, Helvetica, Arial, sans-serif;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #F08080;
+    line-height: 2;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #319c17;
+    line-height: 2;
+}
+
+h3 {
+    font-size: 1.5em;
+    font-weight: normal;
+    color: #319c17;
+    line-height: 2;
+}
+
+p {
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+.grid-item1 {
+    grid-area: imgLeft;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.grid-item2 {
+    grid-area: imgMiddle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.grid-item3 {
+    grid-area: imgRight;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.grid-item4 {
+    grid-area: footerLeft;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.grid-item5 {
+    grid-area: footerMiddle;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.grid-item6 {
+    grid-area: footerRight;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 400px 100px;
+  grid-template-areas: 
+      "imgLeft imgMiddle imgRight"
+      "footerLeft footerMiddle footerRight";
+  background-color: #F08080;
+  column-gap: 1em;
+  margin: auto;
+  padding: 1em;
+}
+
+.container > div {
+  background-color: #FFFFFF;
+  outline: 0.5px solid black;
+  padding: 1em;
+}
+
+img {
+    width: 100%;
+    max-height: 250px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h2:hover {
+    background-color: #F08080;
+    color: black;
+}
+
+img:hover {
+    transform: scale(1.2);
+}
+
+a:focus {
+    border-color: black;
+    padding: 10px;
+}
+
+a:active {
+    background-color: #F08080;
+    color: black;
+}
