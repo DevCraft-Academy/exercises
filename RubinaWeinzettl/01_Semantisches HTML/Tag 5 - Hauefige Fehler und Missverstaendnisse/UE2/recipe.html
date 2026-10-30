@@ -1,0 +1,54 @@
+<!--
+    Tag 5 - Übung 2 - Korrekte semantische Hierarchie
+    Änderungen: siehe Kommentare
+-->
+<!--
+    HTML Tag, Metainformationen, usw. hinzugefügt, Stylesheet verlinkt
+    So werden auch die styles for body und html im CSS File tatsächlich angewendet
+-->    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Recipe for chocolate Brownies</title>
+</head>
+<body>
+    <!--Rezept Schema definieren, um Darstellung von Suchmaschinenergebnissen zu verbessern-->
+    <div itemscope itemtype="https://schema.org/Recipe"></div>
+        <!-- header Tag hinzugefügt und h1 in h4 geändert um Hauptüberschrift der Seite klar zu definieren-->
+        <header>
+            <h1 itemprop="name">Recipe: Chocolate Brownies</h1>
+        </header>
+        <!--Hauptcontent in main definiert und diesem die container Klasse zugewiesen-->
+        <main class="container">
+            <!-- Zutaten in section tag mit aria label definiert-->   
+            <section aria-label="List of Ingredients" >
+                <!-- div durch h2 - die nächste richtige Überschrift in der Hierarchie umgewandelt-->
+                <h2>Ingredients</h2>
+                    <!--
+                        Aufzählungen semantisch korrekt in Listenelement umgewandelt
+                        Klasse item mit style in CSS hinzugefügt (diese gab es gar nicht)
+                    -->
+                    <ul>
+                        <li class="item" itemprop="recipeIngredient">2 cups all-purpose flour</li>
+                        <li class="item" itemprop="recipeIngredient">1 cup sugar</li>
+                        <li class="item" itemprop="recipeIngredient">1/2 cup cocoa powder</li>
+                    </ul>
+            </section>
+            <section aria-label="Instructions for Recipe" >
+                <h2>Instructions</h2>
+                    <!--
+                        geordnete Liste für Zubereitung statt Absätzen ist übersichtlicher und auch semantisch
+                        Klasse für step in CSS hinzugefügt
+                    -->
+                    <ol>
+                        <li itemprop="recipeInstructions"class="step">Preheat the oven to 350°F</li>
+                        <li itemprop="recipeInstructions"class="step">Mix dry ingredients in a bowl</li>
+                    </ol>
+            </section>
+        </main>
+    </div>
+</body>
+</html>  
